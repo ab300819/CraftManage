@@ -1,5 +1,4 @@
 <?php
-require_once(dirname(__FILE__) . '/../data/config.php');
 require_once(dirname(__FILE__) . '/../data/mysql.php');
 ?>
 <!DOCTYPE html>
@@ -12,8 +11,10 @@ require_once(dirname(__FILE__) . '/../data/mysql.php');
 <?php
 if ($_GET['id']!='') {
     $id = $_GET['id'];
-    $db=new \data\MysqlPDO(MYSQL_LOCAL,MYSQL_USER,MYSQL_pw,'demo');
-    $result = $db->simpleSelect($id);
+    $db=new \data\MysqlPDO(0);
+    $list=$db->simpleSelect($id);
+    $result=$list[0];
+
     $db->free();
 } else {
     die("No id!");

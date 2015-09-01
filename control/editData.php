@@ -6,7 +6,6 @@
  * Time: 16:37
  */
 
-require_once(dirname(__FILE__) . '/../data/config.php');
 require_once(dirname(__FILE__) . '/../data/mysql.php');
 
 if ($_POST['id'] != '') {
@@ -26,9 +25,8 @@ if ($_POST['passwd'] != '') {
     die('No password!' . '<br>');
 }
 
-$db = new \data\MysqlPDO(MYSQL_LOCAL, MYSQL_USER, MYSQL_pw, 'demo');
+$db = new \data\MysqlPDO(0);
 $sql = "UPDATE testPHP SET username='$username',passwd='$passwd' WHERE id='$id'";
-$db->updateAll($sql);
-$db->free();
+$db->update($sql);
 
-header("Location:show.php");
+header("Location:../view/show.php");

@@ -9,10 +9,12 @@
 require_once 'mysql.php';
 require_once 'config.php';
 
-$db = new \data\MysqlPDO(MYSQL_LOCAL, MYSQL_USER, MYSQL_pw, 'demo');
-$db->init();
+$db = new \data\MysqlPDO(0);
 $sql = "INSERT INTO testPHP(username,passwd) VALUE ('MySQLPdo','12315')";
-$count = $db->insertAll($sql);
+$count = $db->insert($sql);
 echo $count . '<br>';
-$db->free();
+
+$sql = "SELECT * FROM testphp WHERE id=68";
+$list=$db->select($sql);
+print_r($list);
 

@@ -12,4 +12,6 @@ define('MYSQL_USER','root');
 
 define('MYSQL_pw','110119');
 
+define("DBname",'demo');
+
 ?>

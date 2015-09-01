@@ -1,5 +1,4 @@
 <?php
-require_once(dirname(__FILE__) . '/../data/config.php');
 require_once(dirname(__FILE__) . '/../data/mysql.php');
 ?>
 <!DOCTYPE html>
@@ -19,7 +18,7 @@ require_once(dirname(__FILE__) . '/../data/mysql.php');
         <th>删除</th>
     </tr>
     <?php
-    $db = new \data\MysqlPDO(MYSQL_LOCAL, MYSQL_USER, MYSQL_pw, 'demo');
+    $db = new \data\MysqlPDO(0);
     $sql = "SELECT * FROM testPHP";
     $list = $db->select($sql);
 

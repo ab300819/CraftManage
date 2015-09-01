@@ -5,11 +5,18 @@
  * Date: 2015/8/27
  * Time: 22:39
  */
-require_once 'connection.php';
+require_once(dirname(__FILE__) . '/../data/mysql.php');
 
-$id = $_GET['id'];
-$con = connect();
-mysql_query("DELETE FROM testPHP WHERE id='$id'");
-header("Location:show.php");
+if ($_GET['id'] != '') {
+    $id = $_GET['id'];
+    $db = new \data\MysqlPDO(0);
+    $db->simpleDelete($id);
+    $db->free();
+
+    header("Location:../view/show.php");
+
+} else {
+    echo '无对应数据！' . '<br>';
+}
 
 ?>

@@ -8,50 +8,46 @@
 
 namespace data;
 
+require_once 'config.php';
+
 class MysqlPDO
 {
-    private $host;
-//    private $port;
-    private $user;
-    private $password;
-    private $dbname;
 
     private static $connect;
     private static $result;
 
-    public function __construct($host, $user, $password, $dbname)
+    public function __construct($level)
     {
 
-        $this->host = $host;
-//        $this->port = $port;
-        $this->user = $user;
-        $this->password = $password;
-        $this->dbname = $dbname;
+        switch ($level) {
+            case 0:
+                self::init(MYSQL_LOCAL, MYSQL_USER, MYSQL_pw, DBname);
+                break;
+        }
 
-        self::init();
 
     }
 
-    private function init()
+    private function init($host, $user, $password, $dbname)
     {
-        $dsn = "mysql:host=$this->host;dbname=$this->dbname";
+        $dsn = "mysql:host=$host;dbname=$dbname";
 
         try {
-            self::$connect = new \PDO($dsn, "$this->user", "$this->password");
+            self::$connect = new \PDO($dsn, "$user", "$password");
         } catch (Exception $e) {
-            die(" ˝æ›ø‚¡¨Ω” ß∞‹£°" . $e->getMessage());
+            die("Êï∞ÊçÆÂ∫ìËøûÊé•Â§±Ë¥•ÔºÅ" . $e->getMessage());
         }
     }
 
-    public function insertAll($sql)
+    public function insert($sql)
     {
         return $count = self::$connect->exec($sql);
 
     }
 
-    public function updateAll($sql)
+    public function update($sql)
     {
-
+        self::$connect->exec($sql);
     }
 
     public function select($sql)
@@ -61,16 +57,28 @@ class MysqlPDO
         if ($list != null) {
             return $list;
         } else {
-            echo '√ª”–œ‡πÿΩ·π˚£°' . '<br>';
+            echo 'Ê≤°ÊúâÊï∞ÊçÆÔºÅ' . '<br>';
         }
     }
 
-    public function simpleSelect($id){
-        $sql="SELECT * from testPHP WHERE id='$id'";
-        self::select($sql);
+    public function simpleSelect($id)
+    {
+        $sql = "SELECT * from testPHP WHERE id='$id'";
+        return self::select($sql);
     }
 
     public function delete($sql)
+    {
+        self::$connect->exec($sql);
+    }
+
+    public function simpleDelete($id)
+    {
+        $sql = "DELETE FROM testPHP WHERE id='$id'";
+        self::delete($sql);
+    }
+
+    private function complete($sql)
     {
 
     }
