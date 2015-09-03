@@ -6,21 +6,32 @@
  * Time: 15:51
  */
 
-require_once 'mysql.php';
-require_once 'user_config.php';
+require_once './sql/mysql.php';
+require_once './sql/user_config.php';
 
-try {
-    $pdo = new PDO('mysql:host=localhost;dbname=demo', 'root', '110119');
-} catch (PDOException $e) {
-    die($e->getMessage());
-}
+$db = new \sql\MysqlPDO(0);
 
-//$sql = "INSERT INTO testPHP(username,passwd) VALUE ('MySQLPdo','12315')";
-//$count = $db->insert($sql);
-//echo $count . '<br>';
+$id = 12;
+$data['cr_num'] = '15';
+$data['cr_name'] = '333333';
+$data['cr_content'] = '334';
+$data['cr_room'] = '444444';
+$data['cr_machine'] = '678';
 
-$sql = "SELECT * FROM testphp WHERE id=68";
-$result=$pdo->query($sql);
-$list=$result->fetch(PDO::FETCH_ASSOC);
-print_r($list);
+$update = $db->get_update_db_sql(CRAFT_CONTENT, $data, "id='$id'");
+$insert = $db->get_insert_db_sql(CRAFT_CONTENT, $data);
+$delete = $db->get_delete_db_sql(CRAFT_CONTENT, $data);
+
+$id = 12;
+$cr_num = '15';
+$cr_name = '333333';
+$cr_content = '334';
+$cr_room = '444444';
+$cr_machine = '678';
+
+$sq = "UPDATE craft_test SET cr_num='$cr_num',cr_name='$cr_name',cr_content='$cr_content',cr_room='$cr_room',cr_machine='$cr_machine' WHERE id='$id'";
+
+
+echo $insert . '<br>' . $update . '<br>' ;
+
 

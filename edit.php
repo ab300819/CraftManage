@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__) . '/../sql/mysql.php');
+require_once('sql/mysql.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,33 +11,34 @@ require_once(dirname(__FILE__) . '/../sql/mysql.php');
 <center>
     <?php
     include("menu.php");
-    $db = new \data\MysqlPDO(0);
-    $list = $db->simpleSelect($_GET['id']);
+    $id = $_GET['id'];
+    $db = new \sql\MysqlPDO(0);
+    $list = $db->get_single_select_data(CRAFT_CONTENT, "id='$id'");
     ?>
     <h3>修改工艺</h3>
 
-    <form action="action.php?action=edit" method="post">
-        <input type="hidden" name="'id" value="<?php echo $list['id']; ?>"/>
+    <form action="./data/action.php?action=edit" method="post">
+        <input type="hidden" name="id" value="<?php echo $list['id']; ?>"/>
         <table>
             <tr>
                 <td>工序号</td>
-                <td><input type="text" name="cr_num" value=""/></td>
+                <td><input type="text" name="cr_num" value="<?php echo $list['cr_num']; ?>"/></td>
             </tr>
             <tr>
                 <td>工序名称</td>
-                <td><input type="text" name="cr_name" value=""/></td>
+                <td><input type="text" name="cr_name" value="<?php echo $list['cr_name']; ?>"/></td>
             </tr>
             <tr>
                 <td>工序内容</td>
-                <td><input type="text" name="cr_content" value=""></td>
+                <td><input type="text" name="cr_content" value="<?php echo $list['cr_content']; ?>"></td>
             </tr>
             <tr>
                 <td>车间</td>
-                <td><input type="text" name="cr_room" value=""></td>
+                <td><input type="text" name="cr_room" value="<?php echo $list['cr_room']; ?>"></td>
             </tr>
             <tr>
                 <td>设备</td>
-                <td><input type="text" name="cr_machine" value=""></td>
+                <td><input type="text" name="cr_machine" value="<?php echo $list['cr_machine']; ?>"></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>

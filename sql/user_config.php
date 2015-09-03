@@ -8,10 +8,11 @@
 
 define('MYSQL_LOCAL','localhost');
 
+//定义数据库用户，分配权限
+//root用户
 define('MYSQL_USER','root');
-
 define('MYSQL_pw','110119');
 
-define("DBname",'demo');
+
 
 ?>

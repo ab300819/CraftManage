@@ -6,9 +6,10 @@
  * Time: 23:54
  */
 
-namespace data;
+namespace sql;
 
 require_once 'user_config.php';
+require_once 'table_config.php';
 
 class MysqlPDO
 {
@@ -37,8 +38,13 @@ class MysqlPDO
         }
     }
 
-    public function select($sql)
+    public function get_all_select_data($table, $condition = null)
     {
+        if ($condition == null) {
+            $sql = "SELECT * from {$table}";
+        } else {
+            $sql = "SELECT * from {$table} WHERE {$condition}";
+        }
         $result = self::$connect->query($sql);
         $list = $result->fetchAll();
         if ($list != null) {
@@ -48,9 +54,9 @@ class MysqlPDO
         }
     }
 
-    public function simpleSelect($id)
+    public function get_single_select_data($table, $condition)
     {
-        $sql = "SELECT * from craft_test WHERE id='$id'";
+        $sql = "SELECT * from {$table} WHERE {$condition}";
         $result = self::$connect->query($sql);
         $list = $result->fetch(\PDO::FETCH_ASSOC);
         if ($list != null) {
@@ -61,27 +67,65 @@ class MysqlPDO
 
     }
 
-    public function insert($sql)
+    /**
+     * @param $table 插入表名
+     * @param $info 插入数据
+     * 用于拼装插入SQL语句
+     * @return bool|string 传入数据正确返回SQL数据，否则返回false
+     */
+    public function get_insert_db_sql($table, $info)
     {
-
+        if (is_array($info) && !empty($info)) {
+            $i = 0;
+            foreach ($info as $key => $val) {
+                $fields[$i] = $key;
+                $value[$i] = $val;
+                $i++;
+            }
+            $in_field = '(' . implode(",", $fields) . ')';
+            $in_value = "('" . implode("','", $value) . "')";
+            $sql = "INSERT INTO {$table}{$in_field} VALUES {$in_value}";
+            return $sql;
+        } else {
+            return false;
+        }
     }
 
-    public function update($sql)
+    /**
+     * @param $table 更新表名
+     * @param $info  更新数据
+     * @param $condition  更新位置
+     * @return bool|string  传入数据正确返回SQL数据，否则返回false
+     */
+    public function get_update_db_sql($table, $info, $condition)
     {
+
+        $i = 0;
+        $data = '';
+
+        if (is_array($info) && !empty($info)) {
+            foreach ($info as $key => $val) {
+                if ($i == 0) {
+                    $data = $key . "='" . $val . "'";
+                } else {
+                    $data .= ',' . $key . "='" . $val . "'";
+                }
+                $i++;
+            }
+            $sql = 'UPDATE ' . $table . ' SET ' . $data . ' WHERE ' . $condition;
+            return $sql;
+        } else {
+            return false;
+        }
     }
 
-    public function delete($sql)
+    public function get_delete_db_sql($table, $condition)
     {
-
+        $sql = "DELETE FROM {$table} WHERE {$condition}";
+        return self::execute($sql);
     }
 
-    public function simpleDelete($id)
-    {
-        $sql = "DELETE FROM craft_test WHERE id='$id'";
-        return self::action($sql);
-    }
-
-    public function action($sql)
+    public function execute($sql)
     {
         return self::$connect->exec($sql);
     }

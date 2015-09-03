@@ -6,5 +6,8 @@
  * Time: 20:50
  */
 
+define('DBname', 'demo');
+
+define('CRAFT_CONTENT', 'craft_test');
 
 ?>
