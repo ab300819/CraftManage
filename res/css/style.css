@@ -1,0 +1,40 @@
+h2 {
+    color: slateblue;
+}
+
+body {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
+table {
+    font-family: verdana, arial, sans-serif;
+    font-size: 12px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+}
+
+table th {
+    border-width: 1px;
+    padding: 12px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+}
+
+table td {
+    border-width: 1px;
+    padding: 12px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+}
