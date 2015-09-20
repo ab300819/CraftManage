@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>机加工工艺</title>
+</head>
+<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+<body>
+<h2>机加工工艺过程表</h2>
+<table width="100%">
+    <tr>
+        <th>工艺编号</th>
+        <td>&nbsp;</td>
+        <th>物料编码</th>
+        <td>&nbsp;</td>
+        <th>生成批号</th>
+        <td>&nbsp;</td>
+        <th>版本号</th>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <th>生产型号</th>
+        <td>&nbsp;</td>
+        <th>物料名称</th>
+        <td>&nbsp;</td>
+        <th>材料牌号</th>
+        <td>&nbsp;</td>
+        <th>每台件数</th>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <th>产品名称</th>
+        <td>&nbsp;</td>
+        <th>规格型号</th>
+        <td>&nbsp;</td>
+        <th>毛坯种类</th>
+        <td>&nbsp;</td>
+        <th>零件编号</th>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <th>工艺路线名称</th>
+        <td>&nbsp;</td>
+        <th>零件标识</th>
+        <td>&nbsp;</td>
+        <th>材料标识</th>
+        <td>&nbsp;</td>
+        <th>热处理状态</th>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table width="100%">
+    <tr>
+        <th>工序号</th>
+        <th>工序名称</th>
+        <th>工序内容</th>
+        <th>车间</th>
+        <th>设备</th>
+        <th>工艺装备</th>
+        <th>检验结果</th>
+        <th>检验结论</th>
+        <th>操作人（日期）</th>
+        <th>检验人（日期）</th>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+</body>
+</html>

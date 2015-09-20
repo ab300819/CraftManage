@@ -27,7 +27,7 @@ switch ($_GET['action']) {
         if ($rw > 0) {
             echo "<script>
                     alert('添加成功！');
-                    window.location='../index.php';
+                    window.location='../control.php';
                  </script>";
         } else {
             echo "<script>
@@ -40,7 +40,7 @@ switch ($_GET['action']) {
     case 'del':
         $id = $_GET['id'];
         $db->get_delete_db_sql(CRAFT_CONTENT, "id='$id'");
-        header("Location:../index.php");
+        header("Location:../control.php");
         break;
 
     case 'edit':
@@ -64,7 +64,7 @@ switch ($_GET['action']) {
         if ($db->execute($sql) > 0) {
             echo "<script>
                     alert('更新成功！');
-                    window.location='../index.php';
+                    window.location='../control.php';
                  </script>";
         } else {
             echo "<script>

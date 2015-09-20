@@ -6,7 +6,9 @@
  * Time: 20:50
  */
 
-define('DBname', 'demo');
+define('DATABASE', 'manufacture');
+
+define('USER', 'user');
 
 define('CRAFT_CONTENT', 'craft_test');
 

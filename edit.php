@@ -10,18 +10,19 @@ require_once('sql/mysql.php');
 <link rel="stylesheet" type="text/css" href="res/css/style.css">
 <body>
 <?php
-include("menu.php");
+include("edit_menu.php");
 $id = $_GET['id'];
 $db = new \sql\MysqlPDO(0);
 $list = $db->get_single_select_data(CRAFT_CONTENT, "id='$id'");
 ?>
 <h2>修改工艺</h2>
+
 <form action="./data/action.php?action=edit" method="post" id="craft">
     <input type="hidden" name="id" value="<?php echo $list['id']; ?>"/>
     <table>
         <tr>
             <th>工序号</th>
-            <td><input type="text" name="cr_num" value="<?php echo $list['cr_num']; ?>"/></td>
+            <td><input type="text" name="cr_num" value="<?php echo $list['cr_num']; ?>" readonly="true"/></td>
         </tr>
         <tr>
             <th>工序名称</th>

@@ -21,7 +21,7 @@ class MysqlPDO
 
         switch ($level) {
             case 0:
-                self::init(MYSQL_LOCAL, MYSQL_USER, MYSQL_pw, DBname);
+                self::init(MYSQL_LOCAL, MYSQL_USER, MYSQL_pw, DATABASE);
                 break;
         }
     }

@@ -6,9 +6,9 @@
 </head>
 <link href="./res/css/style.css" rel="stylesheet" type="text/css">
 <body>
-<?php include("menu.php") ?>
+<?php include("edit_menu.php") ?>
 <h2>添加产品</h2>
-<form>
+<form action="./data/action.php?action=add" method="post" >
     <table width="100%">
         <tr>
             <th>工艺编号</th>

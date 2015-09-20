@@ -6,9 +6,10 @@
 </head>
 <link href="./res/css/style.css" rel="stylesheet" type="text/css">
 <body>
-<?php include("menu.php") ?>
+<?php include("edit_menu.php") ?>
 <h2>修改产品信息</h2>
-<form action="" method="post" id="" style="text-align: center">
+
+<form action="./data/actionProduct.php?action=edit" method="post" >
     <table width="100%">
         <tr>
             <th>工艺编号</th>

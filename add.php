@@ -6,7 +6,7 @@
 </head>
 <link rel="stylesheet" type="text/css" href="/res/css/style.css">
 <body>
-<?php include("menu.php") ?>
+<?php include("edit_menu.php") ?>
 <h2>增加工艺</h2>
 
 <form action="./data/action.php?action=add" method="post" id="craft">

@@ -1,4 +1,4 @@
-h2 {
+h1, h2 {
     color: slateblue;
 }
 
@@ -10,7 +10,7 @@ form {
     text-align: center;
 }
 
-p{
+p {
     text-align: center;
 }
 

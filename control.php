@@ -13,18 +13,26 @@ require_once('sql/mysql.php');
             }
         }
     </script>
+    <script>
+        function confirmDel(id) {
+            if (confirm("不可直接删除产品信息！")) {
+
+            }
+        }
+    </script>
 </head>
 <body>
-<?php include("menu.php") ?>
+<?php include("edit_menu.php") ?>
 <h2>零件信息</h2>
-<p>操作：<a href="editProduct.php">修改</a></p>
-<table width="100%" style="text-align: center" border="1">
+
+<p>操作：<a href="edit_product.php">修改</a>&nbsp;<a href="javascript:confirmDel(12)">删除</a></p>
+<table width="100%">
     <tr>
         <th>工艺编号</th>
         <td>&nbsp;</td>
         <th>物料编码</th>
         <td>&nbsp;</td>
-        <th>生成批号</th>
+        <th>生产批号</th>
         <td>&nbsp;</td>
         <th>版本号</th>
         <td>&nbsp;</td>
