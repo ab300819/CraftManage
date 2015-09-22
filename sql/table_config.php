@@ -10,6 +10,7 @@ define('DATABASE', 'manufacture');
 
 define('USER', 'user');
 
-define('CRAFT_CONTENT', 'craft_test');
+define('PRODUCT','product');
+define('MACHINE', 'machine');
 
 ?>

@@ -10,7 +10,7 @@
 <h2>增加工艺</h2>
 
 <form action="./data/action.php?action=add" method="post" id="craft">
-    <table>
+    <table align="center">
         <tr>
             <th>工序号</th>
             <td><input type="text" name="cr_num"/></td>

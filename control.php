@@ -1,5 +1,7 @@
 <?php
 require_once('sql/mysql.php');
+require_once('sql/operate.php');
+$db = new \sql\MysqlPDO(0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,69 +28,56 @@ require_once('sql/mysql.php');
 <h2>零件信息</h2>
 
 <p>操作：<a href="edit_product.php">修改</a>&nbsp;<a href="javascript:confirmDel(12)">删除</a></p>
-<table width="100%">
-    <tr>
-        <th>工艺编号</th>
-        <td>&nbsp;</td>
-        <th>物料编码</th>
-        <td>&nbsp;</td>
-        <th>生产批号</th>
-        <td>&nbsp;</td>
-        <th>版本号</th>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <th>生产型号</th>
-        <td>&nbsp;</td>
-        <th>物料名称</th>
-        <td>&nbsp;</td>
-        <th>材料牌号</th>
-        <td>&nbsp;</td>
-        <th>每台件数</th>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <th>产品名称</th>
-        <td>&nbsp;</td>
-        <th>规格型号</th>
-        <td>&nbsp;</td>
-        <th>毛坯种类</th>
-        <td>&nbsp;</td>
-        <th>零件编号</th>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <th>工艺路线名称</th>
-        <td>&nbsp;</td>
-        <th>零件标识</th>
-        <td>&nbsp;</td>
-        <th>材料标识</th>
-        <td>&nbsp;</td>
-        <th>热处理状态</th>
-        <td>&nbsp;</td>
-    </tr>
+<table width="100%" style="text-align: center" border="1">
+    <?php
+    $item = array('工艺编号：', '物料编码：', '生产批号：', '版本号：',
+        '产品型号：', '物料名称：', '材料牌号：', '每台件数：',
+        '产品名称：', '规格型号：', '毛坯种类：', '零件编号：',
+        '工艺路线名称：', '零件标识：', '材料标识：', '热处理状态：');
+    $list = $db->get_single_select_data(MACHINE, "id=1");
+    $data = key_value_change_one($list);
+    $table = key_value($item, $data);
+    if ($table != null) {
+        key_value_table($table, 4);
+    }
+
+    ?>
 </table>
 <h2>工艺内容</h2>
 <table width='100%' style='text-align: center' border='1'>
     <tr>
         <th>工序号</th>
+        <th>车间</th>
         <th>工序名称</th>
         <th>工序内容</th>
-        <th>车间</th>
+        <th>自检记录</th>
+        <th>操作者</th>
+        <th>专检记录</th>
+        <th>检验员</th>
         <th>设备</th>
-        <th>操作</th>
+        <th>工艺设备</th>
+        <th>准备时间</th>
+        <th>运行时间</th>
+        <th>版本号</th>
+        <th>编辑</th>
     </tr>
     <?php
-    $db = new \sql\MysqlPDO(0);
-    //        $sql="SELECT * FROM craft_test";
-
-    foreach ($db->get_all_select_data(CRAFT_CONTENT) as $row) {
+    $list = $db->get_all_select_data(MACHINE);
+    foreach ($list as $row) {
         echo '<tr>';
-        echo "<td>{$row['cr_num']}</td>";
-        echo "<td>{$row['cr_name']}</td>";
-        echo "<td>{$row['cr_content']}</td>";
-        echo "<td>{$row['cr_room']}</td>";
-        echo "<td>{$row['cr_machine']}</td>";
+        echo "<td>{$row['step_num']}</td>";
+        echo "<td>{$row['room']}</td>";
+        echo "<td>{$row['name']}</td>";
+        echo "<td>{$row['content']}</td>";
+        echo "<td>{$row['self_check']}</td>";
+        echo "<td>{$row['operator']}</td>";
+        echo "<td>{$row['special_check']}</td>";
+        echo "<td>{$row['checker']}</td>";
+        echo "<td>{$row['machine']}</td>";
+        echo "<td>{$row['craft_machine']}</td>";
+        echo "<td>{$row['prepare_time']}</td>";
+        echo "<td>{$row['run_time']}</td>";
+        echo "<td>{$row['version']}</td>";
         echo "<td>
                     <a href='edit.php?id={$row['id']}'>修改</a>
                     <a href='javascript:doDel({$row['id']})'>删除</a>

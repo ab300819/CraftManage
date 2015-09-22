@@ -13,7 +13,7 @@ require_once('sql/mysql.php');
 include("edit_menu.php");
 $id = $_GET['id'];
 $db = new \sql\MysqlPDO(0);
-$list = $db->get_single_select_data(CRAFT_CONTENT, "id='$id'");
+$list = $db->get_single_select_data(MACHINE, "id='$id'");
 ?>
 <h2>修改工艺</h2>
 
@@ -22,11 +22,11 @@ $list = $db->get_single_select_data(CRAFT_CONTENT, "id='$id'");
     <table>
         <tr>
             <th>工序号</th>
-            <td><input type="text" name="cr_num" value="<?php echo $list['cr_num']; ?>" readonly="true"/></td>
+            <td><input type="text" name="cr_num" value="<?php echo $list['step_num']; ?>" readonly="true"/></td>
         </tr>
         <tr>
             <th>工序名称</th>
-            <td><input type="text" name="cr_name" value="<?php echo $list['cr_name']; ?>"/></td>
+            <td><input type="text" name="cr_name" value="<?php echo $list['name']; ?>"/></td>
         </tr>
         <tr>
             <th>工序内容</th>
