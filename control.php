@@ -1,7 +1,10 @@
 <?php
 require_once('sql/mysql.php');
 require_once('sql/operate.php');
-$db = new \sql\MysqlPDO(0);
+session_start();
+$user = $_SESSION['user'];
+$level = $_SESSION[$user];
+$db = new \sql\MysqlPDO($level);
 ?>
 <!DOCTYPE html>
 <html>

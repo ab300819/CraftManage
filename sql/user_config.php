@@ -9,10 +9,16 @@
 define('MYSQL_LOCAL','localhost');
 
 //定义数据库用户，分配权限
-//root用户
+//user:root,level:0
 define('MYSQL_USER','root');
 define('MYSQL_pw','110119');
 
+//user:all,level:1
 
+
+//user:edit,level:2
+
+
+//user:select,level:3
 
 ?>

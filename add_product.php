@@ -8,7 +8,7 @@
 <body>
 <?php include("edit_menu.php") ?>
 <h2>添加产品</h2>
-<form action="./data/action.php?action=add" method="post" >
+<form action="data/action_machine.php?action=add" method="post" >
     <table width="100%">
         <tr>
             <th>工艺编号</th>

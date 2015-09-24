@@ -23,6 +23,12 @@ class MysqlPDO
             case 0:
                 self::init(MYSQL_LOCAL, MYSQL_USER, MYSQL_pw, DATABASE);
                 break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
         }
     }
 

@@ -17,7 +17,7 @@ $list = $db->get_single_select_data(MACHINE, "id='$id'");
 ?>
 <h2>修改工艺</h2>
 
-<form action="./data/action.php?action=edit" method="post" id="craft">
+<form action="data/action_machine.php?action=edit" method="post" id="craft">
     <input type="hidden" name="id" value="<?php echo $list['id']; ?>"/>
     <table>
         <tr>

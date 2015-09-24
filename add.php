@@ -9,7 +9,7 @@
 <?php include("edit_menu.php") ?>
 <h2>增加工艺</h2>
 
-<form action="./data/action.php?action=add" method="post" id="craft">
+<form action="data/action_machine.php?action=add" method="post" id="craft">
     <table align="center">
         <tr>
             <th>工序号</th>

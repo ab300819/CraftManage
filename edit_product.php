@@ -9,7 +9,7 @@
 <?php include("edit_menu.php") ?>
 <h2>修改产品信息</h2>
 
-<form action="./data/actionProduct.php?action=edit" method="post" >
+<form action="data/action_product.php?action=edit" method="post" >
     <table width="100%">
         <tr>
             <th>工艺编号</th>

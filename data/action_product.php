@@ -1,4 +1,8 @@
 <?php
+/**
+ * 产品信息
+ */
+
 require_once(dirname(__FILE__) . '/../sql/mysql.php');
 require_once(dirname(__FILE__) . '/../sql/table_config.php');
 

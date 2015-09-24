@@ -11,6 +11,8 @@ define('DATABASE', 'manufacture');
 define('USER', 'user');
 
 define('PRODUCT','product');
+define('PROPERTY','property');
+
 define('MACHINE', 'machine');
 
 ?>
