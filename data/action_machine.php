@@ -5,75 +5,108 @@
 require_once(dirname(__FILE__) . '/../sql/mysql.php');
 require_once(dirname(__FILE__) . '/../sql/table_config.php');
 
+session_start();
+$user = $_SESSION['user'];
+$level = $_SESSION[$user];
+
 $db = new \sql\MysqlPDO(0);
 
-switch ($_GET['action']) {
-    case 'add':
+/**
+ * @param $db
+ */
+function add($db)
+{
 
-//        $cr_num = $_POST['cr_num'];
-//        $cr_name = $_POST['cr_name'];
-//        $cr_content = $_POST['cr_content'];
-//        $cr_room = $_POST['cr_room'];
-//        $cr_machine = $_POST['cr_machine'];
-//        $sql = "INSERT INTO craft_test(cr_num,cr_name,cr_content,cr_room,cr_machine)
-//                          VALUES ('$cr_num','$cr_name','$cr_content','$cr_room','$cr_machine')";
+    $data['craft_num'] = $_POST['craft_num'];
+    $data['material_num'] = $_POST['material_num'];
+    $data['step_num'] = $_POST['step_num'];
+    $data['room'] = $_POST['room'];
+    $data['name'] = $_POST['name'];
+    $data['content'] = $_POST['content'];
+    $data['self_check'] = $_POST['self_check'];
+    $data['operator'] = $_POST['operator'];
+    $data['special_check'] = $_POST['special_check'];
+    $data['checker'] = $_POST['checker'];
+    $data['machine'] = $_POST['machine'];
+    $data['craft_machine'] = $_POST['craft_machine'];
+    $data['prepare_time'] = $_POST['prepare_time'];
+    $data['run_time'] = $_POST['run_time'];
+    $data['version'] = $_POST['version'];
 
-        $data['cr_num'] = $_POST['cr_num'];
-        $data['cr_name'] = $_POST['cr_name'];
-        $data['cr_content'] = $_POST['cr_content'];
-        $data['cr_room'] = $_POST['cr_room'];
-        $data['cr_machine'] = $_POST['cr_machine'];
-        $sql =$db->get_insert_db_sql(CRAFT_CONTENT,$data);
+    $sql = $db->get_insert_db_sql(MACHINE, $data);
 
-        $rw = $db->execute($sql);
-        if ($rw > 0) {
-            echo "<script>
+    $rw = $db->execute($sql);
+    if ($rw > 0) {
+        echo "<script>
                     alert('添加成功！');
-                    window.location='../control.php';
+                    window.location='../machine_panel.php';
                  </script>";
-        } else {
-            echo "<script>
+    } else {
+        echo "<script>
                     alert('添加失败！');
                     window.history.back();
                  </script>";
-        }
-        break;
+    }
+}
 
-    case 'del':
-        $id = $_GET['id'];
-        $db->get_delete_db_sql(CRAFT_CONTENT, "id='$id'");
-        header("Location:../control.php");
-        break;
+/**
+ * @param $db
+ */
+function delete($db)
+{
+    $id = $_GET['id'];
+    $db->get_delete_db_sql(MACHINE, "id='$id'");
+    header("Location:../machine_panel.php");
+}
 
-    case 'edit':
+/**
+ * @param $data
+ * @param $db
+ */
+function edit($db)
+{
+    $id = $_POST['id'];
+    $data['craft_num'] = $_POST['craft_num'];
+    $data['material_num'] = $_POST['material_num'];
+    $data['step_num'] = $_POST['step_num'];
+    $data['room'] = $_POST['room'];
+    $data['name'] = $_POST['name'];
+    $data['content'] = $_POST['content'];
+    $data['self_check'] = $_POST['self_check'];
+    $data['operator'] = $_POST['operator'];
+    $data['special_check'] = $_POST['special_check'];
+    $data['checker'] = $_POST['checker'];
+    $data['machine'] = $_POST['machine'];
+    $data['craft_machine'] = $_POST['craft_machine'];
+    $data['prepare_time'] = $_POST['prepare_time'];
+    $data['run_time'] = $_POST['run_time'];
+    $data['version'] = $_POST['version'];
+    $sql = $db->get_update_db_sql(MACHINE, $data, "id='$id'");
 
-//        $id = $_POST['id'];
-//        $cr_num = $_POST['cr_num'];
-//        $cr_name = $_POST['cr_name'];
-//        $cr_content = $_POST['cr_content'];
-//        $cr_room = $_POST['cr_room'];
-//        $cr_machine = $_POST['cr_machine'];
-//        $sql = "UPDATE craft_test SET cr_num='$cr_num',cr_name='$cr_name',cr_content='$cr_content',cr_room='$cr_room',cr_machine='$cr_machine' WHERE id='$id'";
-
-        $id = $_POST['id'];
-        $data['cr_num'] = $_POST['cr_num'];
-        $data['cr_name'] = $_POST['cr_name'];
-        $data['cr_content'] = $_POST['cr_content'];
-        $data['cr_room'] = $_POST['cr_room'];
-        $data['cr_machine'] = $_POST['cr_machine'];
-        $sql = $db->get_update_db_sql(CRAFT_CONTENT, $data, "id='$id'");
-
-        if ($db->execute($sql) > 0) {
-            echo "<script>
+    if ($db->execute($sql) > 0) {
+        echo "<script>
                     alert('更新成功！');
-                    window.location='../control.php';
+                    window.location='../machine_panel.php';
                  </script>";
-        } else {
-            echo "<script>
+    } else {
+        echo "<script>
                     alert('更新失败！');
                     window.history.back();
                  </script>";
-        }
+    }
+}
+
+switch ($_GET['action']) {
+    case 'add':
+        add($db);
+        break;
+
+    case 'del':
+        delete($db);
+        break;
+
+    case 'edit':
+        edit($db);
         break;
 }
 

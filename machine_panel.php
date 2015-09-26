@@ -14,7 +14,7 @@ $db = new \sql\MysqlPDO($level);
     <script>
         function doDel(id) {
             if (confirm("确定要删除吗？")) {
-                window.location = 'data/action.php?action=del&id=' + id;
+                window.location = 'data/action_machine.php?action=del&id=' + id;
             }
         }
     </script>
@@ -82,7 +82,7 @@ $db = new \sql\MysqlPDO($level);
         echo "<td>{$row['run_time']}</td>";
         echo "<td>{$row['version']}</td>";
         echo "<td>
-                    <a href='edit.php?id={$row['id']}'>修改</a>
+                    <a href='edit_machine.php?id={$row['id']}'>修改</a>
                     <a href='javascript:doDel({$row['id']})'>删除</a>
                  </td>";
         echo '</tr>';

@@ -17,7 +17,7 @@ if (!empty($username) && !empty($password)) {
     } elseif ($list['level'] == 0) {
         $_SESSION[$username]=$list['level'];
         $_SESSION['user']=$list['username'];
-        header("Location:control.php");
+        header("Location:machine_panel.php");
     } else {
         $_SESSION[$username]=$list['level'];
         $_SESSION['user']=$list['username'];
