@@ -1,3 +1,7 @@
+<?php
+$product_type=$_POST['product_type'];
+$craft_type=$_POST['craft_type'];
+?>
 <!DOCTYPE html>
 <html>
 <head>

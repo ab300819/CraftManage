@@ -10,15 +10,5 @@ CREATE TABLE product(
 	craft_line CHAR(50) NOT NULL,
 	produce CHAR(50),
 	craft_num CHAR(50) NOT NULL UNIQUE KEY,
-	batch CHAR(50),
+	batch CHAR(50)
 ) ENGINE=InnoDB ;
-
-CREATE TABLE property(
-	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	material_num CHAR(50) NOT NULL UNIQUE KEY,
-	material_modle CHAR(50) NOT NULL,
-	material_discern CHAR(50),
-	blank CHAR(20) NOT NULL,
-	per_num INT NOT NULL,
-	heat CHAR(50) NOT NULL
-) ENGINE=InnoDB;

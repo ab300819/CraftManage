@@ -1,12 +1,15 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>机加工工艺</title>
+    <title>机加工报表</title>
 </head>
-<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+<link rel="stylesheet" type="text/css" href="../res/css/style.css">
 <body>
-<h1>工艺查询</h1>
+<h1>机加工工艺过程表</h1>
 <table width="100%">
     <tr>
         <th>工艺编号</th>
