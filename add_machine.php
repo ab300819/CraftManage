@@ -13,7 +13,7 @@
     <table align="center">
         <tr>
             <th>工艺编号</th>
-            <td><input type="text" name="craft_num"></td>
+            <td><input type="text" name="craft_num" ></td>
         </tr>
         <tr>
             <th>物料编码</th>
@@ -33,7 +33,7 @@
         </tr>
         <tr>
             <th>工序内容</th>
-            <td><textarea rows="9" cols="90" name="content" form="machine"></textarea>
+            <td><textarea rows="9" cols="90" name="content" form="machine"></textarea></td>
         </tr>
         <tr>
             <th>自检记录</th>

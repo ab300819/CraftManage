@@ -9,22 +9,56 @@ session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
 
-$db=new \sql\MysqlPDO($level);
+$db = new \sql\MysqlPDO(0);
 
-function add($db){
+function add($db)
+{
+    $table = array(
+        'craft_num',
+        'material_num',
+        'produce_num',
+        'version',
+        'produce_model',
+        'material_name',
+        'material_model',
+        'per_num',
+        'standard',
+        'blank',
+        'component_num',
+        'craft_line',
+        'component_discern',
+       'material_discern',
+        'heat'
+    );
+    $data=array();
+
+    foreach ($table as $head){
+        $data[$head]=$_POST[$head];
+    }
+
 
 }
 
-switch($_GET['action']){
-    case 'add':
+function edit($db)
+{
 
+}
+
+function del($db)
+{
+
+}
+
+switch ($_GET['action']) {
+    case 'add':
+        add($db);
         break;
     case 'edit':
-
+        edit($db);
         break;
 
     case 'del':
-
+        del($db);
         break;
 }
 

@@ -11,7 +11,11 @@ function key_value_table($table, $row)
     echo '<tr>';
     foreach ($table as $key => $value) {
         echo "<th>$key</th>";
-        echo "<td>$value</td>";
+        if (empty($value)) {
+            echo "<td>&nbsp;</td>";
+        } else {
+            echo "<td>$value</td>";
+        }
         if ($j % $row == 0 && $j != count($table)) {
             echo "</tr>";
             echo "<tr>";
@@ -49,16 +53,21 @@ function key_value_change_one($list)
  * @param $value    值
  * @return mixed   条件正确返回键值对，否则返回null
  */
-function key_value($key, $value)
+function key_value($key, $value = null)
 {
     $data = [];
-    if (count($key) != count($value)) {
-        return null;
-    } else {
+    if ($value == null) {
+        for ($i = 0; $i < count($key); $i++) {
+            $data[$key[$i]] = null;
+        }
+        return $data;
+    } elseif (count($key) == count($value)) {
         for ($i = 0; $i < count($key); $i++) {
             $data[$key[$i]] = $value[$i];
         }
         return $data;
+    } else {
+        return null;
     }
 }
 

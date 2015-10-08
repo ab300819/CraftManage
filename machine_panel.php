@@ -33,15 +33,21 @@ $db = new \sql\MysqlPDO($level);
 <p>操作：<a href="edit_product.php">修改</a>&nbsp;<a href="javascript:confirmDel(12)">删除</a></p>
 <table width="100%" style="text-align: center" border="1">
     <?php
-    $item = array('工艺编号：', '物料编码：', '生产批号：', '版本号：',
+    $head = array('工艺编号：', '物料编码：', '生产批号：', '版本号：',
         '产品型号：', '物料名称：', '材料牌号：', '每台件数：',
         '产品名称：', '规格型号：', '毛坯种类：', '零件编号：',
         '工艺路线名称：', '零件标识：', '材料标识：', '热处理状态：');
-    $list = $db->get_single_select_data(MACHINE, "id=1");
-    $data = key_value_change_one($list);
-    $table = key_value($item, $data);
-    if ($table != null) {
+    $list = $db->get_select(MACHINE, "id=1");
+    if ($list != null) {
+        $content = key_value_change_one($list);
+        $table = key_value($head, $content);
         key_value_table($table, 4);
+    } else {
+        echo "<script>
+                alert('没有相关产品信息！');
+              </script>";
+        $table = key_value($head);
+        key_value_table($table,4);
     }
 
     ?>
@@ -65,7 +71,7 @@ $db = new \sql\MysqlPDO($level);
         <th>编辑</th>
     </tr>
     <?php
-    $list = $db->get_all_select_data(MACHINE);
+    $list = $db->get_select(MACHINE);
     foreach ($list as $row) {
         echo '<tr>';
         echo "<td>{$row['step_num']}</td>";

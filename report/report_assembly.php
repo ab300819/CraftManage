@@ -13,7 +13,8 @@
 </head>
 <link rel="stylesheet" type="text/css" href="../res/css/style.css">
 <body>
-<h1>江苏神通阀门股份有限公司装配加工路线单</h1>
+<h2>江苏神通阀门股份有限公司</h2>
+<h3>装配加工路线单</h3>
 <table width="100%" align="center">
     <tr>
         <th>产品型号</th>

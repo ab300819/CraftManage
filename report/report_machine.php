@@ -1,15 +1,13 @@
-<?php
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>机加工报表</title>
+    <title>机加工工艺</title>
 </head>
 <link rel="stylesheet" type="text/css" href="../res/css/style.css">
 <body>
-<h1>机加工工艺过程表</h1>
+<h2>江苏神通阀门股份有限公司</h2>
+<h3>机械加工工艺过程卡片</h3>
 <table width="100%">
     <tr>
         <th>工艺编号</th>

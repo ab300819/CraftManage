@@ -16,22 +16,43 @@ $db = new \sql\MysqlPDO(0);
  */
 function add($db)
 {
+    $table = array(
+        'craft_num',
+        'material_num',
+        'step_num',
+        'room',
+        'name',
+        'content',
+        'self_check',
+        'operator',
+        'special_check',
+        'checker',
+        'machine',
+        'craft_machine',
+        'prepare_time',
+        'run_time',
+        'version'
+    );
+    $data=array();
+    foreach($table as $head){
+        $data[$head]=$_POST[$head];
+    }
 
-    $data['craft_num'] = $_POST['craft_num'];
-    $data['material_num'] = $_POST['material_num'];
-    $data['step_num'] = $_POST['step_num'];
-    $data['room'] = $_POST['room'];
-    $data['name'] = $_POST['name'];
-    $data['content'] = $_POST['content'];
-    $data['self_check'] = $_POST['self_check'];
-    $data['operator'] = $_POST['operator'];
-    $data['special_check'] = $_POST['special_check'];
-    $data['checker'] = $_POST['checker'];
-    $data['machine'] = $_POST['machine'];
-    $data['craft_machine'] = $_POST['craft_machine'];
-    $data['prepare_time'] = $_POST['prepare_time'];
-    $data['run_time'] = $_POST['run_time'];
-    $data['version'] = $_POST['version'];
+//    $data['craft_num'] = $_POST['craft_num'];
+//    $data['material_num'] = $_POST['material_num'];
+//    $data['step_num'] = $_POST['step_num'];
+//    $data['room'] = $_POST['room'];
+//    $data['name'] = $_POST['name'];
+//    $data['content'] = $_POST['content'];
+//    $data['self_check'] = $_POST['self_check'];
+//    $data['operator'] = $_POST['operator'];
+//    $data['special_check'] = $_POST['special_check'];
+//    $data['checker'] = $_POST['checker'];
+//    $data['machine'] = $_POST['machine'];
+//    $data['craft_machine'] = $_POST['craft_machine'];
+//    $data['prepare_time'] = $_POST['prepare_time'];
+//    $data['run_time'] = $_POST['run_time'];
+//    $data['version'] = $_POST['version'];
 
     $sql = $db->get_insert_db_sql(MACHINE, $data);
 

@@ -21,7 +21,7 @@ class MysqlPDO
 
         switch ($level) {
             case 0:
-                self::init(MYSQL_LOCAL, MYSQL_USER, MYSQL_pw, DATABASE);
+                self::init(MYSQL_LOCAL, MYSQL_USER, MYSQL_PW, DATABASE);
                 break;
             case 1:
                 break;
@@ -44,34 +44,29 @@ class MysqlPDO
         }
     }
 
-    public function get_all_select_data($table, $condition = null)
+    /**单表查询，根据条件或查询全部
+     * @param $table    表名
+     * @param null $condition   条件
+     * @return mixed    返回数据
+     */
+    public function get_select($table, $condition = null)
     {
         if ($condition == null) {
             $sql = "SELECT * from {$table}";
+            $result = self::$connect->query($sql);
+            $list = $result->fetchAll();
         } else {
             $sql = "SELECT * from {$table} WHERE {$condition}";
+            $result = self::$connect->query($sql);
+            $list = $result->fetch(\PDO::FETCH_ASSOC);
         }
-        $result = self::$connect->query($sql);
-        $list = $result->fetchAll();
-        if ($list != null) {
-            return $list;
-        } else {
-            echo '没有相关数据！' . '<br>';
-        }
+        return $list;
     }
 
-    public function get_single_select_data($table, $condition)
-    {
-        $sql = "SELECT * from {$table} WHERE {$condition}";
-        $result = self::$connect->query($sql);
-        $list = $result->fetch(\PDO::FETCH_ASSOC);
-        if ($list != null) {
-            return $list;
-        } else {
-            echo '没有相关数据！' . '<br>';
-        }
+    public function get_link_select($main,$link,$head,$condition=null){
 
     }
+
 
     /**
      * @param $table 插入表名
@@ -79,7 +74,7 @@ class MysqlPDO
      * 用于拼装插入SQL语句
      * @return bool|string 传入数据正确返回SQL数据，否则返回false
      */
-    public function get_insert_db_sql($table, $info)
+    public function insert_data($table, $info)
     {
         if (is_array($info) && !empty($info)) {
             $i = 0;
@@ -103,7 +98,7 @@ class MysqlPDO
      * @param $condition  更新位置
      * @return bool|string  传入数据正确返回SQL数据，否则返回false
      */
-    public function get_update_db_sql($table, $info, $condition)
+    public function update_data($table, $info, $condition)
     {
 
         $i = 0;
@@ -125,7 +120,7 @@ class MysqlPDO
         }
     }
 
-    public function get_delete_db_sql($table, $condition)
+    public function delete_data($table, $condition)
     {
         $sql = "DELETE FROM {$table} WHERE {$condition}";
         return self::execute($sql);

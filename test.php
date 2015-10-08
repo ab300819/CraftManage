@@ -18,9 +18,9 @@ $data['cr_content'] = '334';
 $data['cr_room'] = '444444';
 $data['cr_machine'] = '678';
 
-$update = $db->get_update_db_sql(CRAFT_CONTENT, $data, "id='$id'");
-$insert = $db->get_insert_db_sql(CRAFT_CONTENT, $data);
-$delete = $db->get_delete_db_sql(CRAFT_CONTENT, $data);
+$update = $db->update_data(CRAFT_CONTENT, $data, "id='$id'");
+$insert = $db->insert_data(CRAFT_CONTENT, $data);
+$delete = $db->delete_data(CRAFT_CONTENT, $data);
 
 $id = 12;
 $cr_num = '15';
