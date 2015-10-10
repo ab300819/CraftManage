@@ -15,4 +15,7 @@ define('PROPERTY','property');
 
 define('MACHINE', 'machine');
 
+
+define('METALLURGY','metallurgy_machine');
+
 ?>
