@@ -9,7 +9,7 @@ session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
 
-$db = new \sql\MysqlPDO(0);
+$db = new \sql\MysqlPDO($level);
 
 /**
  * @param $db
@@ -33,34 +33,18 @@ function add($db)
         'run_time',
         'version'
     );
-    $data=array();
-    foreach($table as $head){
-        $data[$head]=$_POST[$head];
+    $data = array();
+    foreach ($table as $head) {
+        $data[$head] = $_POST[$head];
     }
 
-//    $data['craft_num'] = $_POST['craft_num'];
-//    $data['material_num'] = $_POST['material_num'];
-//    $data['step_num'] = $_POST['step_num'];
-//    $data['room'] = $_POST['room'];
-//    $data['name'] = $_POST['name'];
-//    $data['content'] = $_POST['content'];
-//    $data['self_check'] = $_POST['self_check'];
-//    $data['operator'] = $_POST['operator'];
-//    $data['special_check'] = $_POST['special_check'];
-//    $data['checker'] = $_POST['checker'];
-//    $data['machine'] = $_POST['machine'];
-//    $data['craft_machine'] = $_POST['craft_machine'];
-//    $data['prepare_time'] = $_POST['prepare_time'];
-//    $data['run_time'] = $_POST['run_time'];
-//    $data['version'] = $_POST['version'];
 
-    $sql = $db->get_insert_db_sql(MACHINE, $data);
-
+    $sql = $db->insert_data(MACHINE, $data);
     $rw = $db->execute($sql);
     if ($rw > 0) {
         echo "<script>
                     alert('添加成功！');
-                    window.location='../machine_panel.php';
+                    window.location='../panel_machine.php';
                  </script>";
     } else {
         echo "<script>
@@ -76,12 +60,11 @@ function add($db)
 function delete($db)
 {
     $id = $_GET['id'];
-    $db->get_delete_db_sql(MACHINE, "id='$id'");
-    header("Location:../machine_panel.php");
+    $db->delete_data(MACHINE, "id='$id'");
+    header("Location:../panel_machine.php");
 }
 
 /**
- * @param $data
  * @param $db
  */
 function edit($db)
@@ -102,12 +85,12 @@ function edit($db)
     $data['prepare_time'] = $_POST['prepare_time'];
     $data['run_time'] = $_POST['run_time'];
     $data['version'] = $_POST['version'];
-    $sql = $db->get_update_db_sql(MACHINE, $data, "id='$id'");
+    $sql = $db->update_data(MACHINE, $data, "id='$id'");
 
     if ($db->execute($sql) > 0) {
         echo "<script>
                     alert('更新成功！');
-                    window.location='../machine_panel.php';
+                    window.location='../panel_machine.php';
                  </script>";
     } else {
         echo "<script>

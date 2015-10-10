@@ -22,7 +22,7 @@ if (!empty($username) && !empty($password)) {
     } else {
         $_SESSION[$username] = $list['level'];
         $_SESSION['user'] = $list['username'];
-        header("Location:machine_panel.php");
+        header("Location:panel_machine.php");
     }
 
 

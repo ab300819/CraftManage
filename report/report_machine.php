@@ -1,3 +1,12 @@
+<?php
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/table_config.php');
+require_once(dirname(__FILE__) . '/../sql/operate.php');
+session_start();
+$user = $_SESSION['user'];
+$level = $_SESSION[$user];
+$db = new \sql\MysqlPDO($level);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,74 +16,46 @@
 <link rel="stylesheet" type="text/css" href="../res/css/style.css">
 <body>
 <h2>江苏神通阀门股份有限公司</h2>
+
 <h3>机械加工工艺过程卡片</h3>
-<table width="100%">
-    <tr>
-        <th>工艺编号</th>
-        <td>&nbsp;</td>
-        <th>物料编码</th>
-        <td>&nbsp;</td>
-        <th>生成批号</th>
-        <td>&nbsp;</td>
-        <th>版本号</th>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <th>生产型号</th>
-        <td>&nbsp;</td>
-        <th>物料名称</th>
-        <td>&nbsp;</td>
-        <th>材料牌号</th>
-        <td>&nbsp;</td>
-        <th>每台件数</th>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <th>产品名称</th>
-        <td>&nbsp;</td>
-        <th>规格型号</th>
-        <td>&nbsp;</td>
-        <th>毛坯种类</th>
-        <td>&nbsp;</td>
-        <th>零件编号</th>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <th>工艺路线名称</th>
-        <td>&nbsp;</td>
-        <th>零件标识</th>
-        <td>&nbsp;</td>
-        <th>材料标识</th>
-        <td>&nbsp;</td>
-        <th>热处理状态</th>
-        <td>&nbsp;</td>
-    </tr>
+<table width="100%" style="text-align: center">
+    <?php
+    $head = array('工艺编号',
+        '物料编码',
+        '生产批号',
+        '版本号',
+        '产品型号',
+        '物料名称',
+        '材料牌号',
+        '每台件数',
+        '产品名称',
+        '规格型号',
+        '毛坯种类',
+        '零件编号',
+        '工艺路线名称',
+        '零件标识',
+        '材料标识',
+        '热处理状态');
+    $table = key_value($head);
+    key_value_table($table, 4);
+    ?>
 </table>
-<table width="100%">
-    <tr>
-        <th>工序号</th>
-        <th>工序名称</th>
-        <th>工序内容</th>
-        <th>车间</th>
-        <th>设备</th>
-        <th>工艺装备</th>
-        <th>检验结果</th>
-        <th>检验结论</th>
-        <th>操作人（日期）</th>
-        <th>检验人（日期）</th>
-    </tr>
-    <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
+<table width="100%" style="text-align: center">
+    <?php
+    $head = array('工序号',
+        '车间',
+        '工序名称',
+        '工序内容',
+        '自检记录',
+        '操作者',
+        '专检记录',
+        '检验员',
+        '设备',
+        '工艺设备',
+        '准备时间',
+        '运行时间');
+    simple_table($head);
+    ?>
 </table>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="/res/css/style.css">
 <body>
 <?php include("edit_menu.php") ?>
-<h2>增加工艺</h2>
+<h2>增加机加工工艺</h2>
 
 <form action="data/action_machine.php?action=add" method="post" id="machine">
     <table align="center">

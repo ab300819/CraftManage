@@ -10,7 +10,7 @@ function key_value_table($table, $row)
     $j = 1;
     echo '<tr>';
     foreach ($table as $key => $value) {
-        echo "<th>$key</th>";
+        echo "<th>{$key}：</th>";
         if (empty($value)) {
             echo "<td>&nbsp;</td>";
         } else {
@@ -25,9 +25,32 @@ function key_value_table($table, $row)
     echo '</tr>';
 }
 
-function simple_table($head, $data)
+/**
+ * 自动生成简单列表
+ * @param $head 表头
+ * @param $content  表内容
+ */
+function simple_table($head, $content = null)
 {
-
+    if ($content == null || count($head) != count($content)) {
+        echo '<tr>';
+        foreach ($head as $cell) {
+            echo "<th>{$cell}</th>";
+        }
+        echo '</tr>';
+    } else {
+        echo '<tr>';
+        foreach ($head as $cell) {
+            echo "<th>{$cell}</th>";
+        }
+        echo '</tr><tr>';
+        foreach ($content as $list) {
+            foreach ($list as $key => $value) {
+                echo "<td>{$value}</td>";
+            }
+        }
+        echo '</tr>';
+    }
 }
 
 /**
@@ -69,6 +92,56 @@ function key_value($key, $value = null)
     } else {
         return null;
     }
+}
+
+/**
+ * @param $head 表单头部信息
+ * @param $name input的name
+ * @param null $value input的值
+ * @param null $readonly 只读属性的input组
+ * @param null $area 设置需要textarea的input
+ * @param null $form form id
+ */
+//TODO 有问题
+function generate_form($head, $name, $value = null, $readonly = null, $area = null, $form = null)
+{
+    if (count($head) != count($name)) {
+        echo '<tr>';
+        echo '<th></th>>';
+        echo '<td></td>>';
+        echo '</tr>';
+    } elseif ($value == null) {
+        for ($i = 0; $i < count($head); $i++) {
+            echo '<tr>';
+            echo '<th>{$head[$i}：</th>';
+            if (traverse($name, $area)) {
+                echo "<td></td>";
+            } else {
+                echo "<td><input type=\"text\" name=\"{$name[$i]}\"></td>";
+            }
+            echo '</tr>';
+        }
+    } else {
+        for ($j = 0; $j < count($head); $j++) {
+            echo '<tr>';
+            echo '</tr>';
+        }
+    }
+}
+
+function traverse($compare, $item)
+{
+
+    if ($item == null) {
+        return false;
+    } else {
+        foreach ($item as $son) {
+            if ($son == $compare) {
+                return true;
+            }
+        }
+    }
+
 }
 
 ?>

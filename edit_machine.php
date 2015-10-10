@@ -10,8 +10,8 @@ $db = new \sql\MysqlPDO(0);
 <head>
     <meta charset="UTF-8">
     <title>工艺修改</title>
-</head>
 <link rel="stylesheet" type="text/css" href="res/css/style.css">
+</head>
 <body>
 <?php
 include("edit_menu.php");

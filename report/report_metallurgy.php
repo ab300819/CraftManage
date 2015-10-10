@@ -1,3 +1,12 @@
+<?php
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/table_config.php');
+require_once(dirname(__FILE__) . '/../sql/operate.php');
+session_start();
+$user = $_SESSION['user'];
+$level = $_SESSION[$user];
+$db = new \sql\MysqlPDO($level);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +33,18 @@
         <th>材质：</th>
         <td><?php ?></td>
     </tr>
+    <?php
+    $head = array(
+        '产品型号',
+        '生产批号',
+        '工艺编号',
+        '产品名称',
+        '产品编号',
+        '页码'
+    );
+    $table = key_value($head);
+    key_value_table($table, 3);
+    ?>
 </table>
 <table width="100%">
     <tr>

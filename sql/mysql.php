@@ -46,7 +46,7 @@ class MysqlPDO
 
     /**单表查询，根据条件或查询全部
      * @param $table    表名
-     * @param null $condition   条件
+     * @param null $condition 条件
      * @return mixed    返回数据
      */
     public function get_select($table, $condition = null)
@@ -63,7 +63,8 @@ class MysqlPDO
         return $list;
     }
 
-    public function get_link_select($main,$link,$head,$condition=null){
+    public function get_link_select($main, $link, $head, $condition = null)
+    {
 
     }
 
