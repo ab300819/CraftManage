@@ -11,6 +11,8 @@ CREATE TABLE product (
   produce_model     CHAR(50),
   craft_num         CHAR(50) UNIQUE KEY,
   produce_num       CHAR(50),
+  type              CHAR(20),
+  craft_type        CHAR(20),
   property          INT
 
 )

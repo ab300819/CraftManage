@@ -3,6 +3,10 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/table/assembly.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/table/assembly_list.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/table/forging_craft.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/table/forging_property.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/table/heat_craft.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/table/heat_property.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/table/machine.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/table/metallurgy_machine.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/table/product.sql" dialect="MySQL" />

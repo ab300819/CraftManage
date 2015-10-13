@@ -63,9 +63,23 @@ class MysqlPDO
         return $list;
     }
 
-    public function get_link_select($main, $link, $head, $condition = null)
+    public function get_link_select($table_1, $link_1, $table_2, $link_2, $head, $condition = null)
     {
-
+        $field = implode(',', $head);
+        if ($condition == null) {
+            $sql = "SELECT {$field}
+                    FROM {$table_1} AS one,{$table_2} AS two
+                    WHERE one.{$link_1}=two.{$link_2}";
+            $result = self::$connect->query($sql);
+            $list = $result->fetch(\PDO::FETCH_ASSOC);
+        } else {
+            $sql = "SELECT {$field}
+                    FROM {$table_1} AS one,{$table_2} AS two
+                    WHERE one.{$link_1}=two.{$link_2}
+                    AND {$condition}";
+            //TODO 需要添加查询结果的类型，目前未知，留待后面添加
+        }
+        return $list;
     }
 
 

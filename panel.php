@@ -16,7 +16,7 @@ $level = $_SESSION[$user];
 <body>
 <h1>工艺管理系统(build)</h1>
 <a href="report/report_machine.php" target="_blank">查询工艺</a>
-<a href="panel.php">添加工艺</a>
+<a href="panel.php">编辑工艺</a>
 
 <p></p>
 

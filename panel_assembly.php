@@ -18,13 +18,43 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>装配工艺管理</title>
-</head>
     <link href="res/css/style.css" type="text/css" rel="stylesheet">
+</head>
 <body>
 
 <h1>装配加工路线单</h1>
 
 <h2>产品信息</h2>
+<table width="100%">
+    <?php
+    $head = array(
+        '产品名称',
+        '产品型号',
+        '产品编号',
+        '产品规格',
+        '产品装配图号',
+    );
+    $table = key_value($head);
+    key_value_table($table, 3);
+    ?>
+</table>
+<h2>核电阀门装配明细表</h2>
+<table width="100%">
+    <?php
+    $head = array(
+        '序号',
+        '零件图号',
+        '名称及规格',
+        '材料',
+        '数量',
+        '零件编号',
+        '备注',
+        '编辑'
+    );
+    simple_table($head);
+    ?>
+</table>
+<h2>装配产品信息</h2>
 <table width="100%">
     <?php
     $head = array(
@@ -53,6 +83,7 @@ $db = new \sql\MysqlPDO($level);
         '检验员',
         '见证',
         '工艺设备',
+        '版本',
         '编辑'
     );
     simple_table($head);

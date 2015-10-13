@@ -49,6 +49,7 @@ $db = new \sql\MysqlPDO($level);
         '零件标识',
         '材料标识',
         '热处理状态');
+//    TODO 后期这里要换成产品的表
     $list = $db->get_select(MACHINE, "id=1");
     if ($list != null) {
         $content = key_value_change_one($list);
