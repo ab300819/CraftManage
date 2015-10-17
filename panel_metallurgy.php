@@ -10,7 +10,7 @@ require_once('sql/operate.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
-$db = new \sql\MysqlPDO(0);
+$db = new \sql\MysqlPDO($level);
 ?>
 <!DOCTYPE html>
 <html>
