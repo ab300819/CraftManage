@@ -22,34 +22,12 @@ $level = $_SESSION[$user];
 
 <div style="width: 100%;text-align: center">
     <form action="add_product.php" method="post">
-
-        <table align="center">
-            <tr>
-                <th>产品类别:</th>
-                <td>
-                    <select name="product_type" id="product_type">
-                        <option value="0">冶金</option>
-                        <option value="1">核电</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <th>工艺类型：</th>
-                <td>
-                    <select name="craft_type">
-                        <option value="0">机加工</option>
-                        <option value="1">铸造</option>
-                        <option value="2">焊接</option>
-                        <option value="3">锻造</option>
-                        <option value="4">热处理</option>
-                        <option value="5">装配</option>
-                    </select>
-                </td>
-            </tr>
-        </table>
-        <p></p>
-        <input type="submit" value="提交">
-        <input type="reset" value="重置">
+        物料编码：<input type="text" name="">
+        <p>
+            <input type="submit" value="提交">
+            <input type="reset" value="重置">
+            <input type="button" value="高级检索" onclick="">
+        </p>
     </form>
 </div>
 </body>
