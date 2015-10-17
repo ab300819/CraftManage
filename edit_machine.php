@@ -3,21 +3,21 @@ require_once('sql/mysql.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
-$db = new \sql\MysqlPDO(0);
+$db = new \sql\MysqlPDO($level);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>工艺修改</title>
-<link rel="stylesheet" type="text/css" href="res/css/style.css">
+    <link rel="stylesheet" type="text/css" href="res/css/style.css">
 </head>
 <body>
 <?php
 include("edit_menu.php");
 $id = $_GET['id'];
-$data = $db->get_select(MACHINE, "id='$id'");
-$list = $data[0];
+$list = $db->get_select(MACHINE, "id='$id'");
+
 ?>
 <h2>修改工艺</h2>
 

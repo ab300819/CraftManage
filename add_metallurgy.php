@@ -7,15 +7,15 @@
 </head>
 <body>
 <?php include("edit_menu.php") ?>
-<form action="" method="post" id="metallurgy">
+<form action="data/action_metallurgy.php?action=add" method="post" id="metallurgy">
     <table align="center">
         <tr>
             <th>序号：</th>
-            <td><input type="text" required="required"></td>
+            <td><input type="text" required="required" name="step_num"></td>
         </tr>
         <tr>
             <th>工序名称：</th>
-            <td><input type="text" required="required"></td>
+            <td><input type="text" required="required" name="name"></td>
         </tr>
         <tr>
             <th>工序内容：</th>
@@ -24,11 +24,15 @@
         </tr>
         <tr>
             <th>准备时间：</th>
-            <td><input type="text" required="required"></td>
+            <td><input type="text" required="required" name="prepare"></td>
         </tr>
         <tr>
             <th>运行时间：</th>
-            <td><input type="text" required="required"></td>
+            <td><input type="text" required="required" name="run"></td>
+        </tr>
+        <tr>
+            <th>版本：</th>
+            <td><input type="text" required="required" name="version"></td>
         </tr>
     </table>
     <p></p>

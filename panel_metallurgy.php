@@ -10,7 +10,7 @@ require_once('sql/operate.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
-$db = new \sql\MysqlPDO($level);
+$db = new \sql\MysqlPDO(0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,6 +43,11 @@ $db = new \sql\MysqlPDO($level);
             'material_model',
         );
         $data = $db->get_link_select(PRODUCT, 'property', PROPERTY, 'id', $table_column);
+        if($data==null){
+            echo "<script>
+                    alert('没有相关数据！');
+                  </script>";
+        }
         ?>
     </table>
 </div>
