@@ -3,7 +3,7 @@ CREATE TABLE product (
   material_num      CHAR(50) UNIQUE KEY,
   material_name     CHAR(50),
   name              CHAR(50),
-  modle             CHAR(50),
+  model             CHAR(50),
   standard          CHAR(50),
   component_discern CHAR(20),
   component_num     CHAR(20),

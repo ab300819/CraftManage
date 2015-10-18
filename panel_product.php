@@ -1,14 +1,17 @@
 <?php
-$product_type = $_POST['product_type'];
-$craft_type = $_POST['craft_type'];
+require_once('sql/mysql.php');
+require_once('sql/operate.php');
+session_start();
+$user = $_SESSION['user'];
+$level = $_SESSION[$user];
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>产品信息</title>
+    <link href="./res/css/style.css" rel="stylesheet" type="text/css">
 </head>
-<link href="./res/css/style.css" rel="stylesheet" type="text/css">
 <body>
 <?php include("edit_menu.php") ?>
 <h2>添加产品</h2>

@@ -1,7 +1,3 @@
-<?php
-$product_type = $_POST['product_type'];
-$craft_type = $_POST['craft_type'];
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +6,11 @@ $craft_type = $_POST['craft_type'];
 </head>
 <link href="./res/css/style.css" rel="stylesheet" type="text/css">
 <body>
-<?php include("edit_menu.php") ?>
+<?php include("edit_menu.php");
+$material_num = $_POST['material_num'];
+$name = $_POST['name'];
+$model = $_POST['model'];
+?>
 <h2>添加产品</h2>
 
 <form action="data/action_product.php?action=add" method="post">
@@ -18,12 +18,12 @@ $craft_type = $_POST['craft_type'];
         <tr>
             <th>*工艺编号</th>
             <td><input type="text" name="craft_num" required="required"></td>
-            <th>*物料编码</th>
-            <td><input type="text" name="material_num" required="required"></td>
+            <th>物料编码</th>
+            <td><input type="text" name="material_num" value="<?php echo $material_num; ?>" readonly="readonly"></td>
             <th>生成批号</th>
             <td><input type="text" name="produce_num"></td>
-            <th>*版本号</th>
-            <td><input type="text" name="version" required="required"></td>
+            <th>型号</th>
+            <td><input type="text" name="version" value="<?php echo $model; ?>" readonly="readonly"></td>
         </tr>
         <tr>
             <th>生产型号</th>
@@ -31,13 +31,13 @@ $craft_type = $_POST['craft_type'];
             <th>*物料名称</th>
             <td><input type="text" name="material_name" required="required"></td>
             <th>*材料牌号</th>
-            <td><input type="text" name="material_model" required="required"></td>
+            <td><input type="text" name="material" required="required"></td>
             <th>*每台件数</th>
             <td><input type="text" name="per_num" required="required"></td>
         </tr>
         <tr>
             <th>*产品名称</th>
-            <td><input type="text" name="name" required="required"></td>
+            <td><input type="text" name="name" value="<?php echo $name; ?>" readonly="readonly"></td>
             <th>*规格型号</th>
             <td><input type="text" name="standard" required="required"></td>
             <th>*毛坯种类</th>

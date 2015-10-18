@@ -9,33 +9,38 @@ session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
 
-$db = new \sql\MysqlPDO(0);
+$db = new \sql\MysqlPDO($level);
 
 function add($db)
 {
-    $table = array(
-        'craft_num',
+    $table_1 = array(
         'material_num',
-        'produce_num',
-        'version',
-        'produce_model',
         'material_name',
-        'material_model',
-        'per_num',
+        'name',
+        'model',
         'standard',
-        'blank',
+        'component_discern',
         'component_num',
         'craft_line',
-        'component_discern',
-       'material_discern',
-        'heat'
+        'produce_model',
+        'craft_num',
+        'produce_num',
+        'type',
+        'craft_type'
     );
-    $data=array();
-
-    foreach ($table as $head){
+    $data=[];
+    foreach ($table_1 as $head){
         $data[$head]=$_POST[$head];
     }
 
+    $table_2=array(
+        'material_num',
+        'material',
+        'material_discern',
+        'blank',
+        'per_num',
+        'heat'
+    );
 
 }
 

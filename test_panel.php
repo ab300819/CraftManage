@@ -15,6 +15,9 @@ $_SESSION['admin'] = 0;
 
 <div align="center">
     <p>
+        产品：<a href="list_product.php">产品型录</a>
+    </p>
+    <p>
         冶金：<a href="panel_metallurgy.php">机加工工艺</a>
     </p>
 

@@ -35,7 +35,7 @@ $db = new \sql\MysqlPDO(0);
             <th>物料名称</th>
             <td><input type="text" name="material_name" required="required"></td>
             <th>材料牌号</th>
-            <td><input type="text" name="material_model" required="required"></td>
+            <td><input type="text" name="material" required="required"></td>
             <th>每台件数</th>
             <td><input type="text" name="per_num" required="required"></td>
         </tr>

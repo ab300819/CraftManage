@@ -63,23 +63,24 @@ class MysqlPDO
         return $list;
     }
 
-    public function get_link_select($table_1, $link_1, $table_2, $link_2, $head, $condition = null)
+    //TODO 进一步优化，临时使用
+    public function get_link_select($table_1, $link_1, $table_2, $link_2, $head_1, $head_2=null, $condition = null)
     {
-        $field = implode(',', $head);
+        $field_1 = 'one.'.implode(', one.', $head_1);
         if ($condition == null) {
-            $sql = "SELECT {$field}
+            $sql = "SELECT {$field_1}
                     FROM {$table_1} AS one,{$table_2} AS two
                     WHERE one.{$link_1}=two.{$link_2}";
             $result = self::$connect->query($sql);
-            $list = $result->fetch(\PDO::FETCH_ASSOC);
+            $list = $result->fetchAll();
+            return $list;
         } else {
-            $sql = "SELECT {$field}
+            $sql = "SELECT {$field_1}
                     FROM {$table_1} AS one,{$table_2} AS two
                     WHERE one.{$link_1}=two.{$link_2}
                     AND {$condition}";
             //TODO 需要添加查询结果的类型，目前未知，留待后面添加
         }
-        return $list;
     }
 
 
@@ -105,6 +106,10 @@ class MysqlPDO
         } else {
             return false;
         }
+    }
+
+    public function insert_two_data($table_1,$table_2){
+
     }
 
     /**

@@ -32,7 +32,7 @@ function key_value_table($table, $row)
  */
 function simple_table($head, $content = null)
 {
-    if ($content == null || count($head) != count($content)) {
+    if ($content == null ) {
         echo '<tr>';
         foreach ($head as $cell) {
             echo "<th>{$cell}</th>";
@@ -52,6 +52,7 @@ function simple_table($head, $content = null)
         echo '</tr>';
     }
 }
+
 
 /**
  * 将键值对转换为一维数组
@@ -87,6 +88,29 @@ function key_value($key, $value = null)
     } elseif (count($key) == count($value)) {
         for ($i = 0; $i < count($key); $i++) {
             $data[$key[$i]] = $value[$i];
+        }
+        return $data;
+    } else {
+        return null;
+    }
+}
+
+/**用于处理fetchAll()获得的数据，将其包装为多组键值对
+ * @param $key
+ * @param $value
+ * @return null
+ */
+function two_key_value($key, $value)
+{
+    $data = array();
+    $i = 0;
+    if (!empty($key) && !empty($value)) {
+        foreach ($value as $cell) {
+            foreach ($key as $head) {
+                $temp[$head] = $cell[$head];
+            }
+            $data[$i] = $temp;
+            $i++;
         }
         return $data;
     } else {
