@@ -47,7 +47,7 @@ class MysqlPDO
     /**单表查询，根据条件或查询全部
      * @param $table    表名
      * @param null $condition 条件
-     * @return mixed    返回数据
+     * @return mixed 返回数据
      */
     public function get_select($table, $condition = null)
     {
@@ -63,25 +63,37 @@ class MysqlPDO
         return $list;
     }
 
-    //TODO 进一步优化，临时使用
-    public function get_link_select($table_1, $link_1, $table_2, $link_2, $head_1, $head_2=null, $condition = null)
+    //TODO 关于$condition!=null函数没写
+    public function get_choice_select($table, $head, $condition = null)
     {
-        $field_1 = 'one.'.implode(', one.', $head_1);
+        $field = implode(',', $head);
         if ($condition == null) {
-            $sql = "SELECT {$field_1}
-                    FROM {$table_1} AS one,{$table_2} AS two
-                    WHERE one.{$link_1}=two.{$link_2}";
+            $sql = "SELECT {$field} from {$table}";
             $result = self::$connect->query($sql);
             $list = $result->fetchAll();
             return $list;
-        } else {
-            $sql = "SELECT {$field_1}
-                    FROM {$table_1} AS one,{$table_2} AS two
-                    WHERE one.{$link_1}=two.{$link_2}
-                    AND {$condition}";
-            //TODO 需要添加查询结果的类型，目前未知，留待后面添加
         }
     }
+
+//    //TODO 进一步优化，临时使用
+//    public function get_link_select($table_1, $link_1, $table_2, $link_2, $head_1, $head_2=null, $condition = null)
+//    {
+//        $field_1 = 'one.'.implode(', one.', $head_1);
+//        if ($condition == null) {
+//            $sql = "SELECT {$field_1}
+//                    FROM {$table_1} AS one,{$table_2} AS two
+//                    WHERE one.{$link_1}=two.{$link_2}";
+//            $result = self::$connect->query($sql);
+//            $list = $result->fetchAll();
+//            return $list;
+//        } else {
+//            $sql = "SELECT {$field_1}
+//                    FROM {$table_1} AS one,{$table_2} AS two
+//                    WHERE one.{$link_1}=two.{$link_2}
+//                    AND {$condition}";
+//            //TODO 需要添加查询结果的类型，目前未知，留待后面添加
+//        }
+//    }
 
 
     /**
@@ -108,10 +120,12 @@ class MysqlPDO
         }
     }
 
-    public function insert_two_data($table_1,$table_2){
+    public function insert_two_data($table_1, $table_2)
+    {
 
     }
 
+    //TODO 出问题，需要修复
     /**
      * @param $table 更新表名
      * @param $info  更新数据

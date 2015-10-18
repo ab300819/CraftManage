@@ -13,40 +13,90 @@ $db = new \sql\MysqlPDO($level);
 
 function add($db)
 {
-    $table_1 = array(
+    $table = array(
         'material_num',
         'material_name',
         'name',
         'model',
+        'num',
         'standard',
         'component_discern',
         'component_num',
+        'component_draw',
+        'assemble_draw',
         'craft_line',
         'produce_model',
         'craft_num',
         'produce_num',
-        'type',
-        'craft_type'
-    );
-    $data=[];
-    foreach ($table_1 as $head){
-        $data[$head]=$_POST[$head];
-    }
-
-    $table_2=array(
-        'material_num',
         'material',
         'material_discern',
         'blank',
         'per_num',
-        'heat'
+        'heat',
+        'craft_type'
     );
+    $data = [];
+    foreach ($table as $head) {
+        $data[$head] = $_POST[$head];
+    }
+    $sql = $db->insert_data(PRODUCT, $data);
+    $rw = $db->execute($sql);
+    if ($rw > 0) {
+        echo "<script>
+                    alert('添加成功！');
+                    window.location='../list_product.php';
+                 </script>";
+    } else {
+        echo "<script>
+                    alert('添加失败！');
+                    window.history.back();
+                 </script>";
+    }
+
 
 }
 
 function edit($db)
 {
-
+    $table = array(
+        'material_num',
+        'material_name',
+        'name',
+        'model',
+        'num',
+        'standard',
+        'component_discern',
+        'component_num',
+        'component_draw',
+        'assemble_draw',
+        'craft_line',
+        'produce_model',
+        'craft_num',
+        'produce_num',
+        'material',
+        'material_discern',
+        'blank',
+        'per_num',
+        'heat',
+        'craft_type'
+    );
+    $data = [];
+    foreach ($table as $head) {
+        $data[$head] = $_POST[$head];
+    }
+    $sql = $db->update_data(PRODUCT, $table, "material_num='{$data['material_num']}'");
+    echo $sql;
+    if ($db->execute($sql) > 0) {
+        echo "<script>
+                    alert('更新成功！');
+                    window.location='../list_product.php';
+                 </script>";
+    } else {
+        echo "<script>
+                    alert('更新失败！');
+                    window.history.back();
+                 </script>";
+    }
 }
 
 function del($db)

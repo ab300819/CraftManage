@@ -21,11 +21,11 @@ $db = new \sql\MysqlPDO($level);
     <link href="./res/css/style.css" rel="stylesheet" type="text/css">
     <script>
         function edit() {
-            line = document.getElementById("product").getElementsByTagName("tr");
-            for (i = 0; i < line.length - 2; i++) {
-                td = line[i + 1].getElementsByTagName("td")[0];
-                value = td.innerText;
-                td.innerHTML = "<a href='edit_product.php"'>" + value + "<a>";
+            var line = document.getElementById("product").getElementsByTagName("tr");
+            for (var i = 0; i < line.length - 2; i++) {
+                var td = line[i + 1].getElementsByTagName("td")[0];
+                var value = td.innerText;
+                td.innerHTML = "<a href=edit_product.php?material_num=" + value + ">" + value + "<a>";
             }
         }
     </script>
@@ -47,18 +47,19 @@ $db = new \sql\MysqlPDO($level);
                 'name',
                 'model'
             );
-            $data = $db->get_link_select(PRODUCT, 'property', PROPERTY, 'id', $key);
+            $data = $db->get_choice_select(PRODUCT, $key);
             if ($data == null) {
                 simple_table($head);
             } else {
-                simple_table($head, two_key_value($key, $data));
+                $temp = two_key_value($key, $data);
+                simple_table($head, $temp);
             }
             ?>
 
             <tr>
                 <td><input type="text" name="material_num" required="required"></td>
-                <td><input type="text" name="name"></td>
-                <td><input type="text" name="model"></td>
+                <td><input type="text" name="name" required="required"></td>
+                <td><input type="text" name="model" required="required"></td>
             </tr>
         </table>
         <input type="submit" value="提交">

@@ -60,7 +60,7 @@ function add($db)
 function delete($db)
 {
     $id = $_GET['id'];
-    $db->delete_data(MACHINE, "id='$id'");
+    $db->delete_data(MACHINE, "id={$id}");
     header("Location:../panel_machine.php");
 }
 
@@ -85,8 +85,8 @@ function edit($db)
     $data['prepare_time'] = $_POST['prepare_time'];
     $data['run_time'] = $_POST['run_time'];
     $data['version'] = $_POST['version'];
-    $sql = $db->update_data(MACHINE, $data, "id='$id'");
-
+    $sql = $db->update_data(MACHINE, $data, "id={$id}");
+    echo $sql;
     if ($db->execute($sql) > 0) {
         echo "<script>
                     alert('更新成功！');
