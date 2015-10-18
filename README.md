@@ -1,2 +1,3 @@
-# Craft Management System
-##This is a manage system based on B/S
+# 工艺管理系统（CAPP）
+##基于B/S架构的工艺管理系统
+<P></P>
