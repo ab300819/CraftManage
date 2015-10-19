@@ -27,8 +27,8 @@ $db = new \sql\MysqlPDO($level);
 </head>
 <body>
 <?php include("edit_menu.php");
-$material_num = $_GET['material_num'];
-$list = $db->get_select(PRODUCT, "material_num='$material_num'");
+$id = $_GET['id'];
+$list = $db->get_select(PRODUCT, "id={$id}");
 ?>
 <h2>修改产品信息</h2>
 

@@ -84,8 +84,7 @@ function edit($db)
     foreach ($table as $head) {
         $data[$head] = $_POST[$head];
     }
-    $sql = $db->update_data(PRODUCT, $table, "material_num='{$data['material_num']}'");
-    echo $sql;
+    $sql = $db->update_data(PRODUCT, $data, "material_num='{$data['material_num']}'");
     if ($db->execute($sql) > 0) {
         echo "<script>
                     alert('更新成功！');

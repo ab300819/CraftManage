@@ -127,45 +127,45 @@ function two_key_value($key, $value)
  * @param null $form form id
  */
 //TODO 有问题
-function generate_form($head, $name, $value = null, $form = null, $readonly = null)
-{
-    if (count($head) != count($name)) {
-        echo '<tr>';
-        echo '<th></th>>';
-        echo '<td></td>>';
-        echo '</tr>';
-    } elseif ($value == null) {
-        for ($i = 0; $i < count($head); $i++) {
-            echo '<tr>';
-            echo '<th>{$head[$i]}：</th>';
-            if (traverse($name, $area)) {
-                echo "<td></td>";
-            } else {
-                echo "<td><input type=\"text\" name=\"{$name[$i]}\"></td>";
-            }
-            echo '</tr>';
-        }
-    } else {
-        for ($j = 0; $j < count($head); $j++) {
-            echo '<tr>';
-            echo '</tr>';
-        }
-    }
-}
-
-function traverse($compare, $item)
-{
-
-    if ($item == null) {
-        return false;
-    } else {
-        foreach ($item as $son) {
-            if ($son == $compare) {
-                return true;
-            }
-        }
-    }
-
-}
+//function generate_form($head, $name, $value = null, $form = null, $readonly = null)
+//{
+//    if (count($head) != count($name)) {
+//        echo '<tr>';
+//        echo '<th></th>>';
+//        echo '<td></td>>';
+//        echo '</tr>';
+//    } elseif ($value == null) {
+//        for ($i = 0; $i < count($head); $i++) {
+//            echo '<tr>';
+//            echo '<th>{$head[$i]}：</th>';
+//            if (traverse($name, $area)) {
+//                echo "<td></td>";
+//            } else {
+//                echo "<td><input type=\"text\" name=\"{$name[$i]}\"></td>";
+//            }
+//            echo '</tr>';
+//        }
+//    } else {
+//        for ($j = 0; $j < count($head); $j++) {
+//            echo '<tr>';
+//            echo '</tr>';
+//        }
+//    }
+//}
+//
+//function traverse($compare, $item)
+//{
+//
+//    if ($item == null) {
+//        return false;
+//    } else {
+//        foreach ($item as $son) {
+//            if ($son == $compare) {
+//                return true;
+//            }
+//        }
+//    }
+//
+//}
 
 ?>
