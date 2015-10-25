@@ -131,6 +131,15 @@ $model = $_POST['model'];
             </td>
         </tr>
         <tr>
+            <th>产品类别</th>
+            <td>
+                <select name="belong" form="product" required="required">
+                    <option value="核电">核电</option>
+                    <option value="冶金">冶金</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
             <th>工艺类型</th>
             <td>
                 <select name="craft_type" form="product" required="required">

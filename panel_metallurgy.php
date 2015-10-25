@@ -42,7 +42,7 @@ $db = new \sql\MysqlPDO($level);
             'material_num',
             'material_model',
         );
-        $data = $db->get_link_select(PRODUCT, 'property', PROPERTY, 'id', $table_column);
+        $data = $db->get_choice_select(PRODUCT, $table_column);
         if($data==null){
             echo "<script>
                     alert('没有相关数据！');

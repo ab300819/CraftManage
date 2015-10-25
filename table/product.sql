@@ -19,6 +19,7 @@ CREATE TABLE product (
   blank             CHAR(20),
   per_num           INT,
   heat              CHAR(50),
+  belong            CHAR(30),
   craft_type        CHAR(20)
 
 )

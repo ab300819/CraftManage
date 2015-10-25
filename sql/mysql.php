@@ -63,7 +63,6 @@ class MysqlPDO
         return $list;
     }
 
-    //TODO 关于$condition!=null函数没写
     public function get_choice_select($table, $head, $condition = null)
     {
         $field = implode(',', $head);
@@ -71,8 +70,12 @@ class MysqlPDO
             $sql = "SELECT {$field} from {$table}";
             $result = self::$connect->query($sql);
             $list = $result->fetchAll();
-            return $list;
+        } else {
+            $sql = "SELECT {$field} FROM {$table} WHERE {$condition}";
+            $result = self::$connect->query($sql);
+            $list = $result->fetch(\PDO::FETCH_ASSOC);
         }
+        return $list;
     }
 
 //    //TODO 进一步优化，临时使用

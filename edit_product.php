@@ -151,6 +151,15 @@ $list = $db->get_select(PRODUCT, "id={$id}");
             </td>
         </tr>
         <tr>
+            <th>产品类别</th>
+            <td>
+                <select name="belong" form="product" required="required" id="belong">
+                    <option value="核电">核电</option>
+                    <option value="冶金">冶金</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
             <th>工艺类型</th>
             <td>
                 <select name="craft_type" form="product" required="required" id="type">
@@ -169,6 +178,7 @@ $list = $db->get_select(PRODUCT, "id={$id}");
     <input type="reset" value="重置">
 </form>
 <script>
+    selectValue('belong', '<?php echo $list['belong']?>');
     selectValue('type', '<?php echo $list['craft_type'] ?>');
 </script>
 </body>

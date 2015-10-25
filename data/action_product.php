@@ -33,6 +33,7 @@ function add($db)
         'blank',
         'per_num',
         'heat',
+        'belong',
         'craft_type'
     );
     $data = [];
@@ -41,6 +42,7 @@ function add($db)
     }
     $sql = $db->insert_data(PRODUCT, $data);
     $rw = $db->execute($sql);
+    echo $sql;
     if ($rw > 0) {
         echo "<script>
                     alert('添加成功！');
@@ -78,6 +80,7 @@ function edit($db)
         'blank',
         'per_num',
         'heat',
+        'belong',
         'craft_type'
     );
     $data = [];

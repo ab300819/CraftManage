@@ -41,9 +41,17 @@ $db = new \sql\MysqlPDO($level);
         }
 
         function addCraft(id) {
-            if (confirmDel("确定添加？")) {
+            if (confirm("确定添加？")) {
                 window.location = 'data/add_craft.php?id=' + id;
             }
+        }
+
+        function report(id) {
+            window.location = 'data/generate_report.php?id=' + id;
+        }
+
+        function scan(id) {
+            window.location = 'data/control_panel?id=' + id;
         }
     </script>
 </head>
@@ -105,6 +113,8 @@ $db = new \sql\MysqlPDO($level);
                         echo "<td>
                                 <a href='edit_product.php?id={$cell['id']}'>编辑</a>
                                 <a href='javascript:addCraft({$cell['id']})'>添加工艺</a>
+                                <a href='javascript:scan({$cell['id']})'>查看</a>
+                                <a href='javascript:report({$cell['id']})'>报表</a>
                                 <a href='javascript:doDel({$cell['id']})'>删除</a>
                               </td>";
                         echo "</tr>";
@@ -121,6 +131,7 @@ $db = new \sql\MysqlPDO($level);
         <input type="submit" value="提交">
         <input type="reset" value="重置">
         <input type="button" onclick="edit()" value="编辑">
+
     </form>
 </div>
 
