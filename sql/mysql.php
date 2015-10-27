@@ -46,7 +46,7 @@ class MysqlPDO
 
     /**单表查询，根据条件或查询全部
      * @param $table    表名
-     * @param null $condition 条件
+     * @param null $condition
      * @return mixed 返回数据
      */
     public function get_select($table, $condition = null)
@@ -54,13 +54,34 @@ class MysqlPDO
         if ($condition == null) {
             $sql = "SELECT * from {$table}";
             $result = self::$connect->query($sql);
-            $list = $result->fetchAll();
+            if ($result != null) {
+                $list = $result->fetchAll();
+                return $list;
+            } else {
+                return null;
+            }
         } else {
             $sql = "SELECT * from {$table} WHERE {$condition}";
             $result = self::$connect->query($sql);
-            $list = $result->fetch(\PDO::FETCH_ASSOC);
+            if ($result != null) {
+                $list = $result->fetch(\PDO::FETCH_ASSOC);
+                return $list;
+            } else {
+                return null;
+            }
         }
-        return $list;
+    }
+
+    public function get_craft_select($table, $condition)
+    {
+        $sql = "SELECT * FROM {$table} WHERE {$condition}";
+        $result = self::$connect->query($sql);
+        if ($result != null) {
+            $list = $result->fetchAll();
+            return $list;
+        } else {
+            return null;
+        }
     }
 
     public function get_choice_select($table, $head, $condition = null)
@@ -69,13 +90,22 @@ class MysqlPDO
         if ($condition == null) {
             $sql = "SELECT {$field} from {$table}";
             $result = self::$connect->query($sql);
-            $list = $result->fetchAll();
+            if ($result != null) {
+                $list = $result->fetchAll();
+                return $list;
+            } else {
+                return null;
+            }
         } else {
             $sql = "SELECT {$field} FROM {$table} WHERE {$condition}";
             $result = self::$connect->query($sql);
-            $list = $result->fetch(\PDO::FETCH_ASSOC);
+            if ($result != null) {
+                $list = $result->fetch(\PDO::FETCH_ASSOC);
+                return $list;
+            } else {
+                return null;
+            }
         }
-        return $list;
     }
 
 //    //TODO 进一步优化，临时使用
@@ -128,7 +158,6 @@ class MysqlPDO
 
     }
 
-    //TODO 出问题，需要修复
     /**
      * @param $table 更新表名
      * @param $info  更新数据

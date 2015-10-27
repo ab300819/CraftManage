@@ -84,8 +84,11 @@ $db = new \sql\MysqlPDO($level);
 
             <tr>
                 <th>物料编码</th>
+                <th>工艺编号</th>
                 <th>产品名称</th>
                 <th>产品型号</th>
+                <th>产品类别</th>
+                <th>工艺类型</th>
                 <th>编辑</th>
             </tr>
             <tr>
@@ -93,11 +96,17 @@ $db = new \sql\MysqlPDO($level);
                 $key = array(
                     'id',
                     'material_num',
+                    'craft_num',
                     'name',
-                    'model'
+                    'model',
+                    'belong',
+                    'craft_type'
                 );
                 $data = $db->get_choice_select(PRODUCT, $key);
                 if ($data == null) {
+                    echo "<td>&nbsp;</td>";
+                    echo "<td>&nbsp;</td>";
+                    echo "<td>&nbsp;</td>";
                     echo "<td>&nbsp;</td>";
                     echo "<td>&nbsp;</td>";
                     echo "<td>&nbsp;</td>";
@@ -123,9 +132,12 @@ $db = new \sql\MysqlPDO($level);
                 ?>
             <tr>
                 <td><input type="text" name="material_num" required="required"></td>
-                <td><input type="text" name="name" required="required"></td>
-                <td><input type="text" name="model" required="required"></td>
-                <td></td>
+                <td><input type="text" name="craft_num" required="required"></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
         </table>
         <input type="submit" value="提交">

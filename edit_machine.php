@@ -16,6 +16,7 @@ $db = new \sql\MysqlPDO($level);
 <?php
 include("edit_menu.php");
 $id = $_GET['id'];
+$product = $_GET['product'];
 $list = $db->get_select(MACHINE, "id='$id'");
 
 ?>
@@ -23,6 +24,7 @@ $list = $db->get_select(MACHINE, "id='$id'");
 
 <form action="data/action_machine.php?action=edit" method="post" id="machine">
     <input type="hidden" name="id" value="<?php echo $list['id']; ?>">
+    <input type="hidden" name="product_id" value="<?php echo $product; ?>">
     <table>
         <tr>
             <th>工艺编号</th>

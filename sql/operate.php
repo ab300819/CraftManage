@@ -103,7 +103,7 @@ function key_value($key, $value = null)
  */
 function two_key_value($key, $value)
 {
-    $data = array();
+    $data = [];
     $i = 0;
     if (!empty($key) && !empty($value)) {
         foreach ($value as $cell) {

@@ -7,7 +7,7 @@ CREATE TABLE metallurgy_machine (
   name         CHAR(20),
   content      CHAR(50),
   prepare      CHAR(30),
-  run      CHAR(30),
+  run          CHAR(30),
   version      INT
 )
   ENGINE = InnoDB;

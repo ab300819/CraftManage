@@ -8,8 +8,7 @@
 <body>
 <?php include("edit_menu.php");
 $material_num = $_POST['material_num'];
-$name = $_POST['name'];
-$model = $_POST['model'];
+$craft_num = $_POST['craft_num'];
 ?>
 <h2>添加产品</h2>
 
@@ -30,13 +29,13 @@ $model = $_POST['model'];
         <tr>
             <th>产品名称</th>
             <td>
-                <input type="text" name="name" value="<?php echo $name; ?>" readonly="readonly">
+                <input type="text" name="name">
             </td>
         </tr>
         <tr>
             <th>产品型号</th>
             <td>
-                <input type="text" name="model" value="<?php echo $model; ?>" readonly="readonly">
+                <input type="text" name="model">
             </td>
         </tr>
         <tr>
@@ -91,7 +90,7 @@ $model = $_POST['model'];
         <tr>
             <th>工艺编号</th>
             <td>
-                <input type="text" name="craft_num">
+                <input type="text" name="craft_num" value="<?php echo $craft_num; ?>" readonly="readonly">
             </td>
         </tr>
         <tr>

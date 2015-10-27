@@ -14,29 +14,31 @@ session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
 
-//TODO 测试完改回$level
-$db = new \sql\MysqlPDO(0);
+$db = new \sql\MysqlPDO($level);
 
 function add($db)
 {
-    $table=array(
+    $product_id = $_POST['product_id'];
+    $table = array(
+        'material_num',
+        'craft_num',
         'step_num',
         'name',
         'content',
         'prepare',
         'run',
         'version'
-        );
-    $data=array();
-    foreach($table as $head){
-        $data[$head]=$_POST[$head];
+    );
+    $data = array();
+    foreach ($table as $head) {
+        $data[$head] = $_POST[$head];
     }
     $sql = $db->insert_data(METALLURGY, $data);
     $rw = $db->execute($sql);
     if ($rw > 0) {
         echo "<script>
                     alert('添加成功！');
-                    window.location='../panel_metallurgy.php';
+                    window.location='../panel_metallurgy.php?id='+'{$product_id}';
                  </script>";
     } else {
         echo "<script>
@@ -48,8 +50,9 @@ function add($db)
 
 function edit($db)
 {
-    $id=$_POST['id'];
-    $table=array(
+    $id = $_POST['id'];
+    $product_id = $_POST['product_id'];
+    $table = array(
         'step_num',
         'name',
         'content',
@@ -57,16 +60,16 @@ function edit($db)
         'run',
         'version'
     );
-    $data=array();
-    foreach($table as $head){
-        $data[$head]=$_POST[$head];
+    $data = array();
+    foreach ($table as $head) {
+        $data[$head] = $_POST[$head];
     }
     $sql = $db->update_data(METALLURGY, $data, "id='$id'");
 
     if ($db->execute($sql) > 0) {
         echo "<script>
                     alert('更新成功！');
-                    window.location='../panel_machine.php';
+                    window.location='../panel_metallurgy.php?id='+'{$product_id}';
                  </script>";
     } else {
         echo "<script>
@@ -79,8 +82,9 @@ function edit($db)
 function del($db)
 {
     $id = $_GET['id'];
+    $product_id = $_GET['product'];
     $db->delete_data(METALLURGY, "id='$id'");
-    header("Location:../panel_machine.php");
+    header("Location:../panel_metallurgy.php?id={$product_id}");
 }
 
 switch ($_GET['action']) {
