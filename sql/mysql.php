@@ -46,41 +46,87 @@ class MysqlPDO
 
     /**单表查询，根据条件或查询全部
      * @param $table    表名
-     * @param null $condition 条件
-     * @return mixed    返回数据
+     * @param null $condition
+     * @return mixed 返回数据
      */
     public function get_select($table, $condition = null)
     {
         if ($condition == null) {
             $sql = "SELECT * from {$table}";
             $result = self::$connect->query($sql);
-            $list = $result->fetchAll();
+            if ($result != null) {
+                $list = $result->fetchAll();
+                return $list;
+            } else {
+                return null;
+            }
         } else {
             $sql = "SELECT * from {$table} WHERE {$condition}";
             $result = self::$connect->query($sql);
-            $list = $result->fetch(\PDO::FETCH_ASSOC);
+            if ($result != null) {
+                $list = $result->fetch(\PDO::FETCH_ASSOC);
+                return $list;
+            } else {
+                return null;
+            }
         }
-        return $list;
     }
 
-    public function get_link_select($table_1, $link_1, $table_2, $link_2, $head, $condition = null)
+    public function get_craft_select($table, $condition)
+    {
+        $sql = "SELECT * FROM {$table} WHERE {$condition}";
+        $result = self::$connect->query($sql);
+        if ($result != null) {
+            $list = $result->fetchAll();
+            return $list;
+        } else {
+            return null;
+        }
+    }
+
+    public function get_choice_select($table, $head, $condition = null)
     {
         $field = implode(',', $head);
         if ($condition == null) {
-            $sql = "SELECT {$field}
-                    FROM {$table_1} AS one,{$table_2} AS two
-                    WHERE one.{$link_1}=two.{$link_2}";
+            $sql = "SELECT {$field} from {$table}";
             $result = self::$connect->query($sql);
-            $list = $result->fetch(\PDO::FETCH_ASSOC);
+            if ($result != null) {
+                $list = $result->fetchAll();
+                return $list;
+            } else {
+                return null;
+            }
         } else {
-            $sql = "SELECT {$field}
-                    FROM {$table_1} AS one,{$table_2} AS two
-                    WHERE one.{$link_1}=two.{$link_2}
-                    AND {$condition}";
-            //TODO 需要添加查询结果的类型，目前未知，留待后面添加
+            $sql = "SELECT {$field} FROM {$table} WHERE {$condition}";
+            $result = self::$connect->query($sql);
+            if ($result != null) {
+                $list = $result->fetch(\PDO::FETCH_ASSOC);
+                return $list;
+            } else {
+                return null;
+            }
         }
-        return $list;
     }
+
+//    //TODO 进一步优化，临时使用
+//    public function get_link_select($table_1, $link_1, $table_2, $link_2, $head_1, $head_2=null, $condition = null)
+//    {
+//        $field_1 = 'one.'.implode(', one.', $head_1);
+//        if ($condition == null) {
+//            $sql = "SELECT {$field_1}
+//                    FROM {$table_1} AS one,{$table_2} AS two
+//                    WHERE one.{$link_1}=two.{$link_2}";
+//            $result = self::$connect->query($sql);
+//            $list = $result->fetchAll();
+//            return $list;
+//        } else {
+//            $sql = "SELECT {$field_1}
+//                    FROM {$table_1} AS one,{$table_2} AS two
+//                    WHERE one.{$link_1}=two.{$link_2}
+//                    AND {$condition}";
+//            //TODO 需要添加查询结果的类型，目前未知，留待后面添加
+//        }
+//    }
 
 
     /**
@@ -105,6 +151,11 @@ class MysqlPDO
         } else {
             return false;
         }
+    }
+
+    public function insert_two_data($table_1, $table_2)
+    {
+
     }
 
     /**

@@ -32,7 +32,7 @@ function key_value_table($table, $row)
  */
 function simple_table($head, $content = null)
 {
-    if ($content == null || count($head) != count($content)) {
+    if ($content == null) {
         echo '<tr>';
         foreach ($head as $cell) {
             echo "<th>{$cell}</th>";
@@ -43,15 +43,17 @@ function simple_table($head, $content = null)
         foreach ($head as $cell) {
             echo "<th>{$cell}</th>";
         }
-        echo '</tr><tr>';
+        echo '</tr>';
         foreach ($content as $list) {
+            echo '<tr>';
             foreach ($list as $key => $value) {
                 echo "<td>{$value}</td>";
             }
+            echo '</tr>';
         }
-        echo '</tr>';
     }
 }
+
 
 /**
  * 将键值对转换为一维数组
@@ -94,54 +96,76 @@ function key_value($key, $value = null)
     }
 }
 
+/**用于处理fetchAll()获得的数据，将其包装为多组键值对
+ * @param $key
+ * @param $value
+ * @return null
+ */
+function two_key_value($key, $value)
+{
+    $data = [];
+    $i = 0;
+    if (!empty($key) && !empty($value)) {
+        foreach ($value as $cell) {
+            foreach ($key as $head) {
+                $temp[$head] = $cell[$head];
+            }
+            $data[$i] = $temp;
+            $i++;
+        }
+        return $data;
+    } else {
+        return null;
+    }
+}
+
 /**
  * @param $head 表单头部信息
  * @param $name input的name
  * @param null $value input的值
  * @param null $readonly 只读属性的input组
- * @param null $area 设置需要textarea的input
  * @param null $form form id
  */
 //TODO 有问题
-function generate_form($head, $name, $value = null, $readonly = null, $area = null, $form = null)
-{
-    if (count($head) != count($name)) {
-        echo '<tr>';
-        echo '<th></th>>';
-        echo '<td></td>>';
-        echo '</tr>';
-    } elseif ($value == null) {
-        for ($i = 0; $i < count($head); $i++) {
-            echo '<tr>';
-            echo '<th>{$head[$i}：</th>';
-            if (traverse($name, $area)) {
-                echo "<td></td>";
-            } else {
-                echo "<td><input type=\"text\" name=\"{$name[$i]}\"></td>";
-            }
-            echo '</tr>';
-        }
-    } else {
-        for ($j = 0; $j < count($head); $j++) {
-            echo '<tr>';
-            echo '</tr>';
-        }
-    }
-}
-
-function traverse($compare, $item)
-{
-
-    if ($item == null) {
-        return false;
-    } else {
-        foreach ($item as $son) {
-            if ($son == $compare) {
-                return true;
-            }
-        }
-    }
-
-}
+//function generate_form($head, $name, $value = null, $form = null, $readonly = null)
+//{
+//    if (count($head) != count($name)) {
+//        echo '<tr>';
+//        echo '<th></th>>';
+//        echo '<td></td>>';
+//        echo '</tr>';
+//    } elseif ($value == null) {
+//        for ($i = 0; $i < count($head); $i++) {
+//            echo '<tr>';
+//            echo '<th>{$head[$i]}：</th>';
+//            if (traverse($name, $area)) {
+//                echo "<td></td>";
+//            } else {
+//                echo "<td><input type=\"text\" name=\"{$name[$i]}\"></td>";
+//            }
+//            echo '</tr>';
+//        }
+//    } else {
+//        for ($j = 0; $j < count($head); $j++) {
+//            echo '<tr>';
+//            echo '</tr>';
+//        }
+//    }
+//}
+//
+//function traverse($compare, $item)
+//{
+//
+//    if ($item == null) {
+//        return false;
+//    } else {
+//        foreach ($item as $son) {
+//            if ($son == $compare) {
+//                return true;
+//            }
+//        }
+//    }
+//
+//}
 
 ?>

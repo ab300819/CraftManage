@@ -16,6 +16,7 @@ $db = new \sql\MysqlPDO($level);
  */
 function add($db)
 {
+    $product_id = $_POST['product_id'];
     $table = array(
         'craft_num',
         'material_num',
@@ -44,7 +45,7 @@ function add($db)
     if ($rw > 0) {
         echo "<script>
                     alert('添加成功！');
-                    window.location='../panel_machine.php';
+                    window.location='../panel_machine.php?id='+'{$product_id}';
                  </script>";
     } else {
         echo "<script>
@@ -60,8 +61,9 @@ function add($db)
 function delete($db)
 {
     $id = $_GET['id'];
-    $db->delete_data(MACHINE, "id='$id'");
-    header("Location:../panel_machine.php");
+    $product_id = $_GET['product'];
+    $db->delete_data(MACHINE, "id={$id}");
+    header("Location:../panel_machine.php?id={$product_id}");
 }
 
 /**
@@ -70,6 +72,7 @@ function delete($db)
 function edit($db)
 {
     $id = $_POST['id'];
+    $product_id = $_POST['product_id'];
     $data['craft_num'] = $_POST['craft_num'];
     $data['material_num'] = $_POST['material_num'];
     $data['step_num'] = $_POST['step_num'];
@@ -85,12 +88,11 @@ function edit($db)
     $data['prepare_time'] = $_POST['prepare_time'];
     $data['run_time'] = $_POST['run_time'];
     $data['version'] = $_POST['version'];
-    $sql = $db->update_data(MACHINE, $data, "id='$id'");
-
+    $sql = $db->update_data(MACHINE, $data, "id={$id}");
     if ($db->execute($sql) > 0) {
         echo "<script>
                     alert('更新成功！');
-                    window.location='../panel_machine.php';
+                    window.location='../panel_machine.php?id={$product_id}';
                  </script>";
     } else {
         echo "<script>
