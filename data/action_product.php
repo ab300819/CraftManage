@@ -42,7 +42,6 @@ function add($db)
     }
     $sql = $db->insert_data(PRODUCT, $data);
     $rw = $db->execute($sql);
-    echo $sql;
     if ($rw > 0) {
         echo "<script>
                     alert('添加成功！');

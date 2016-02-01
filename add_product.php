@@ -29,13 +29,28 @@ $craft_num = $_POST['craft_num'];
         <tr>
             <th>产品名称</th>
             <td>
-                <input type="text" name="name">
+<!--                <input type="text" name="name">-->
+                <input type="text" list="name" name="name">
+                <datalist id="name">
+                    <option value="阀芯">阀芯</option>
+                    <option value="阀座">阀座</option>
+                    <option value="阀体">阀体</option>
+                    <option value="底座">底座</option>
+                </datalist>
             </td>
         </tr>
         <tr>
             <th>产品型号</th>
             <td>
-                <input type="text" name="model">
+<!--                <input type="text" name="model">-->
+                <input type="text" list="model" name="model">
+                <datalist id="model">
+                    <option value="A-12-34">A-12-34</option>
+                    <option value="B-12-34">B-12-34</option>
+                    <option value="C-12-34">C-12-34</option>
+                    <option value="D-12-34">D-12-34</option>
+                    <option value="E-12-34">E-12-34</option>
+                </datalist>
             </td>
         </tr>
         <tr>

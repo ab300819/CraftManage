@@ -22,10 +22,10 @@ $list = $db->get_select(MACHINE, "id='$id'");
 ?>
 <h2>修改工艺</h2>
 
-<form action="data/action_machine.php?action=edit" method="post" id="machine">
+<form action="data/action_machine.php?action=edit" method="post" id="machine" >
     <input type="hidden" name="id" value="<?php echo $list['id']; ?>">
     <input type="hidden" name="product_id" value="<?php echo $product; ?>">
-    <table>
+    <table align="center">
         <tr>
             <th>工艺编号</th>
             <td><input type="text" name="craft_num" value="<?php echo $list['craft_num']; ?>" readonly="readonly"></td>
