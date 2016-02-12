@@ -1,6 +1,6 @@
 <?php
-require_once('sql/mysql.php');
-require_once('sql/operate.php');
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/operate.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
@@ -20,18 +20,20 @@ $data = $db->get_choice_select(PRODUCT, $info, "id={$product_id}");
 </head>
 <link rel="stylesheet" type="text/css" href="/res/css/style.css">
 <body>
-<?php include("edit_menu.php"); ?>
+
+<?php //include("edit_menu.php"); ?>
+
 <h2>增加机加工工艺</h2>
 
 <div>
-    <form action="data/action_machine.php?action=add" method="post" id="machine">
+    <form action="../data/action_machine.php?action=add" method="post" id="machine">
         <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
         <input type="hidden" name="material_num" value="<?php echo $data['material_num']; ?>">
         <input type="hidden" name="craft_num" value="<?php echo $data['craft_num']; ?>">
         <table align="center">
             <tr>
                 <th>工序号</th>
-                <td><input type="text" name="step_num"/></td>
+                <td><input type="number" placeholder="工序号为数字" min="5" name="step_num"/></td>
             </tr>
             <tr>
                 <th>车间</th>
@@ -79,7 +81,7 @@ $data = $db->get_choice_select(PRODUCT, $info, "id={$product_id}");
             </tr>
             <tr>
                 <th>版本号</th>
-                <td><input type="text" name="version"/></td>
+                <td><input type="number" placeholder="版本号为数字" min="1" name="version"/></td>
             </tr>
             <tr>
                 <th>&nbsp;</th>

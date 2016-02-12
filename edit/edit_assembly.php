@@ -6,7 +6,7 @@
  * Time: 15:29
  * 装配
  */
-require_once('sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
@@ -17,7 +17,7 @@ $db = new \sql\MysqlPDO(0);
 <head>
     <meta charset="UTF-8">
     <title>装配工艺编辑</title>
-    <link rel="stylesheet" type="text/css" href="res/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/style.css">
 </head>
 <body>
 <?php
@@ -28,7 +28,7 @@ $list = $data[0];
 ?>
 <h2>修改工艺</h2>
 
-<form action="data/action_assembly.php?action=edit" method="post" id="assembly">
+<form action="../data/action_assembly.php?action=edit" method="post" id="assembly">
     <input type="hidden" name="id" value="">
     <table align="center">
         <tr>

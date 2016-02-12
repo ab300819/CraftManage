@@ -10,13 +10,13 @@ $level = $_SESSION[$user];
 <head>
     <meta charset="UTF-8">
     <title>产品信息</title>
-    <link href="./res/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../res/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <?php include("edit_menu.php") ?>
 <h2>添加产品</h2>
 
-<form action="data/action_product.php?action=add" method="post">
+<form action="../data/action_product.php?action=add" method="post">
     <table width="100%">
         <tr>
             <th>*工艺编号</th>

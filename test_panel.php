@@ -18,31 +18,31 @@ $_SESSION['admin'] = 0;
         产品：<a href="list_product.php">产品型录</a>
     </p>
     <p>
-        冶金：<a href="panel_metallurgy.php">机加工工艺</a>
+        冶金：<a href="panel/panel_metallurgy.php">机加工工艺</a>
     </p>
 
     <p>
-        核电：<a href="panel_machine.php">机加工工艺</a>
+        核电：<a href="panel/panel_machine.php">机加工工艺</a>
     </p>
 
     <p>
-        核电：<a href="panel_foundry.php">铸造</a>
+        核电：<a href="panel/panel_foundry.php">铸造</a>
     </p>
 
     <p>
-        核电：<a href="panel_welding.php">焊接</a>
+        核电：<a href="panel/panel_welding.php">焊接</a>
     </p>
 
     <p>
-        核电：<a href="panel_forging.php">锻造</a>
+        核电：<a href="panel/panel_forging.php">锻造</a>
     </p>
 
     <p>
-        核电：<a href="panel_heat.php">热处理</a>
+        核电：<a href="panel/panel_heat.php">热处理</a>
     </p>
 
     <p>
-        核电：<a href="panel_assembly.php">装配</a>
+        核电：<a href="panel/panel_assembly.php">装配</a>
     </p>
 </div>
 </body>

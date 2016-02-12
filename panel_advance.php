@@ -11,7 +11,7 @@ $level = $_SESSION[$user];
     <meta charset="UTF-8">
     <title>工艺管理系统</title>
 </head>
-<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+<link rel="stylesheet" type="text/css" href="res/css/style.css">
 
 <body>
 <h1>工艺管理系统(build)</h1>
@@ -21,7 +21,7 @@ $level = $_SESSION[$user];
 <p></p>
 
 <div style="width: 100%;text-align: center">
-    <form action="add_product.php" method="post">
+    <form action="add/add_product.php" method="post">
 
         <table align="center">
             <tr>

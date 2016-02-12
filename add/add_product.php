@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <title>产品信息</title>
 </head>
-<link href="./res/css/style.css" rel="stylesheet" type="text/css">
+<link href="../res/css/style.css" rel="stylesheet" type="text/css">
 <body>
-<?php include("edit_menu.php");
+<?php
+
+//include("edit_menu.php");
 $material_num = $_POST['material_num'];
 $craft_num = $_POST['craft_num'];
+
 ?>
 <h2>添加产品</h2>
 
-<form action="data/action_product.php?action=add" method="post" id="product">
+<form action="../data/action_product.php?action=add" method="post" id="product">
     <table width="100%">
         <tr>
             <th>物料编码</th>
@@ -135,7 +138,7 @@ $craft_num = $_POST['craft_num'];
         <tr>
             <th>每台件数</th>
             <td>
-                <input type="text" name="per_num">
+                <input type="number" min="1" name="per_num">
             </td>
         </tr>
         <tr>

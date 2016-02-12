@@ -108,27 +108,6 @@ class MysqlPDO
         }
     }
 
-//    //TODO 进一步优化，临时使用
-//    public function get_link_select($table_1, $link_1, $table_2, $link_2, $head_1, $head_2=null, $condition = null)
-//    {
-//        $field_1 = 'one.'.implode(', one.', $head_1);
-//        if ($condition == null) {
-//            $sql = "SELECT {$field_1}
-//                    FROM {$table_1} AS one,{$table_2} AS two
-//                    WHERE one.{$link_1}=two.{$link_2}";
-//            $result = self::$connect->query($sql);
-//            $list = $result->fetchAll();
-//            return $list;
-//        } else {
-//            $sql = "SELECT {$field_1}
-//                    FROM {$table_1} AS one,{$table_2} AS two
-//                    WHERE one.{$link_1}=two.{$link_2}
-//                    AND {$condition}";
-//            //TODO 需要添加查询结果的类型，目前未知，留待后面添加
-//        }
-//    }
-
-
     /**
      * @param $table 插入表名
      * @param $info 插入数据
@@ -164,7 +143,7 @@ class MysqlPDO
      * @param $condition  更新位置
      * @return bool|string  传入数据正确返回SQL数据，否则返回false
      */
-    public function update_data($table, $info, $condition)
+    public function updateData($table, $info, $condition)
     {
 
         $i = 0;
@@ -186,7 +165,7 @@ class MysqlPDO
         }
     }
 
-    public function delete_data($table, $condition)
+    public function delData($table, $condition)
     {
         $sql = "DELETE FROM {$table} WHERE {$condition}";
         return self::execute($sql);
@@ -195,11 +174,6 @@ class MysqlPDO
     public function execute($sql)
     {
         return self::$connect->exec($sql);
-    }
-
-    public function free()
-    {
-        self::$connect = null;
     }
 }
 

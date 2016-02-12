@@ -6,7 +6,7 @@
  * Time: 15:41
  * 冶金
  */
-require_once('sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
@@ -17,7 +17,7 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link href="./res/css/style.css" rel="stylesheet" type="text/css">
+    <link href="res/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <?php

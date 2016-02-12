@@ -12,14 +12,17 @@ if (!empty($username) && !empty($password)) {
     if ($list['password'] != $password) {
         echo "<script>
                   alert('密码错误！');
-                  window.location='index_temp.html';
+                  window.location='index.html';
           </script>";
     } elseif ($list['level'] == 3) {
         $_SESSION[$username] = $list['level'];
         $_SESSION['user'] = $list['username'];
         header("Location:select.php");
 
-    } else {
+    }elseif($username=='admin'){
+        echo "<script>window.location='admin/manage_panel.php'</script>";
+    }
+    else {
         $_SESSION[$username] = $list['level'];
         $_SESSION['user'] = $list['username'];
         header("Location:list_product.php");
@@ -29,7 +32,7 @@ if (!empty($username) && !empty($password)) {
 } else {
     echo "<script>
                   alert('用户名或密码不为空！');
-                  window.location='index_temp.html';
+                  window.location='index.html';
           </script>";
 }
 

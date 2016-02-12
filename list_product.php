@@ -60,7 +60,7 @@ $db = new \sql\MysqlPDO($level);
 <a href="test_panel.php">首页</a>
 
 <div align="center">
-    <form action="add_product.php" method="post">
+    <form action="add/add_product.php" method="post">
         <table align="center" id="product">
             <!--            --><?php
             //            $head = array(
@@ -120,7 +120,7 @@ $db = new \sql\MysqlPDO($level);
                             }
                         }
                         echo "<td>
-                                <a href='edit_product.php?id={$cell['id']}'>编辑</a>
+                                <a href='edit/edit_product.php?id={$cell['id']}'>编辑</a>
                                 <a href='javascript:addCraft({$cell['id']})'>添加工艺</a>
                                 <a href='javascript:scan({$cell['id']})'>查看</a>
                                 <a href='javascript:report({$cell['id']})'>报表</a>

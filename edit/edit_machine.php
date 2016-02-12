@@ -1,5 +1,5 @@
 <?php
-require_once('sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
@@ -10,7 +10,7 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>工艺修改</title>
-    <link rel="stylesheet" type="text/css" href="res/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/style.css">
 </head>
 <body>
 <?php
@@ -22,7 +22,7 @@ $list = $db->get_select(MACHINE, "id='$id'");
 ?>
 <h2>修改工艺</h2>
 
-<form action="data/action_machine.php?action=edit" method="post" id="machine" >
+<form action="../data/action_machine.php?action=edit" method="post" id="machine" >
     <input type="hidden" name="id" value="<?php echo $list['id']; ?>">
     <input type="hidden" name="product_id" value="<?php echo $product; ?>">
     <table align="center">

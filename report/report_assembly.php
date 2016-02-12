@@ -6,9 +6,10 @@
  * Time: 12:06
  * 装配
  */
-require_once(dirname(__FILE__) . '/../sql/mysql.php');
-require_once(dirname(__FILE__) . '/../sql/table_config.php');
-require_once(dirname(__FILE__) . '/../sql/operate.php');
+$root = dirname(__FILE__);
+require_once($root . '/../sql/mysql.php');
+require_once($root . '/../sql/table_config.php');
+require_once($root . '/../sql/operate.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];

@@ -6,18 +6,20 @@
  * Time: 13:11
  * 添加装配
  */
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/operate.php');
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>添加装配工艺</title>
-    <link href="res/css/style.css" type="text/css" rel="stylesheet">
+    <link href="../res/css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <h2>增加机加工工艺</h2>
 
-<form action="data/action_assembly.php?action=add" method="post" id="assembly">
+<form action="../data/action_assembly.php?action=add" method="post" id="assembly">
     <table align="center">
         <tr>
             <th>工序</th>
