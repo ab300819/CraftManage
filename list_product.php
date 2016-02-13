@@ -19,7 +19,7 @@ $db = new \sql\MysqlPDO($level);
     <meta charset="UTF-8">
     <title>产品列表</title>
     <link href="./res/css/style.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="res/js/jquery.js"></script>
+    <script type="text/javascript" src="res/js/jquery-2.2.0.min.js"></script>
     <script>
         function addCol() {
             $col = $("<td>删除</td>");

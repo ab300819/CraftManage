@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <head>
-<meta charset="utf-8">
-<title>登陆</title>
-<meta name="description" content="slick Login">
-<meta name="author" content="Webdesigntuts+">
-<link rel="stylesheet" type="text/css" href="res/css/login.css" />
-<script type="text/javascript" src="/res/js/jquery-2.2.0.min.js"></script>
-<script src="/res/js/modernizr-custom.js"></script>
-<script type="text/javascript" src="/res/js/placeholder.js"></script>
+    <meta charset="utf-8">
+    <title>登陆</title>
+    <meta name="description" content="slick Login">
+    <meta name="author" content="Webdesigntuts+">
+    <link rel="stylesheet" type="text/css" href="res/css/login.css"/>
+    <script type="text/javascript" src="/res/js/jquery-2.2.0.min.js"></script>
+    <script src="/res/js/modernizr-custom.js"></script>
+    <script type="text/javascript" src="/res/js/placeholder.js"></script>
 </head>
 <body>
-<form id="slick-login" action="login.php" method="post">
-<label for="username">username</label><input type="text" name="username" class="placeholder" placeholder="用户名">
-<label for="password">password</label><input type="password" name="password" class="placeholder" placeholder="密码">
-<input type="submit" value="Log In">
+<form id="slick-login" action="login.php" method="post" onsubmit="checkForm()">
+    <label for="username">username</label><input type="text" name="username" class="placeholder" placeholder="用户名">
+    <label for="password">password</label><input type="password" id="input-password" class="placeholder" placeholder="密码">
+    <input type="hidden" id="md5_password" name="password">
+    <input type="submit" value="登陆">
 </form>
+<script>
+    function checkForm() {
+        var input_pwd = document.getElementById('input-password');
+        var md5_pwd = document.getElementById('md5-password');
+        // 把用户输入的明文变为MD5:
+        md5_pwd.value = toMD5(input_pwd.value);
+        // 继续下一步:
+        return true;
+    }
+</script>
 </body>
 </html>

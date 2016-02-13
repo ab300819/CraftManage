@@ -22,20 +22,61 @@ if ($user != 'admin') {
             addUser($db);
             break;
         case 'del':
-            delete($db);
+            deluser($db);
             break;
     }
 
 }
 
-function addUser($da)
+function addUser($db)
 {
+    $username = $_POST['username'];
+    $table['username'] = $username;
+    $table['password'] = $_POST['password'];
+    $table['level'] = $_POST['level'];
+
+    $result = $db->get_select(USER, "username='{$username}'");
+    if ($result == null) {
+        $sql = $db->insert_data(USER, $table);
+    } elseif ($result['username'] == 'admin') {
+        $table['level'] = 0;
+        $sql = $db->updateData(USER, $table, "id={$result['id']}");
+    } else {
+        $sql = $db->updateData(USER, $table, "id={$result['id']}");
+    }
+
+    $rw = $db->execute($sql);
+
+    if ($rw > 0) {
+        echo "<script>
+                alert('添加成功！');
+                window.location='../admin/manage_panel.php';
+              </script>";
+    } else {
+        echo "<script>
+                alert('添加失败！');
+                window.location='../admin/manage_panel.php';
+              </script>";
+    }
 
 }
 
 function delUser($db)
 {
-
+    $id = $_GET['id'];
+    $user = $db->get_select(USER, "id={$id}");
+    if ($user['username'] == 'admin') {
+        echo "<script>
+                confirm('管理员账户不可删除！');
+                window.location='../admin/manage_panel.php';
+              </script>";
+    } else {
+        $db->delData(USER, "id={$id}");
+        echo "<script>
+                alert('账户删除成功！');
+                window.location='../admin/manage_panel.php';
+              </script>";
+    }
 }
 
 

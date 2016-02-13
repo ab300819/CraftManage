@@ -19,10 +19,10 @@ if ($user != 'admin') {
     <meta charset="UTF-8">
     <title>账号管理</title>
     <link href="../res/css/style.css" rel="stylesheet" type="text/css">
-    <script type="javascript">
+    <script>
         function delUser(id) {
             if (confirm("确定删除此用户？")) {
-                window.location = 'delete_user.php?action=del&id=' + id;
+                window.location = '../admin/manage_user.php?action=del&id=' + id;
             }
         }
     </script>
@@ -34,7 +34,7 @@ if ($user != 'admin') {
     <a href="">退出</a>
 </nav>
 <div align="center">
-    <form action="manage_user.php?action=add" method="post" id="user">
+    <form action="../admin/manage_user.php?action=add" method="post" id="user">
         <table align="center">
             <tr>
                 <th>工号</th>
