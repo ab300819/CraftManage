@@ -8,7 +8,7 @@ $_SESSION['admin'] = 0;
 <head>
     <meta charset="UTF-8">
     <title>控制面板</title>
-    <link rel="stylesheet" type="text/css" href="res/css/style.css">
+    <link rel="stylesheet" type="text/css" href="res/css/table.css">
 </head>
 <body>
 <h1>工艺管理系统(build)</h1>

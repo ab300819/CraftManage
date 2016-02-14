@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>产品信息</title>
 </head>
-<link href="../res/css/style.css" rel="stylesheet" type="text/css">
+<link href="../res/css/table.css" rel="stylesheet" type="text/css">
 <body>
 <?php
 

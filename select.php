@@ -12,7 +12,7 @@ $db = new \sql\MysqlPDO($level);
     <meta charset="UTF-8">
     <title>工艺查询</title>
 </head>
-<link rel="stylesheet" type="text/css" href="./res/css/style.css">
+<link rel="stylesheet" type="text/css" href="res/css/table.css">
 <body>
 <?php
 include("select_menu.php");
