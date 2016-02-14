@@ -13,7 +13,7 @@ $db = new \sql\MysqlPDO($level);
     <meta charset="UTF-8">
     <title>机加工工艺</title>
 </head>
-<link rel="stylesheet" type="text/css" href="../res/css/style.css">
+<link rel="stylesheet" type="text/css" href="../res/css/table.css">
 <body>
 <h2>江苏神通阀门股份有限公司</h2>
 

@@ -18,7 +18,7 @@ $product_id = $_GET['id'];
 <head>
     <meta charset="UTF-8">
     <title>冶金机加工工艺管理</title>
-    <link href="res/css/style.css" type="text/css" rel="stylesheet">
+    <link href="../res/css/table.css" type="text/css" rel="stylesheet">
     <script type="text/javascript">
         function doDel(id, product) {
             if (confirm("确定要删除吗？")) {
@@ -30,7 +30,7 @@ $product_id = $_GET['id'];
 <body>
 <h1>工艺编辑系统(build)</h1>
 
-<div><a href="list_product.php">主页</a></div>
+<div><a href="../list_product.php">主页</a></div>
 
 <h2>产品信息</h2>
 
@@ -69,7 +69,7 @@ $product_id = $_GET['id'];
 </div>
 <h2>机加工工艺</h2>
 
-<div><a href='add_metallurgy.php?id=<?php echo $product_id; ?>'>添加</a></div>
+<div><a href='../add/add_metallurgy.php?id=<?php echo $product_id; ?>'>添加</a></div>
 <div>
     <table width="100%">
         <?php
@@ -95,7 +95,7 @@ $product_id = $_GET['id'];
                 echo "<td>{$row['run']}</td>";
                 echo "<td>{$row['version']}</td>";
                 echo "<td>
-                <a href='edit_metallurgy.php?id={$row['id']}&product={$product_id}'>修改</a>
+                <a href='../edit/edit_metallurgy.php?id={$row['id']}&product={$product_id}'>修改</a>
                 <a href='javascript:doDel({$row['id']},{$product_id})'>删除</a>
                  </td>";
                 echo ' </tr > ';
@@ -104,6 +104,6 @@ $product_id = $_GET['id'];
         ?>
     </table>
 </div>
-<div><a href=' add_metallurgy.php?id=<?php echo $product_id; ?>'>添加</a></div>
+<div><a href='../add/add_metallurgy.php?id=<?php echo $product_id; ?>'>添加</a></div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-require_once('sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
@@ -10,7 +10,7 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>产品信息</title>
-    <link href="./res/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../res/css/table.css" rel="stylesheet" type="text/css">
     <script>
         function selectValue(select, value) {
             var sel = document.getElementById(select);
@@ -32,7 +32,7 @@ $list = $db->get_select(PRODUCT, "id={$id}");
 ?>
 <h2>修改产品信息</h2>
 
-<form action="data/action_product.php?action=edit" method="post" id="product">
+<form action="../data/action_product.php?action=edit" method="post" id="product">
     <input type="hidden" name="id" value="">
     <table width="100%">
         <tr>

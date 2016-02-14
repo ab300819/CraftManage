@@ -19,10 +19,13 @@ if (!empty($username) && !empty($password)) {
         $_SESSION['user'] = $list['username'];
         header("Location:select.php");
 
-    } else {
+    }elseif($username=='admin'){
+        echo "<script>window.location='admin/manage_panel.php'</script>";
+    }
+    else {
         $_SESSION[$username] = $list['level'];
         $_SESSION['user'] = $list['username'];
-        header("Location:panel_machine.php");
+        header("Location:list_product.php");
     }
 
 

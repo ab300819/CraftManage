@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="res/dist/themes/default/style.min.css">
+    <title>侧边栏</title>
+</head>
+<body>
+<div class="left_menu">
+    <div id="tree_menu">
+        <ul>
+            <li id="head">首页</li>
+            <li id="report">报表</li>
+            <li id="product">产品
+                <ul>
+                    <li id="product_child">冶金</li>
+                    <li>核电</li>
+                </ul>
+            </li>
+            <li id="craft">工艺
+                <ul>
+                    <li>冶金
+                        <ul>
+                            <li>机加工</li>
+                        </ul>
+                    </li>
+                    <li>核电
+                        <ul>
+                            <li>机加工</li>
+                            <li>铸造</li>
+                            <li>锻造</li>
+                            <li>热处理</li>
+                            <li>焊接</li>
+                            <li>装配</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script src="res/js/jquery-2.2.0.min.js"></script>
+    <script src="res/dist/jstree.min.js"></script>
+    <script>
+        $(function () {
+            $('#tree_menu').jstree();
+            $('#tree_menu').on("changed.tree_menu", function (e, data) {
+                console.log(data.selected);
+            });
+
+            $('button').on('click', function () {
+                $('#tree_menu').jstree(true).select_node('product_child');
+                $.jstree.reference('#tree_menu').select_node('product_child');
+            });
+        });
+    </script>
+</div>
+</body>
+</html>

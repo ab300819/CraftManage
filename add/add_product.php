@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <title>产品信息</title>
 </head>
-<link href="./res/css/style.css" rel="stylesheet" type="text/css">
+<link href="../res/css/table.css" rel="stylesheet" type="text/css">
 <body>
-<?php include("edit_menu.php");
+<?php
+
+//include("edit_menu.php");
 $material_num = $_POST['material_num'];
 $craft_num = $_POST['craft_num'];
+
 ?>
 <h2>添加产品</h2>
 
-<form action="data/action_product.php?action=add" method="post" id="product">
+<form action="../data/action_product.php?action=add" method="post" id="product">
     <table width="100%">
         <tr>
             <th>物料编码</th>
@@ -29,13 +32,28 @@ $craft_num = $_POST['craft_num'];
         <tr>
             <th>产品名称</th>
             <td>
-                <input type="text" name="name">
+<!--                <input type="text" name="name">-->
+                <input type="text" list="name" name="name">
+                <datalist id="name">
+                    <option value="阀芯">阀芯</option>
+                    <option value="阀座">阀座</option>
+                    <option value="阀体">阀体</option>
+                    <option value="底座">底座</option>
+                </datalist>
             </td>
         </tr>
         <tr>
             <th>产品型号</th>
             <td>
-                <input type="text" name="model">
+<!--                <input type="text" name="model">-->
+                <input type="text" list="model" name="model">
+                <datalist id="model">
+                    <option value="A-12-34">A-12-34</option>
+                    <option value="B-12-34">B-12-34</option>
+                    <option value="C-12-34">C-12-34</option>
+                    <option value="D-12-34">D-12-34</option>
+                    <option value="E-12-34">E-12-34</option>
+                </datalist>
             </td>
         </tr>
         <tr>
@@ -120,7 +138,7 @@ $craft_num = $_POST['craft_num'];
         <tr>
             <th>每台件数</th>
             <td>
-                <input type="text" name="per_num">
+                <input type="number" min="1" name="per_num">
             </td>
         </tr>
         <tr>

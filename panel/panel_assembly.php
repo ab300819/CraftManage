@@ -18,7 +18,7 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>装配工艺管理</title>
-    <link href="res/css/style.css" type="text/css" rel="stylesheet">
+    <link href="../res/css/table.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 

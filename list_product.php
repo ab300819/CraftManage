@@ -18,8 +18,8 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>产品列表</title>
-    <link href="./res/css/style.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="res/js/jquery.js"></script>
+    <link href="res/css/table.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="res/js/jquery-2.2.0.min.js"></script>
     <script>
         function addCol() {
             $col = $("<td>删除</td>");
@@ -60,7 +60,7 @@ $db = new \sql\MysqlPDO($level);
 <a href="test_panel.php">首页</a>
 
 <div align="center">
-    <form action="add_product.php" method="post">
+    <form action="add/add_product.php" method="post">
         <table align="center" id="product">
             <!--            --><?php
             //            $head = array(
@@ -120,7 +120,7 @@ $db = new \sql\MysqlPDO($level);
                             }
                         }
                         echo "<td>
-                                <a href='edit_product.php?id={$cell['id']}'>编辑</a>
+                                <a href='edit/edit_product.php?id={$cell['id']}'>编辑</a>
                                 <a href='javascript:addCraft({$cell['id']})'>添加工艺</a>
                                 <a href='javascript:scan({$cell['id']})'>查看</a>
                                 <a href='javascript:report({$cell['id']})'>报表</a>

@@ -6,9 +6,10 @@
  * Time: 12:06
  * 装配
  */
-require_once(dirname(__FILE__) . '/../sql/mysql.php');
-require_once(dirname(__FILE__) . '/../sql/table_config.php');
-require_once(dirname(__FILE__) . '/../sql/operate.php');
+$root = dirname(__FILE__);
+require_once($root . '/../sql/mysql.php');
+require_once($root . '/../sql/table_config.php');
+require_once($root . '/../sql/operate.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
@@ -20,7 +21,7 @@ $db = new \sql\MysqlPDO($level);
     <meta charset="UTF-8">
     <title>装配报表</title>
 </head>
-<link rel="stylesheet" type="text/css" href="../res/css/style.css">
+<link rel="stylesheet" type="text/css" href="../res/css/table.css">
 <body>
 <h2>江苏神通阀门股份有限公司</h2>
 

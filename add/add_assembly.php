@@ -3,41 +3,31 @@
  * Created by PhpStorm.
  * User: Think
  * Date: 2015/10/10
- * Time: 15:29
- * 装配
+ * Time: 13:11
+ * 添加装配
  */
-require_once('sql/mysql.php');
-session_start();
-$user = $_SESSION['user'];
-$level = $_SESSION[$user];
-$db = new \sql\MysqlPDO(0);
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/operate.php');
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>装配工艺编辑</title>
-    <link rel="stylesheet" type="text/css" href="res/css/style.css">
+    <title>添加装配工艺</title>
+    <link href="../res/css/table.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<?php
-$id = $_GET['id'];
-$data = $db->get_select(MACHINE, "id='$id'");
-$list = $data[0];
+<h2>增加机加工工艺</h2>
 
-?>
-<h2>修改工艺</h2>
-
-<form action="data/action_assembly.php?action=edit" method="post" id="assembly">
-    <input type="hidden" name="id" value="">
+<form action="../data/action_assembly.php?action=add" method="post" id="assembly">
     <table align="center">
         <tr>
             <th>工序</th>
-            <td><input type="text" name="" value=""></td>
+            <td><input type="text" name=""></td>
         </tr>
         <tr>
             <th>工序名称</th>
-            <td><input type="text" name="" value=""></td>
+            <td><input type="text" name=""></td>
         </tr>
         <tr>
             <th>工序要求</th>
@@ -48,31 +38,31 @@ $list = $data[0];
         </tr>
         <tr>
             <th>自检记录</th>
-            <td><input type="text" name="" value=""></td>
+            <td><input type="text" name=""></td>
         </tr>
         <tr>
             <th>装配人员</th>
-            <td><input type="text" name="" value=""></td>
+            <td><input type="text" name=""></td>
         </tr>
         <tr>
             <th>检验记录</th>
-            <td><input type="text" name="" value=""></td>
+            <td><input type="text" name=""></td>
         </tr>
         <tr>
             <th>检验结论</th>
-            <td><input type="text" name="" value=""></td>
+            <td><input type="text" name=""></td>
         </tr>
         <tr>
             <th>检验员</th>
-            <td><input type="text" name="" value=""></td>
+            <td><input type="text" name=""></td>
         </tr>
         <tr>
             <th>见证</th>
-            <td><input type="text" name="" value=""></td>
+            <td><input type="text" name=""></td>
         </tr>
         <tr>
             <th>工艺装备</th>
-            <td><input type="text" name="" value=""></td>
+            <td><input type="text" name=""></td>
         </tr>
         <tr>
             <th>&nbsp;</th>
@@ -82,5 +72,6 @@ $list = $data[0];
             </td>
         </tr>
     </table>
+</form>
 </body>
 </html>
