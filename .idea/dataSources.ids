@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - manufacture@localhost" uuid="7be3a299-39d0-482b-bf26-540922c64189">
+    <database-info product="MySQL" version="5.6.19" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.37 ( Revision: 09940f05b4c98150f352e787a2549f11a2e9da93 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="manufacture"/>
+    <table name="assembly" schema="" catalog="manufacture" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="craft_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="step_num" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="name" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="content" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="self_check" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="operate" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="check_record" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="check_conclusion" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="checker" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="witness" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="craft_machine" sqlType="CHAR" precision="25" scale="0" nullable="true" jdbcType="1"/>
+      <column name="version" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="list" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="assembly_list" schema="" catalog="manufacture" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="craft_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="serial_num" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="drawing_num" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="component" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="number" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="component_num" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="notes" sqlType="CHAR" precision="45" scale="0" nullable="true" jdbcType="1"/>
+      <column name="version" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="forging" schema="" catalog="manufacture" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="craft_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="step_num" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="content" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="machine" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="craft_machine" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="start" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="end" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="cool" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="spend" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="notes" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="version" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="forging_property" schema="" catalog="manufacture" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="craft_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material_standard" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="blank_length" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="blank_per" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="per_num" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="forging_weight" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="blank_weight" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="core_mat_weight" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="fire_weight" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="forging_batch" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="forgiong_proportion" sqlType="CHAR" precision="10" scale="0" nullable="true" jdbcType="1"/>
+      <column name="version" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="drawing" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="craft" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="heat_craft" schema="" catalog="manufacture" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="craft_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="Charging" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="heat_up" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="heating" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="thermal_insulation" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="Cooling_medium" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="Cooling_speed" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="drawing" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="version" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="heat_property" schema="" catalog="manufacture" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="craft_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="component" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="tensile_strength" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="elongation" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="Stiffness" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="machine" sqlType="CHAR" precision="40" scale="0" nullable="true" jdbcType="1"/>
+      <column name="heat_type" sqlType="CHAR" precision="40" scale="0" nullable="true" jdbcType="1"/>
+      <column name="version" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="craft" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="machine" schema="" catalog="manufacture" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="craft_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="step_num" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="room" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="name" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="content" sqlType="CHAR" precision="100" scale="0" nullable="true" jdbcType="1"/>
+      <column name="self_check" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="operator" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="special_check" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="checker" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="machine" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="craft_machine" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="prepare_time" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="run_time" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="version" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="metallurgy_machine" schema="" catalog="manufacture" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="craft_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="step_num" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="name" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="content" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="prepare" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="run" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="version" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="product" schema="" catalog="manufacture" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="material_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material_name" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="name" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="model" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="num" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="standard" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="component_discern" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="component_num" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="component_draw" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="assemble_draw" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="craft_line" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="produce_model" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="craft_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="produce_num" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material_discern" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="blank" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="per_num" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="heat" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="belong" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="craft_type" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="material_num" unique="true" columns="material_num"/>
+    </table>
+    <table name="property" schema="" catalog="manufacture" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="material_num" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material_model" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="material_discern" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="blank" sqlType="CHAR" precision="20" scale="0" nullable="true" jdbcType="1"/>
+      <column name="per_num" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="heat" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="material_num" unique="true" columns="material"/>
+    </table>
+    <table name="user" schema="" catalog="manufacture" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="password" sqlType="CHAR" precision="50" scale="0" nullable="true" jdbcType="1"/>
+      <column name="level" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="username" unique="true" columns="username"/>
+    </table>
+  </data-source>
+</component>

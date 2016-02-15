@@ -2,57 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="res/dist/themes/default/style.min.css">
-    <title>侧边栏</title>
-</head>
-<body>
-<div class="left_menu">
-    <div id="tree_menu">
-        <ul>
-            <li id="head">首页</li>
-            <li id="report">报表</li>
-            <li id="product">产品
-                <ul>
-                    <li id="product_child">冶金</li>
-                    <li>核电</li>
-                </ul>
-            </li>
-            <li id="craft">工艺
-                <ul>
-                    <li>冶金
-                        <ul>
-                            <li>机加工</li>
-                        </ul>
-                    </li>
-                    <li>核电
-                        <ul>
-                            <li>机加工</li>
-                            <li>铸造</li>
-                            <li>锻造</li>
-                            <li>热处理</li>
-                            <li>焊接</li>
-                            <li>装配</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <script src="res/js/jquery-2.2.0.min.js"></script>
-    <script src="res/dist/jstree.min.js"></script>
-    <script>
+    <link rel="stylesheet" type="text/css" href="res/css/tree_menu.css"/>
+    <script type="text/javascript" src="res/js/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="res/js/tree_menu.js"></script>
+    <script type="text/javascript">
         $(function () {
-            $('#tree_menu').jstree();
-            $('#tree_menu').on("changed.tree_menu", function (e, data) {
-                console.log(data.selected);
-            });
-
-            $('button').on('click', function () {
-                $('#tree_menu').jstree(true).select_node('product_child');
-                $.jstree.reference('#tree_menu').select_node('product_child');
+            $(".st_tree").TreeMenu({
+                click: function (a) {
+                    if (!$(a).attr("hasChild"))
+                        alert($(a).attr("ref"));
+                }
             });
         });
     </script>
+</head>
+<body>
+
+<div class="st_tree">
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">报表</a></li>
+        <li><a href="#">产品</a></li>
+        <ul>
+            <li><a href="#">冶金</a></li>
+            <li><a href="#">核电</a></li>
+        </ul>
+        <li><a href="#">工艺</a></li>
+        <ul>
+            <li><a href="#">冶金</a></li>
+            <ul>
+                <li><a href="#">机加工</a></li>
+
+            </ul>
+            <li><a href="#" ref="fhgl">核电</a></li>
+            <ul>
+                <li><a href="#">机加工</a></li>
+                <li><a href="#">铸造</a></li>
+                <li><a href="#">锻造</a></li>
+                <li><a href="#">热处理</a></li>
+                <li><a href="#">焊接</a></li>
+                <li><a href="#">装配</a></li>
+            </ul>
+        </ul>
+    </ul>
 </div>
+
 </body>
 </html>

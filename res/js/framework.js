@@ -7,6 +7,10 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+    $(".left_menu").load("tree_menu.html");
+});
+
+$(document).ready(function () {
     $(".footer").load("footer.html");
 });
 
