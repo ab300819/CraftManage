@@ -6,6 +6,8 @@
  * Time: 21:42
  */
 
+session_start();
+
 session_destroy();
 unset($_SESSION);
 

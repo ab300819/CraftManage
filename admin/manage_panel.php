@@ -25,17 +25,28 @@ if ($user != 'admin') {
                 window.location = '../admin/manage_user.php?action=del&id=' + id;
             }
         }
+
+        function doSubmit() {
+            if (event.keyCode == 13)
+                return false;
+        }
     </script>
 </head>
 <body>
 
-<h1>工艺管理系统账户管理</h1>
-<nav>
-    <a href="">退出</a>
-</nav>
-<div align="center">
-    <form action="../admin/manage_user.php?action=add" method="post" id="user">
-        <table align="center">
+<div class="title">
+    <h1>工艺管理系统账户管理</h1>
+</div>
+
+<div class="nav_bar">
+    <nav>
+        <a href="../logout.php">退出</a>
+    </nav>
+</div>
+
+<div class="account_content" align="center">
+    <form action="../admin/manage_user.php?action=add" method="post" id="user" onkeydown="dosSubmit();">
+        <table class="account_list">
             <tr>
                 <th>工号</th>
                 <th>密码</th>
@@ -68,8 +79,8 @@ if ($user != 'admin') {
                 }
                 ?>
             <tr>
-                <td><input type="text" name="username" required="required"></td>
-                <td><input type="password" name="password" required="required"></td>
+                <td><input type="text" name="username" required="required" placeholder="用户名"></td>
+                <td><input type="password" name="password" required="required" placeholder="密码"></td>
                 <td>
                     <select name="level" form="user">
                         <option value="0">0</option>
@@ -81,8 +92,10 @@ if ($user != 'admin') {
                 <td>&nbsp;</td>
             </tr>
         </table>
-        <input type="submit" value="提交">
-        <input type="reset" value="重置">
+        <div class="account_list_button">
+            <input class="button white" type="submit" value="提交">
+            <input class="button white" type="reset" value="重置">
+        </div>
     </form>
 </div>
 
