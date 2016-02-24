@@ -14,8 +14,6 @@ $(document).ready(function () {
     $(".heading").load("head.html");
     $(".left_menu").css('height', height - 180 + 'px').load("tree_menu.html");
     $(".footer").load("footer.html");
-
-
 });
 
 

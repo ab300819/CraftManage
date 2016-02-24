@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="res/css/tree_menu.css"/>
-    <script type="text/javascript" src="res/js/jquery-2.2.0.min.js"></script>
-    <script type="text/javascript" src="res/js/tree_menu.js"></script>
+    <link rel="stylesheet" type="text/css" href="res/css/tree/tree_menu.css"/>
+    <script type="text/javascript" src="res/js/jquery-1.6.min.js"></script>
+    <script type="text/javascript" src="res/js/framework/tree_menu.js"></script>
     <script type="text/javascript">
         $(function () {
             $(".st_tree").TreeMenu({
                 click: function (a) {
-                    if (!$(a).attr("hasChild"))
+                    if (!$(a).attr("hasChild")) {
                         alert($(a).attr("ref"));
+                    }
                 }
             });
         });
@@ -20,7 +21,7 @@
 
 <div class="st_tree">
     <ul>
-        <li><a href="#">首页</a></li>
+        <li><a href="#" rel="list_product.php">首页</a></li>
         <li><a href="#">报表</a></li>
         <li><a href="#">产品</a></li>
         <ul>
@@ -34,7 +35,7 @@
                 <li><a href="#">机加工</a></li>
 
             </ul>
-            <li><a href="#" ref="fhgl">核电</a></li>
+            <li><a href="#">核电</a></li>
             <ul>
                 <li><a href="#">机加工</a></li>
                 <li><a href="#">铸造</a></li>
