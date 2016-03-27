@@ -5,14 +5,15 @@ session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
 $db = new \sql\MysqlPDO($level);
-$product_id = $_GET['id'];
+//$product_id = $_GET['id'];
+$product_id = 1;
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>机加工工艺管理</title>
-    <link rel="stylesheet" type="text/css" href="../res/css/table.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/common_table.css">
     <script>
         function doDel(id, product) {
             if (confirm("确定要删除吗？")) {
@@ -37,7 +38,7 @@ $product_id = $_GET['id'];
 <p>操作：<a href="../edit/edit_product.php">修改</a>&nbsp;<a href="javascript:confirmDel(12)">删除</a></p>
 
 <div>
-    <table width="100%" style="text-align: center" border="1">
+    <table width="100%" style="text-align: center" border="1" class="show_list">
         <?php
         //TODO 需要处理在数组指定位置插入键值对
         $head = array(
@@ -94,7 +95,7 @@ $product_id = $_GET['id'];
 
 <div><a href='../add/add_machine.php?id=<?php echo $product_id; ?>'>添加</a></div>
 <div>
-    <table width='100%' style='text-align: center' border='1'>
+    <table width='100%' style='text-align: center' border='1' class="show_list">
         <?php
         $material_num = $list['material_num'];
         $head = array('工序号',

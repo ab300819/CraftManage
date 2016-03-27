@@ -17,7 +17,7 @@ if (!empty($username) && !empty($password)) {
     } elseif ($list['level'] == 3) {
         $_SESSION[$username] = $list['level'];
         $_SESSION['user'] = $list['username'];
-        header("Location:framework.html");
+        header("Location:main_page.html");
 
     } elseif ($username == 'admin') {
         $_SESSION[$username] = $list['level'];
@@ -26,7 +26,7 @@ if (!empty($username) && !empty($password)) {
     } else {
         $_SESSION[$username] = $list['level'];
         $_SESSION['user'] = $list['username'];
-        header("Location:framework.html");
+        header("Location:main_page.html");
     }
 
 

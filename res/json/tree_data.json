@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "text": "首页",
+    "attributes": {
+      "url": "index.html"
+    }
+  },
+  {
+    "id": 2,
+    "text": "报表",
+    "attributes": {
+      "url": ""
+    }
+  },
+  {
+    "id": 3,
+    "text": "产品",
+    "state": "closed",
+    "children": [
+      {
+        "id": 31,
+        "text": "冶金",
+        "attributes": {
+          "url": ""
+        }
+      },
+      {
+        "id": 32,
+        "text": "核电",
+        "attributes": {
+          "url": ""
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "text": "工艺",
+    "state": "closed",
+    "children": [
+      {
+        "id": 41,
+        "text": "冶金",
+        "state": "closed",
+        "children": [
+          {
+            "id": 411,
+            "text": "机加工",
+            "attributes": {
+              "url": ""
+            }
+          }
+        ]
+      },
+      {
+        "id": 42,
+        "text": "核电",
+        "state": "closed",
+        "children": [
+          {
+            "id": 421,
+            "text": "机加工",
+            "attributes": {
+              "url": "list_product.php"
+            }
+          },
+          {
+            "id": 421,
+            "text": "铸造",
+            "attributes": {
+              "url": ""
+            }
+          },
+          {
+            "id": 421,
+            "text": "锻造",
+            "attributes": {
+              "url": ""
+            }
+          },
+          {
+            "id": 421,
+            "text": "热处理",
+            "attributes": {
+              "url": ""
+            }
+          },
+          {
+            "id": 421,
+            "text": "焊接",
+            "attributes": {
+              "url": ""
+            }
+          },
+          {
+            "id": 421,
+            "text": "装配",
+            "attributes": {
+              "url": ""
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

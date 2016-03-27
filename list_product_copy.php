@@ -58,6 +58,8 @@ $db = new \sql\MysqlPDO($level);
 </head>
 <body>
 <h1 align="center">产品目录</h1>
+<a href="test_panel.php">首页</a>
+
 <div align="center">
     <form action="add/add_product.php" method="post">
         <table id="product" class="show_list ">

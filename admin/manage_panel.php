@@ -18,7 +18,7 @@ if ($user != 'admin') {
 <head>
     <meta charset="UTF-8">
     <title>账号管理</title>
-    <link href="../res/css/table.css" rel="stylesheet" type="text/css">
+    <link href="../res/css/common_table.css" rel="stylesheet" type="text/css">
     <script>
         function delUser(id) {
             if (confirm("确定删除此用户？")) {
@@ -44,9 +44,9 @@ if ($user != 'admin') {
     </nav>
 </div>
 
-<div class="account_content" align="center">
+<div class="list_content" align="center">
     <form action="../admin/manage_user.php?action=add" method="post" id="user" onkeydown="dosSubmit();">
-        <table class="account_list">
+        <table class="show_list">
             <tr>
                 <th>工号</th>
                 <th>密码</th>
@@ -92,7 +92,7 @@ if ($user != 'admin') {
                 <td>&nbsp;</td>
             </tr>
         </table>
-        <div class="account_list_button">
+        <div class="list_button">
             <input class="button white" type="submit" value="提交">
             <input class="button white" type="reset" value="重置">
         </div>

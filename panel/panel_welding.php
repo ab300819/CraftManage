@@ -6,3 +6,5 @@
  * Time: 15:16
  * 焊接
  */
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/operate.php');

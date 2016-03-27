@@ -8,22 +8,42 @@
     <link rel="stylesheet" type="text/css" href="res/css/tree/tree_menu.css"/>
     <script type="text/javascript" src="res/js/jquery-2.2.0.min.js"></script>
     <script type="text/javascript" src="res/js/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="res/js/mainPage/noContextMenu.js"></script>
     <script type="text/javascript" src="res/js/mainPage/tabs.js"></script>
     <script type="text/javascript" src="res/js/mainPage/tree_menu.js"></script>
+    <link href="res/css/common_table.css" rel="stylesheet" type="text/css">
 
     <script type="text/javascript">
+
+
+//        $(function () {
+//            //初始化树形菜单
+//            $(".st_tree").TreeMenu({
+//                click: function (a) {
+//                    if (!$(a).attr("hasChild")) {
+//                        var title = $(a).text();
+//                        var url = $(a).attr("rel");
+//                        var icon = $(a).attr("icon");
+//                        parent.openTab(title, url, icon);
+//                    }
+//                }
+//            });
+//        });
+
+        //为树形菜单添加点击事件
         $(function () {
-            //初始化树形菜单
-            $(".st_tree").TreeMenu({
-                click: function (a) {
-                    if (!$(a).attr("hasChild")) {
-                        var title = $(a).text();
-                        var url = $(a).attr("rel");
-                        var icon = $(a).attr("icon");
-                        parent.OpenTab(title, url, icon);
-                    }
+            $('#tree').tree({
+                onClick: function (node) {
+                    var title = node.text;
+                    var url = node.attributes.url;
+                    parent.openTab(title, url);
                 }
+            });
+        });
+
+        $(function () {
+            //屏蔽右键
+            $(document).bind("contextmenu", function (e) {
+                return false;
             });
         });
 
@@ -55,6 +75,7 @@
 </div>
 
 <div region="west" split="true" style="width:210px;" title="导航菜单">
+    <!--
     <div class="st_tree">
         <ul>
             <li><a href="#">首页</a></li>
@@ -83,12 +104,17 @@
             </ul>
         </ul>
     </div>
+    -->
+    <div class="tree_menu">
+        <ul id="tree" data-options="url:'res/json/tree_data.json',method:'get',animate:'true',lines:true"></ul>
+    </div>
 </div>
 <div data-options="region:'east',split:true" title="小工具" style="width:180px;"></div>
 
 <div region="center">
     <div id="tabs" class="easyui-tabs" fit="true" border="false">
         <div class="welcome" title="欢迎使用">
+
         </div>
     </div>
 
@@ -98,8 +124,8 @@
 <div id="menu" class="easyui-menu" style="width:150px;">
     <div id="m-refresh">刷新</div>
     <div class="menu-sep"></div>
-    <div id="m-closeother">关闭其他</div>
     <div id="m-closeall">全部关闭</div>
+    <div id="m-closeother">关闭其他</div>
     <div class="menu-sep"></div>
     <div id="m-close">关闭</div>
 </div>

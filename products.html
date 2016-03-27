@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" src="">
+    <script type="text/javascript" src="res/js/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript">
+        var xmlhttp;
+
+        function search() {
+            xmlhttp = getXmlHttpObject();
+            if (xmlhttp == null) {
+                alert("你的浏览器不支持此功能，请更换Chrome、Firefox、IE10!!!");
+                return;
+            }
+            var url = "";
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 || xmlhttp.status == 202) {
+
+                }
+            }
+
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function getXmlHttpObject() {
+            try {
+
+                return new XMLHttpRequest();
+            }
+            catch (e) {
+                try {
+                    return new ActiveXObject("Msxml2.XMLHTTP");
+                }
+                catch (e) {
+                    return new ActiveXObject("Microsoft.XMLHTTP");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<input type="text" id="keyWord" autofocus="autofocus" onchange="search()">
+<table id="list_product">
+
+
+</table>
+
+</body>
+</html>

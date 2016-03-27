@@ -175,5 +175,34 @@ class MysqlPDO
     {
         return self::$connect->exec($sql);
     }
+
+    /**
+     * redesign function
+     *
+     */
+
+    /**
+     * @param $table
+     * @param $condition
+     * @internal param $data
+     */
+    public function selectByType($info, $table, $condition = null)
+    {
+        if($info.count()<2)
+        {
+            $str=
+        }
+        else
+        {
+         $str=implode(",",)
+        }
+
+        if ($condition == null)
+        {
+
+        }
+    }
+
+
 }
 

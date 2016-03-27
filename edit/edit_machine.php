@@ -10,7 +10,7 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>工艺修改</title>
-    <link rel="stylesheet" type="text/css" href="../res/css/table.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/common_table.css">
 </head>
 <body>
 <?php

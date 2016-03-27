@@ -5,8 +5,8 @@
  * Date: 2015/10/11
  * Time: 22:17
  */
-require_once('sql/mysql.php');
-require_once('sql/operate.php');
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/operate.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
@@ -18,7 +18,7 @@ $product_id = $_GET['id'];
 <head>
     <meta charset="UTF-8">
     <title>冶金机加工工艺管理</title>
-    <link href="../res/css/table.css" type="text/css" rel="stylesheet">
+    <link href="../res/css/common_table.css" type="text/css" rel="stylesheet">
     <script type="text/javascript">
         function doDel(id, product) {
             if (confirm("确定要删除吗？")) {

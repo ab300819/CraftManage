@@ -3,9 +3,7 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/main_page.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/res" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/res/js/jquery-1.6.min.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/res/js/tabs.js" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/res/js/tree_menu.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/res/json/tree_data.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sql/mysql.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/test.php" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

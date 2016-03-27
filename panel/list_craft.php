@@ -1,10 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Think
- * Date: 2015/10/10
- * Time: 13:12
- * 添加焊接
+ * User: Paradise
+ * Date: 2016/3/11
+ * Time: 21:41
  */
 require_once(dirname(__FILE__) . '/../sql/mysql.php');
 require_once(dirname(__FILE__) . '/../sql/operate.php');

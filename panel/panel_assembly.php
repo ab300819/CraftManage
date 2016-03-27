@@ -6,8 +6,8 @@
  * Time: 15:29
  * 装配工艺编辑面板
  */
-require_once('sql/mysql.php');
-require_once('sql/operate.php');
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/operate.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
@@ -18,7 +18,7 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>装配工艺管理</title>
-    <link href="../res/css/table.css" type="text/css" rel="stylesheet">
+    <link href="../res/css/common_table.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 

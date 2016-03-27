@@ -24,21 +24,21 @@
 }
 
 /*body样式*/
-.account_content {}
+.list_content {}
 
 /*表格部分样式*/
-.account_list a:link {
+.show_list a:link {
     color: black;
     text-decoration: none;
 }
 
-.account_list a:hover {
+.show_list a:hover {
     color: red;
     text-decoration: none;
 }
 
-.account_list {
-    width: 60%;
+.show_list {
+    width: 100%;
     border-spacing: 0;
 
     border: solid #ccc 1px;
@@ -50,7 +50,7 @@
     box-shadow: 0 1px 1px #ccc;
 }
 
-.account_list tr:hover {
+.show_list tr:hover {
     background: #fbf8e9;
     -o-transition: all 0.1s ease-in-out;
     -webkit-transition: all 0.1s ease-in-out;
@@ -59,14 +59,14 @@
     transition: all 0.1s ease-in-out;
 }
 
-.account_list td, .account_list th {
+.show_list td, .show_list th {
     border-left: 1px solid #ccc;
     border-top: 1px solid #ccc;
     padding: 10px;
     text-align: center;
 }
 
-.account_list th {
+.show_list th {
     background-color: #dce9f9;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
     background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
@@ -81,35 +81,35 @@
     text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
 }
 
-.account_list td:first-child, .account_list th:first-child {
+.show_list td:first-child, .show_list th:first-child {
     border-left: none;
 }
 
-.account_list th:first-child {
+.show_list th:first-child {
     -moz-border-radius: 6px 0 0 0;
     -webkit-border-radius: 6px 0 0 0;
     border-radius: 6px 0 0 0;
 }
 
-.account_list th:last-child {
+.show_list th:last-child {
     -moz-border-radius: 0 6px 0 0;
     -webkit-border-radius: 0 6px 0 0;
     border-radius: 0 6px 0 0;
 }
 
-.account_list th:only-child {
+.show_list th:only-child {
     -moz-border-radius: 6px 6px 0 0;
     -webkit-border-radius: 6px 6px 0 0;
     border-radius: 6px 6px 0 0;
 }
 
-.account_list tr:last-child td:first-child {
+.show_list tr:last-child td:first-child {
     -moz-border-radius: 0 0 0 6px;
     -webkit-border-radius: 0 0 0 6px;
     border-radius: 0 0 0 6px;
 }
 
-.account_list tr:last-child td:last-child {
+.show_list tr:last-child td:last-child {
     -moz-border-radius: 0 0 6px 0;
     -webkit-border-radius: 0 0 6px 0;
     border-radius: 0 0 6px 0;
@@ -157,7 +157,7 @@
 }
 
 /*设置按钮位置*/
-.account_list_button {
+.list_button {
     padding-top: 10px;
     text-align: center;
 
