@@ -14,33 +14,20 @@ require_once 'table_config.php';
 class MysqlPDO
 {
 
-    private static $connect;
+    private $connect;
 
-    public function __construct($level)
+    public function __construct()
     {
-
-        switch ($level) {
-            case 0:
-                self::init(MYSQL_LOCAL, MYSQL_USER, MYSQL_PW, DATABASE);
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-        }
-    }
-
-    private function init($host, $user, $password, $dbname)
-    {
+        $host = MYSQL_LOCAL;
+        $dbname = DATABASE;
 
         $dsn = "mysql:host=$host;dbname=$dbname";
 
         try {
-            self::$connect = new \PDO($dsn, "$user", "$password");
-        } catch (Exception $e) {
-            die("数据库连接失败！" . '<br>' . $e->getMessage());
+            $this->connect = new \PDO($dsn, MYSQL_USER, MYSQL_PW);
+            $this->connect->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        } catch (\PDOException $e) {
+            exit($e->getMessage());
         }
     }
 
@@ -53,7 +40,7 @@ class MysqlPDO
     {
         if ($condition == null) {
             $sql = "SELECT * from {$table}";
-            $result = self::$connect->query($sql);
+            $result = $this->connect->query($sql);
             if ($result != null) {
                 $list = $result->fetchAll();
                 return $list;
@@ -62,7 +49,7 @@ class MysqlPDO
             }
         } else {
             $sql = "SELECT * from {$table} WHERE {$condition}";
-            $result = self::$connect->query($sql);
+            $result = $this->connect->query($sql);
             if ($result != null) {
                 $list = $result->fetch(\PDO::FETCH_ASSOC);
                 return $list;
@@ -75,7 +62,7 @@ class MysqlPDO
     public function get_craft_select($table, $condition)
     {
         $sql = "SELECT * FROM {$table} WHERE {$condition}";
-        $result = self::$connect->query($sql);
+        $result = $this->connect->query($sql);
         if ($result != null) {
             $list = $result->fetchAll();
             return $list;
@@ -89,7 +76,7 @@ class MysqlPDO
         $field = implode(',', $head);
         if ($condition == null) {
             $sql = "SELECT {$field} from {$table}";
-            $result = self::$connect->query($sql);
+            $result = $this->connect->query($sql);
             if ($result != null) {
                 $list = $result->fetchAll();
                 return $list;
@@ -98,7 +85,7 @@ class MysqlPDO
             }
         } else {
             $sql = "SELECT {$field} FROM {$table} WHERE {$condition}";
-            $result = self::$connect->query($sql);
+            $result = $this->connect->query($sql);
             if ($result != null) {
                 $list = $result->fetch(\PDO::FETCH_ASSOC);
                 return $list;
@@ -168,41 +155,52 @@ class MysqlPDO
     public function delData($table, $condition)
     {
         $sql = "DELETE FROM {$table} WHERE {$condition}";
-        return self::execute($sql);
+        return $this->execute($sql);
     }
+
+    //更新部分方法
+    public function select($data, $table, $condition = null)
+    {
+        if (count($data) < 2) {
+            $str = $data[0];
+        } else {
+            $str = implode(",", $data);
+        }
+
+        $sql = "SELECT $str FROM $table";
+
+        if ($condition != null) {
+            $sql = $sql . " WHERE '$condition'";
+        }
+
+        $selectData = $this->connect->query($sql);
+        $result = $selectData->fetchAll(\PDO::FETCH_CLASS);
+        return $result;
+    }
+
+
+
+    public function update($data, $table, $condition)
+    {
+
+    }
+
+    public function delete($data, $table, $condition)
+    {
+
+    }
+
 
     public function execute($sql)
     {
-        return self::$connect->exec($sql);
+        try {
+            $result = $this->connect->prepare($sql);
+            $result->execute();
+        } catch (\PDOException $e) {
+            exit('SQL语句：' . $sql . '<br />错误信息：' . $e->getMessage());
+        }
+        return $result;
     }
-
-    /**
-     * redesign function
-     *
-     */
-
-    /**
-     * @param $table
-     * @param $condition
-     * @internal param $data
-     */
-    public function selectByType($info, $table, $condition = null)
-    {
-        if($info.count()<2)
-        {
-            $str=
-        }
-        else
-        {
-         $str=implode(",",)
-        }
-
-        if ($condition == null)
-        {
-
-        }
-    }
-
 
 }
 

@@ -10,11 +10,10 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>工艺修改</title>
-    <link rel="stylesheet" type="text/css" href="../res/css/common_table.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/list.css">
 </head>
 <body>
 <?php
-include("edit_menu.php");
 $id = $_GET['id'];
 $product = $_GET['product'];
 $list = $db->get_select(MACHINE, "id='$id'");

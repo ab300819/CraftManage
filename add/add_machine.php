@@ -18,7 +18,7 @@ $data = $db->get_choice_select(PRODUCT, $info, "id={$product_id}");
     <meta charset="UTF-8">
     <title>工艺管理</title>
 </head>
-<link rel="stylesheet" type="text/css" href="/res/css/common_table.css">
+<link rel="stylesheet" type="text/css" href="/res/css/list.css">
 <body>
 
 <?php //include("edit_menu.php"); ?>

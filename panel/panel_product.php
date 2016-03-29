@@ -10,7 +10,7 @@ $level = $_SESSION[$user];
 <head>
     <meta charset="UTF-8">
     <title>产品信息</title>
-    <link href="../res/css/common_table.css" rel="stylesheet" type="text/css">
+    <link href="../res/css/list.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <?php include("edit_menu.php") ?>

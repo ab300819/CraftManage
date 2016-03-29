@@ -13,7 +13,7 @@ $product_id = 1;
 <head>
     <meta charset="UTF-8">
     <title>机加工工艺管理</title>
-    <link rel="stylesheet" type="text/css" href="../res/css/common_table.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/list.css">
     <script>
         function doDel(id, product) {
             if (confirm("确定要删除吗？")) {

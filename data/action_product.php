@@ -88,10 +88,7 @@ function edit($db)
     }
     $sql = $db->update_data(PRODUCT, $data, "material_num='{$data['material_num']}'");
     if ($db->execute($sql) > 0) {
-        echo "<script>
-                    alert('更新成功！');
-                    window.location='../list_product.php';
-                 </script>";
+        echo "<script>alert('更新成功！');window.location='../list_product.php';</script>";
     } else {
         echo "<script>
                     alert('更新失败！');

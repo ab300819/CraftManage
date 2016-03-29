@@ -11,7 +11,7 @@ $level = $_SESSION[$user];
     <meta charset="UTF-8">
     <title>工艺管理系统</title>
 </head>
-<link rel="stylesheet" type="text/css" href="res/css/common_table.css">
+<link rel="stylesheet" type="text/css" href="res/css/list.css">
 
 <body>
 <h1>工艺管理系统(build)</h1>

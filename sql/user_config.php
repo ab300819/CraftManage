@@ -6,19 +6,11 @@
  * Time: 18:40
  */
 
+//数据库信息配置
 define('MYSQL_LOCAL','localhost');
 
-//定义数据库用户，分配权限
-//user:root,level:0
+//数据库账户
 define('MYSQL_USER','root');
 define('MYSQL_PW','110119');
-
-//user:all,level:1
-
-
-//user:edit,level:2
-
-
-//user:select,level:3
 
 ?>

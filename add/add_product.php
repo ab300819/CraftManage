@@ -4,35 +4,25 @@
     <meta charset="UTF-8">
     <title>产品信息</title>
 </head>
-<link href="../res/css/common_table.css" rel="stylesheet" type="text/css">
+<link href="../res/css/list.css" rel="stylesheet" type="text/css">
 <body>
-<?php
 
-//include("edit_menu.php");
-$material_num = $_POST['material_num'];
-$craft_num = $_POST['craft_num'];
-
-?>
 <h2>添加产品</h2>
 
 <form action="../data/action_product.php?action=add" method="post" id="product">
-    <table width="100%">
+    <table>
         <tr>
             <th>物料编码</th>
             <td>
-                <input type="text" name="material_num" value="<?php echo $material_num; ?>" readonly="readonly">
+                <input type="text" name="material_num" readonly="readonly">
             </td>
-        </tr>
-        <tr>
+
             <th>物料名称</th>
             <td>
                 <input type="text" name="material_name">
             </td>
-        </tr>
-        <tr>
             <th>产品名称</th>
             <td>
-<!--                <input type="text" name="name">-->
                 <input type="text" list="name" name="name">
                 <datalist id="name">
                     <option value="阀芯">阀芯</option>
@@ -45,7 +35,6 @@ $craft_num = $_POST['craft_num'];
         <tr>
             <th>产品型号</th>
             <td>
-<!--                <input type="text" name="model">-->
                 <input type="text" list="model" name="model">
                 <datalist id="model">
                     <option value="A-12-34">A-12-34</option>
@@ -55,14 +44,12 @@ $craft_num = $_POST['craft_num'];
                     <option value="E-12-34">E-12-34</option>
                 </datalist>
             </td>
-        </tr>
-        <tr>
+
             <th>产品编号</th>
             <td>
                 <input type="text" name="num">
             </td>
-        </tr>
-        <tr>
+
             <th>规格型号</th>
             <td>
                 <input type="text" name="standard">
@@ -72,16 +59,11 @@ $craft_num = $_POST['craft_num'];
             <th>零件标识</th>
             <td>
                 <input type="text" name="component_discern">
-
             </td>
-        </tr>
-        <tr>
             <th>零件编号</th>
             <td>
                 <input type="text" name="component_num">
             </td>
-        </tr>
-        <tr>
             <th>零件图号</th>
             <td>
                 <input type="text" name="component_draw">
@@ -92,14 +74,10 @@ $craft_num = $_POST['craft_num'];
             <td>
                 <input type="text" name="assemble_draw">
             </td>
-        </tr>
-        <tr>
             <th>工艺路线名称</th>
             <td>
                 <input type="text" name="craft_line">
             </td>
-        </tr>
-        <tr>
             <th>生产型号</th>
             <td>
                 <input type="text" name="produce_model">
@@ -108,16 +86,12 @@ $craft_num = $_POST['craft_num'];
         <tr>
             <th>工艺编号</th>
             <td>
-                <input type="text" name="craft_num" value="<?php echo $craft_num; ?>" readonly="readonly">
+                <input type="text" name="craft_num" readonly="readonly">
             </td>
-        </tr>
-        <tr>
             <th>生产批号</th>
             <td>
                 <input type="text" name="produce_num">
             </td>
-        </tr>
-        <tr>
             <th>材料牌号</th>
             <td>
                 <input type="text" name="material">
@@ -128,14 +102,10 @@ $craft_num = $_POST['craft_num'];
             <td>
                 <input type="text" name="material_discern">
             </td>
-        </tr>
-        <tr>
             <th>毛坯种类</th>
             <td>
                 <input type="text" name="blank">
             </td>
-        </tr>
-        <tr>
             <th>每台件数</th>
             <td>
                 <input type="number" min="1" name="per_num">
@@ -146,8 +116,6 @@ $craft_num = $_POST['craft_num'];
             <td>
                 <input type="text" name="heat">
             </td>
-        </tr>
-        <tr>
             <th>产品类别</th>
             <td>
                 <select name="belong" form="product" required="required">
@@ -155,8 +123,6 @@ $craft_num = $_POST['craft_num'];
                     <option value="冶金">冶金</option>
                 </select>
             </td>
-        </tr>
-        <tr>
             <th>工艺类型</th>
             <td>
                 <select name="craft_type" form="product" required="required">
@@ -171,8 +137,10 @@ $craft_num = $_POST['craft_num'];
 
         </tr>
     </table>
-    <input type="submit" value="提交"/>
-    <input type="reset" value="重置">
+    <div style="padding-top: 10px">
+        <input class="button white" type="submit" value="提交"/>
+        <input class="button white" type="reset" value="重置">
+    </div>
 </form>
 </body>
 </html>

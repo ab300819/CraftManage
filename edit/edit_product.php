@@ -10,7 +10,7 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>产品信息</title>
-    <link href="../res/css/common_table.css" rel="stylesheet" type="text/css">
+    <link href="../res/css/list.css" rel="stylesheet" type="text/css">
     <script>
         function selectValue(select, value) {
             var sel = document.getElementById(select);
@@ -26,7 +26,7 @@ $db = new \sql\MysqlPDO($level);
     </script>
 </head>
 <body>
-<?php include("edit_menu.php");
+<?php
 $id = $_GET['id'];
 $list = $db->get_select(PRODUCT, "id={$id}");
 ?>

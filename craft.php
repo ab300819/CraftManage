@@ -2,9 +2,10 @@
 /**
  * Created by PhpStorm.
  * User: Paradise
- * Date: 2016/3/24
- * Time: 16:36
+ * Date: 2016/3/27
+ * Time: 17:08
  */
+
 require_once('sql/mysql.php');
 session_start();
 $user = $_SESSION['user'];
@@ -49,7 +50,3 @@ foreach ($result as $line) {
 }
 
 echo $table;
-
-
-
-
