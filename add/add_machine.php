@@ -23,7 +23,7 @@ $data = $db->get_choice_select(PRODUCT, $info, "id={$product_id}");
 
 <?php //include("edit_menu.php"); ?>
 
-<h2>增加机加工工艺</h2>
+<h2 style="text-align: center">增加机加工工艺</h2>
 
 <div>
     <form action="../data/action_machine.php?action=add" method="post" id="machine">

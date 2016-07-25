@@ -25,16 +25,16 @@ $db = new \sql\MysqlPDO($level);
 
     </script>
 </head>
-<body>
+<body style="text-align: center">
 <?php
 $id = $_GET['id'];
 $list = $db->get_select(PRODUCT, "id={$id}");
 ?>
-<h2>修改产品信息</h2>
+<h1>修改产品信息</h1>
 
 <form action="../data/action_product.php?action=edit" method="post" id="product">
     <input type="hidden" name="id" value="">
-    <table width="100%">
+    <table class="show_list">
         <tr>
             <th>物料编码</th>
             <td>
@@ -162,7 +162,7 @@ $list = $db->get_select(PRODUCT, "id={$id}");
         <tr>
             <th>工艺类型</th>
             <td>
-                <select name="craft_type" form="product" required="required" id="type">
+                <select name="craft_type" form="product" id="type">
                     <option value="机加工">机加工</option>
                     <option value="铸造">铸造</option>
                     <option value="焊接">焊接</option>
@@ -171,11 +171,13 @@ $list = $db->get_select(PRODUCT, "id={$id}");
                     <option value="装配">装配</option>
                 </select>
             </td>
-
         </tr>
     </table>
-    <input type="submit" value="提交"/>
-    <input type="reset" value="重置">
+
+    <div style="padding-top: 5px;margin:0 auto;">
+        <input class="button white" type="submit" value="提交"/>
+        <input class="button white" type="reset" value="重置">
+    </div>
 </form>
 <script>
     selectValue('belong', '<?php echo $list['belong']?>');

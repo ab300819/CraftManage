@@ -30,12 +30,12 @@ $product_id = 1;
     </script>
 </head>
 <body>
-<h1>工艺编辑系统(build)</h1>
+<h1 style="text-align: center">工艺编辑系统</h1>
 
-<div><a href="../list_product.php">主页</a></div>
-<h2>零件信息</h2>
+<div style="text-align: center"><a href="../list_product.php">主页</a></div>
+<h2 style="text-align: center">零件信息</h2>
 
-<p>操作：<a href="../edit/edit_product.php">修改</a>&nbsp;<a href="javascript:confirmDel(12)">删除</a></p>
+<p style="text-align: center">操作：<a href="../edit/edit_product.php">修改</a>&nbsp;<a href="javascript:confirmDel(12)">删除</a></p>
 
 <div>
     <table width="100%" style="text-align: center" border="1" class="show_list">
@@ -91,9 +91,9 @@ $product_id = 1;
         ?>
     </table>
 </div>
-<h2>机加工工艺</h2>
+<h2 style="text-align: center">机加工工艺</h2>
 
-<div><a href='../add/add_machine.php?id=<?php echo $product_id; ?>'>添加</a></div>
+<div style="text-align: center"><a href='../add/add_machine.php?id=<?php echo $product_id; ?>'>添加</a></div>
 <div>
     <table width='100%' style='text-align: center' border='1' class="show_list">
         <?php
@@ -140,6 +140,6 @@ $product_id = 1;
         ?>
     </table>
 </div>
-<div><a href='../add/add_machine.php?id=<?php echo $product_id; ?>'>添加</a></div>
+<div style="text-align: center"><a href='../add/add_machine.php?id=<?php echo $product_id; ?>'>添加</a></div>
 </body>
 </html>

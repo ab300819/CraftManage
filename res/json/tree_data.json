@@ -10,7 +10,7 @@
     "id": 2,
     "text": "报表",
     "attributes": {
-      "url": ""
+      "url": "report/report_machine.php"
     }
   },
   {
@@ -22,14 +22,14 @@
         "id": 31,
         "text": "冶金",
         "attributes": {
-          "url": ""
+          "url": "products.html"
         }
       },
       {
         "id": 32,
         "text": "核电",
         "attributes": {
-          "url": ""
+          "url": "products.html"
         }
       }
     ]
@@ -86,13 +86,7 @@
               "url": ""
             }
           },
-          {
-            "id": 421,
-            "text": "焊接",
-            "attributes": {
-              "url": ""
-            }
-          },
+
           {
             "id": 421,
             "text": "装配",

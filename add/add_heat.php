@@ -9,3 +9,5 @@
 
 require_once(dirname(__FILE__) . '/../sql/mysql.php');
 require_once(dirname(__FILE__) . '/../sql/operate.php');
+
+?>

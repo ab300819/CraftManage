@@ -19,7 +19,7 @@ $product = $_GET['product'];
 $list = $db->get_select(MACHINE, "id='$id'");
 
 ?>
-<h2>修改工艺</h2>
+<h2 style="text-align: center">修改工艺</h2>
 
 <form action="../data/action_machine.php?action=edit" method="post" id="machine" >
     <input type="hidden" name="id" value="<?php echo $list['id']; ?>">

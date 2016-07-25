@@ -5,16 +5,16 @@
     <title>产品信息</title>
 </head>
 <link href="../res/css/list.css" rel="stylesheet" type="text/css">
-<body>
+<body style="text-align: center">
 
-<h2>添加产品</h2>
+<h1>添加产品</h1>
 
 <form action="../data/action_product.php?action=add" method="post" id="product">
-    <table>
+    <table class="show_list">
         <tr>
             <th>物料编码</th>
             <td>
-                <input type="text" name="material_num" readonly="readonly">
+                <input type="text" name="material_num" required>
             </td>
 
             <th>物料名称</th>
@@ -86,7 +86,7 @@
         <tr>
             <th>工艺编号</th>
             <td>
-                <input type="text" name="craft_num" readonly="readonly">
+                <input type="text" name="craft_num" required>
             </td>
             <th>生产批号</th>
             <td>
@@ -137,7 +137,7 @@
 
         </tr>
     </table>
-    <div style="padding-top: 10px">
+    <div style="padding-top: 5px;margin:0 auto;">
         <input class="button white" type="submit" value="提交"/>
         <input class="button white" type="reset" value="重置">
     </div>
