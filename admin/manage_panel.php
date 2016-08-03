@@ -18,7 +18,9 @@ if ($user != 'admin') {
 <head>
     <meta charset="UTF-8">
     <title>账号管理</title>
-    <link href="../res/css/list.css" rel="stylesheet" type="text/css">
+    <link href="../res/css/custom/editList.css" rel="stylesheet" type="text/css">
+    <link href="../res/css/custom/button.css" rel="stylesheet" type="text/css">
+
     <script>
         function delUser(id) {
             if (confirm("确定删除此用户？")) {

@@ -18,7 +18,8 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>产品列表</title>
-    <link href="res/css/list.css" rel="stylesheet" type="text/css">
+    <link href="res/css/custom/editList.css" rel="stylesheet" type="text/css">
+    <link href="res/css/custom/button.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="res/js/jquery-2.2.0.min.js"></script>
     <script>
         function addCol() {

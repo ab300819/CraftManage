@@ -202,7 +202,7 @@
         function s(A) {
             A || (A = e);
             var n = i(A);
-            return !h.shivCSS || l || n.hasCSS || (n.hasCSS = !!t(A, "article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")), c || a(A, n), A
+            return !h.shivCSS || l || n.hasCSS || (n.hasCSS = !!t(A, "article,aside,dialog,figcaption,figure,footer,header,hgroup,custom,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")), c || a(A, n), A
         }
 
         var l, c, u = "3.7.3", p = A.html5 || {}, w = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i, m = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i, f = "_html5shiv", g = 0, E = {};
@@ -219,7 +219,7 @@
             }
         }();
         var h = {
-            elements: p.elements || "abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video",
+            elements: p.elements || "abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup custom mark meter nav output picture progress section summary template time video",
             version: u,
             shivCSS: p.shivCSS !== !1,
             supportsUnknownElements: c,

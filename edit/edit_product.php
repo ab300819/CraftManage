@@ -10,7 +10,9 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>产品信息</title>
-    <link href="../res/css/list.css" rel="stylesheet" type="text/css">
+    <link href="../res/css/custom/editList.css" rel="stylesheet" type="text/css">
+    <link href="../res/css/custom/button.css" rel="stylesheet" type="text/css">
+
     <script>
         function selectValue(select, value) {
             var sel = document.getElementById(select);

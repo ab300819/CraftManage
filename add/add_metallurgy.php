@@ -17,7 +17,7 @@ $data = $db->get_choice_select(PRODUCT, $info, "id={$product_id}");
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link href="../res/css/list.css" rel="stylesheet" type="text/css">
+    <link href="../res/css/custom/editList.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <?php //include("edit_menu.php"); ?>

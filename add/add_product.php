@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>产品信息</title>
 </head>
-<link href="../res/css/list.css" rel="stylesheet" type="text/css">
+<link href="../res/css/custom/editList.css" rel="stylesheet" type="text/css">
+<link href="../res/css/custom/button.css" rel="stylesheet" type="text/css">
 <body style="text-align: center">
 
 <h1>添加产品</h1>

@@ -14,7 +14,7 @@ require_once(dirname(__FILE__) . '/../sql/operate.php');
 <head>
     <meta charset="UTF-8">
     <title>添加装配工艺</title>
-    <link href="../res/css/list.css" type="text/css" rel="stylesheet">
+    <link href="../res/css/custom/editList.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <h2>增加机加工工艺</h2>
