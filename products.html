@@ -1,0 +1,128 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link href="res/css/custom/editList.css" rel="stylesheet" type="text/css">
+    <link href="res/css/custom/button.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="res/js/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#list_product").load("products.php", function () {
+                hideFirst();
+                addColumn();
+                bind();
+            });
+        });
+
+        function addProduct() {
+            window.location = 'add/add_product.php';
+        }
+
+        function search() {
+            var keyWord = $("#keyword").val();
+
+        }
+
+        //获取元素ID
+        function getLineID() {
+            var cols = [];
+            $("#list_product tr").each(function () {
+                var text = $(this).find("td:eq(0)").text();
+                cols.push(text);
+            });
+//            cols = cols.length > 0 ? cols.substring(0, cols.length - 1) : "";
+            return cols;
+        }
+
+        //添加编辑
+        function addColumn() {
+            var info = getLineID();
+            var i = 0;
+            $("#list_product tr").each(function () {
+                if (i == 0) {
+                    $(this).append("<th>操作</th>");
+                } else {
+                    var edit = "<td><a href='edit/edit_product.php?id="
+                            + info[i] + "'>编辑</a><a style='padding-left: 10px' href='data/action_machine.php?action=del&id="
+                            + info[i] + "'>删除</a></td>";
+                    $(this).append(edit);
+                }
+                i++;
+            });
+        }
+
+        //隐藏第一列
+        function hideFirst() {
+
+            $("#list_product tr").each(function () {
+                $(this).find("th:eq(0)").hide();
+                $(this).find("td:eq(0)").hide();
+            });
+
+        }
+
+        //添加工艺详情和产品详情
+        function bind() {
+            var id = getLineID();
+            var i = 0;
+            $("#list_product tr").each(function () {
+                if (i != 0) {
+                    var value = $(this).find("td:eq(1)").text();
+                    var craft = $(this).find("td:eq(2)").text();
+
+                    value = "<a target='blank' href='data/action_product.php?id=" + id[i] + "'>" + value + "</a>";
+                    craft = "<a target='blank' href='data/action_product.php?id=" + id[i] + "'>" + craft + "</a>";
+
+                    //TODO 根据需求加链接
+                    $(this).find("td:eq(1)").html(value);
+                    $(this).find("td:eq(2)").html(craft);
+                }
+                i++;
+            });
+        }
+
+    </script>
+    <style>
+        #keyword {
+            width: 260px;
+            height: 30px;
+            border-spacing: 0;
+
+            border: solid #ccc 1px;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            -webkit-box-shadow: 0 1px 1px #ccc;
+            -moz-box-shadow: 0 1px 1px #ccc;
+            box-shadow: 0 1px 1px #ccc;
+        }
+
+        #title {
+            font: 35px/100% 'Microsoft yahei', Arial, Helvetica, sans-serif;
+        }
+
+    </style>
+</head>
+<body style="text-align: center">
+
+<h1 id="title" style="padding-top: 5px;">产品列表</h1>
+<!--<input type="button" class="button white" onclick="hideFirst()" value="测试">-->
+
+<div style="padding-top: 5px;padding-bottom: 5px;">
+    <input id="keyword" type="text">
+    <input class="button white" type="button" onclick="search()" value="搜索">
+    <input class="button white" type="button" onclick="addProduct()" value="添加">
+</div>
+<div align="center" style="padding-top: 5px;padding-bottom: 5px;">
+    <table id="list_product" class="show_list "></table>
+</div>
+
+<div style="padding-top: 5px;margin:0 auto;">
+    <button class="button white" onclick="addProduct()">添加</button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="res/css/tree/tree_menu.css"/>
+    <script type="text/javascript" src="res/js/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="res/js/custom/tree_menu.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".st_tree").TreeMenu({
+                click: function (a) {
+                    if (!$(a).attr("hasChild")) {
+                        alert($(a).attr("ref"));
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="st_tree">
+    <ul>
+        <li><a href="#" ref="http://www.baidu.com">首页</a></li>
+        <li><a href="#">报表</a></li>
+        <li><a href="#">产品</a></li>
+        <ul>
+            <li><a href="#">冶金</a></li>
+            <li><a href="#">核电</a></li>
+        </ul>
+        <li><a href="#">工艺</a></li>
+        <ul>
+            <li><a href="#">冶金</a></li>
+            <ul>
+                <li><a href="#">机加工</a></li>
+
+            </ul>
+            <li><a href="#">核电</a></li>
+            <ul>
+                <li><a href="#">机加工</a></li>
+                <li><a href="#">铸造</a></li>
+                <li><a href="#">锻造</a></li>
+                <li><a href="#">热处理</a></li>
+                <li><a href="#">焊接</a></li>
+                <li><a href="#">装配</a></li>
+            </ul>
+        </ul>
+    </ul>
+</div>
+</body>
+</html>

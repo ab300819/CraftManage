@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>系统主页</title>
+    <link type="text/css" rel="stylesheet" href="res/css/custom/common.css"/>
+    <script src="res/js/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var width = $(window).width();
+            var height = $(window).height();
+
+            $(document).ready(function () {
+
+                $(".middle").css('height', height - 180 + 'px');
+                $(".content").css('height', height - 180 + 'px');
+
+                $(".heading").load("head.html");
+                $(".left_menu").css('height', height - 180 + 'px').load("tree_menu.html");
+                $(".footer").load("footer.html");
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+
+    <div class="heading"></div>
+
+    <div class="middle">
+        <div class="left_menu"></div>
+        <div class="content"></div>
+    </div>
+
+    <div class="footer"></div>
+
+</div>
+</body>
+</html>
