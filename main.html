@@ -1,7 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -63,7 +62,7 @@
             });
 
 
-            //刷新选项卡
+            // 刷新选项卡
             $("#refresh").click(function () {
                 var currTab = $('#tabs').tabs('getSelected');	//获取选中的标签项
                 var url = $(currTab.panel('options').content).attr('src');	//获取该选项卡中内容标签（iframe）的 src 属性
@@ -77,7 +76,7 @@
                 })
             });
 
-            //关闭所有选项卡
+            // 关闭所有选项卡
             $("#closeAll").click(function () {
                 $(".tabs li").each(function (i, n) {
                     var title = $(n).text();
@@ -85,7 +84,7 @@
                 });
             });
 
-            //除当前选项卡之外关闭所有
+            // 除当前选项卡之外关闭所有
             $("#closeOther").click(function () {
                 var currTab = $('#tabs').tabs('getSelected');
                 var currTitle = currTab.panel('options').title;
@@ -99,7 +98,7 @@
                 });
             });
 
-            //关闭当前选项卡
+            // 关闭当前选项卡
             $("#close").click(function () {
                 var currTab = $('#tabs').tabs('getSelected');
                 var currTitle = currTab.panel('options').title;
@@ -196,6 +195,7 @@
         <ul id="tree" data-options="url:'res/json/tree_data.json',method:'get',animate:'true',lines:true"></ul>
     </div>
 </div>
+
 <div data-options="region:'east',split:true" style="width:150px;padding:10px;" title="小工具">
     <div class="tool">
         <p><a href="javascript:toolClick('tool')">手册</a></p>

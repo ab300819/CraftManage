@@ -1,0 +1,21 @@
+.edit-panel {
+    width: 35%;
+    border: 1px solid #95B8E7;
+    margin: 0px auto;
+    padding: 0px;
+}
+
+.panel-head {
+    text-align: center;
+    border: 1px solid #95B8E7;
+    background: #eaf2ff;
+}
+
+.panel-head p {
+    font-size: 30px;
+}
+
+.panel-content {
+    padding: 15px 15px 15px 5px;
+
+}
