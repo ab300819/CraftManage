@@ -18,9 +18,9 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>产品列表</title>
-    <link href="res/css/custom/editList.css" rel="stylesheet" type="text/css">
-    <link href="res/css/custom/button.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="res/js/jquery-2.2.0.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="res/css/custom/list.css">
+    <link type="text/css" rel="stylesheet" href="res/css/custom/button.css">
+    <script type="text/javascript" src="res/libs/jquery/jquery-2.2.0.min.js"></script>
     <script>
         function addCol() {
             $col = $("<td>删除</td>");
@@ -59,9 +59,10 @@ $db = new \sql\MysqlPDO($level);
 </head>
 <body>
 <h1 align="center">产品目录</h1>
+
 <div align="center">
     <form action="add/add_product.php" method="post">
-        <table id="product" class="show_list ">
+        <table id="product" class="show-list ">
             <?php
             //            $head = array(
             //                '物料编码',
@@ -140,7 +141,7 @@ $db = new \sql\MysqlPDO($level);
                 <td>&nbsp;</td>
             </tr>
         </table>
-        <div class="list_button">
+        <div class="list-button">
             <input class="button white" type="submit" value="提交">
             <input class="button white" type="reset" value="重置">
             <input class="button white" type="button" onclick="edit()" value="编辑">

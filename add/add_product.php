@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>产品信息</title>
 </head>
-<link href="../res/css/custom/editList.css" rel="stylesheet" type="text/css">
+<link href="../res/css/custom/list.css" rel="stylesheet" type="text/css">
 <link href="../res/css/custom/button.css" rel="stylesheet" type="text/css">
 <body style="text-align: center">
 
 <h1>添加产品</h1>
 
 <form action="../data/action_product.php?action=add" method="post" id="product">
-    <table class="show_list">
+    <table class="show-list">
         <tr>
             <th>物料编码</th>
             <td>

@@ -18,7 +18,7 @@ if ($user != 'admin') {
 <head>
     <meta charset="UTF-8">
     <title>账号管理</title>
-    <link href="../res/css/custom/editList.css" rel="stylesheet" type="text/css">
+    <link href="../res/css/custom/list.css" rel="stylesheet" type="text/css">
     <link href="../res/css/custom/button.css" rel="stylesheet" type="text/css">
 
     <script>
@@ -33,6 +33,31 @@ if ($user != 'admin') {
                 return false;
         }
     </script>
+    <style type="text/css">
+        .title {
+            text-align: center;
+            font-size: larger;
+            color: #5466da;
+
+        }
+
+        /*工具栏样式*/
+        .nav-bar {
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 10px;
+        }
+
+        .nav-bar a:link {
+            color: black;
+            text-decoration: none;
+        }
+
+        .nav-bar a:hover {
+            color: red;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -40,15 +65,15 @@ if ($user != 'admin') {
     <h1>工艺管理系统账户管理</h1>
 </div>
 
-<div class="nav_bar">
+<div class="nav-bar">
     <nav>
         <a href="../logout.php">退出</a>
     </nav>
 </div>
 
-<div class="list_content" align="center">
+<div class="list_content">
     <form action="../admin/manage_user.php?action=add" method="post" id="user" onkeydown="dosSubmit();">
-        <table class="show_list">
+        <table class="show-list" align="center">
             <tr>
                 <th>工号</th>
                 <th>密码</th>
@@ -94,7 +119,7 @@ if ($user != 'admin') {
                 <td>&nbsp;</td>
             </tr>
         </table>
-        <div class="list_button">
+        <div class="list-button">
             <input class="button white" type="submit" value="提交">
             <input class="button white" type="reset" value="重置">
         </div>

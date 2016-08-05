@@ -17,7 +17,7 @@ $db = new \sql\MysqlPDO(0);
 <head>
     <meta charset="UTF-8">
     <title>装配工艺编辑</title>
-    <link rel="stylesheet" type="text/css" href="../res/css/custom/editList.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/custom/list.css">
 </head>
 <body>
 <?php

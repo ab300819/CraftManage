@@ -11,13 +11,13 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>工艺修改</title>
-    <link type="text/css" rel="stylesheet" href="../res/css/custom/editList.css">
+    <link type="text/css" rel="stylesheet" href="../res/css/custom/list.css">
     <link type="text/css" rel="stylesheet" href="../res/css/custom/button.css">
-    <link type="text/css" rel="stylesheet" href="../res/css/jquery-ui-themes/themes/base/jquery-ui.css">
     <link type="text/css" rel="stylesheet" href="../res/css/custom/panel.css">
+    <link type="text/css" rel="stylesheet" href="../res/libs/jquery-ui-themes/themes/base/jquery-ui.min.css">
 
-    <script type="text/javascript" src="../res/js/jquery-2.2.0.min.js"></script>
-    <script type="text/javascript" src="../res/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../res/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="../res/libs/jquery-ui/jquery-ui.min.js"></script>
 
     <script type="text/javascript">
         $(function () {
@@ -154,7 +154,7 @@ $list = $db->get_select(MACHINE, "id='$id'");
             <input type="hidden" name="id" value="<?php echo $list['id']; ?>">
 
             <input type="hidden" name="product_id" value="<?php echo $product; ?>">
-            <table align="center">
+            <table class="edit-list" align="center">
                 <tr>
                     <th>工艺编号</th>
                     <td><input class="text ui-widget-content ui-corner-all" type="text" name="craft_num"

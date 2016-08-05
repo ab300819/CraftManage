@@ -12,13 +12,13 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>机加工工艺</title>
-    <link rel="stylesheet" type="text/css" href="../res/css/custom/editList.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/custom/list.css">
 </head>
 <body>
 <h2 style="text-align: center">江苏神通阀门股份有限公司</h2>
 
 <h3 style="text-align: center">机械加工工艺过程卡片</h3>
-<table class="show_list" width="100%" style="text-align: center">
+<table class="show-list" width="100%" style="text-align: center">
     <?php
     $head = array('工艺编号',
         '物料编码',
@@ -40,7 +40,7 @@ $db = new \sql\MysqlPDO($level);
     key_value_table($table, 4);
     ?>
 </table>
-<table class="show_list" width="100%" style="text-align: center">
+<table class="show-list" width="100%" style="text-align: center">
     <?php
     $head = array('工序号',
         '车间',
