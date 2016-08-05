@@ -45,7 +45,7 @@ function add($db)
     if ($rw > 0) {
         echo "<script>
                     alert('添加成功！');
-                    window.location='../list_product.php';
+                    window.location='../product.html';
                  </script>";
     } else {
         echo "<script>
@@ -86,12 +86,9 @@ function edit($db)
     foreach ($table as $head) {
         $data[$head] = $_POST[$head];
     }
-    $sql = $db->update_data(PRODUCT, $data, "material_num='{$data['material_num']}'");
+    $sql = $db->updateData(PRODUCT, $data, "material_num='{$data['material_num']}'");
     if ($db->execute($sql) > 0) {
-        echo "<script>
-                    alert('更新成功！');
-                    window.location='../list_product.php';
-                 </script>";
+        echo "<script>alert('更新成功！');window.location='../product.html';</script>";
     } else {
         echo "<script>
                     alert('更新失败！');

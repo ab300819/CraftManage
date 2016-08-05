@@ -17,10 +17,10 @@ $data = $db->get_choice_select(PRODUCT, $info, "id={$product_id}");
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link href="../res/css/table.css" rel="stylesheet" type="text/css">
+    <link href="../res/css/custom/list.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<?php include("edit_menu.php"); ?>
+<?php //include("edit_menu.php"); ?>
 <form action="../data/action_metallurgy.php?action=add" method="post" id="metallurgy">
     <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
     <input type="hidden" name="material_num" value="<?php echo $data['material_num']; ?>">

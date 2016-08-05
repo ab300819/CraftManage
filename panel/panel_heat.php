@@ -6,8 +6,8 @@
  * Time: 13:13
  * 热处理
  */
-require_once('sql/mysql.php');
-require_once('sql/operate.php');
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/operate.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];

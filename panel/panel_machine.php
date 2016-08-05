@@ -1,18 +1,19 @@
 <?php
-require_once('sql/mysql.php');
-require_once('sql/operate.php');
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/operate.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
 $db = new \sql\MysqlPDO($level);
-$product_id = $_GET['id'];
+//$product_id = $_GET['id'];
+$product_id = 1;
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>机加工工艺管理</title>
-    <link rel="stylesheet" type="text/css" href="../res/css/table.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/custom/list.css">
     <script>
         function doDel(id, product) {
             if (confirm("确定要删除吗？")) {
@@ -29,15 +30,15 @@ $product_id = $_GET['id'];
     </script>
 </head>
 <body>
-<h1>工艺编辑系统(build)</h1>
+<h1 style="text-align: center">工艺编辑系统</h1>
 
-<div><a href="../list_product.php">主页</a></div>
-<h2>零件信息</h2>
+<div style="text-align: center"><a href="../list_product.php">主页</a></div>
+<h2 style="text-align: center">零件信息</h2>
 
-<p>操作：<a href="../edit/edit_product.php">修改</a>&nbsp;<a href="javascript:confirmDel(12)">删除</a></p>
+<p style="text-align: center">操作：<a href="../edit/edit_product.php">修改</a>&nbsp;<a href="javascript:confirmDel(12)">删除</a></p>
 
 <div>
-    <table width="100%" style="text-align: center" border="1">
+    <table width="100%" style="text-align: center" border="1" class="show-list">
         <?php
         //TODO 需要处理在数组指定位置插入键值对
         $head = array(
@@ -90,11 +91,11 @@ $product_id = $_GET['id'];
         ?>
     </table>
 </div>
-<h2>机加工工艺</h2>
+<h2 style="text-align: center">机加工工艺</h2>
 
-<div><a href='../add/add_machine.php?id=<?php echo $product_id; ?>'>添加</a></div>
+<div style="text-align: center"><a href='../add/add_machine.php?id=<?php echo $product_id; ?>'>添加</a></div>
 <div>
-    <table width='100%' style='text-align: center' border='1'>
+    <table width='100%' style='text-align: center' border='1' class="show-list">
         <?php
         $material_num = $list['material_num'];
         $head = array('工序号',
@@ -139,6 +140,6 @@ $product_id = $_GET['id'];
         ?>
     </table>
 </div>
-<div><a href='../add/add_machine.php?id=<?php echo $product_id; ?>'>添加</a></div>
+<div style="text-align: center"><a href='../add/add_machine.php?id=<?php echo $product_id; ?>'>添加</a></div>
 </body>
 </html>

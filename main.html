@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>系统面板</title>
+    <link type="text/css" rel="stylesheet" href="res/libs/jquery-easyui/themes/default/easyui.css"/>
+    <link type="text/css" rel="stylesheet" href="res/libs/jquery-easyui/themes/default/icon.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="res/css/tree/tree_menu.css"/>-->
+
+    <script type="text/javascript" src="res/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="res/libs/jquery-easyui/jquery.easyui.min.js"></script>
+    <!--<script type="text/javascript" src="res/js/custom/tabs.js"></script>-->
+    <!--<script type="text/javascript" src="res/js/custom/tree_menu.js"></script>-->
+    <!--<link href="res/css/custom/list.css" rel="stylesheet" type="text/css">-->
+    <script type="text/javascript">
+        /*  $(function () {
+         //初始化树形菜单
+         $(".st_tree").TreeMenu({
+         click: function (a) {
+         if (!$(a).attr("hasChild")) {
+         var title = $(a).text();
+         var url = $(a).attr("rel");
+         var icon = $(a).attr("icon");
+         parent.openTab(title, url, icon);
+         }
+         }
+         });
+         });*/
+
+        $(function () {
+
+            //为树形菜单添加点击事件
+            $("#tree").tree({
+                onClick: function (node) {
+                    var title = node.text;
+                    var url = node.attributes.url;
+                    openTab(title, url);
+                }
+            });
+
+            //屏蔽右键
+            $(document).bind("contextmenu", function (e) {
+                return false;
+            });
+
+            //为选项卡绑定右键
+            $("#tabs").bind('contextmenu', function (e) {
+
+                // 选中当前触发事件的选项卡
+                var subtitle = $(this).text();
+                $("#tabs").tabs('select', subtitle);
+
+                //显示快捷菜单
+                $("#menu").menu('show', {
+                    left: e.pageX,
+                    top: e.pageY
+                });
+
+                return false;
+            });
+
+
+            // 刷新选项卡
+            $("#refresh").click(function () {
+                var currTab = $('#tabs').tabs('getSelected');	//获取选中的标签项
+                var url = $(currTab.panel('options').content).attr('src');	//获取该选项卡中内容标签（iframe）的 src 属性
+
+                // 重新设置该标签
+                $('#tabs').tabs('update', {
+                    tab: currTab,
+                    options: {
+                        content: tabContent(url)
+                    }
+                })
+            });
+
+            // 关闭所有选项卡
+            $("#closeAll").click(function () {
+                $(".tabs li").each(function (i, n) {
+                    var title = $(n).text();
+                    $('#tabs').tabs('close', title);
+                });
+            });
+
+            // 除当前选项卡之外关闭所有
+            $("#closeOther").click(function () {
+                var currTab = $('#tabs').tabs('getSelected');
+                var currTitle = currTab.panel('options').title;
+
+                $(".tabs li").each(function (i, n) {
+                    var title = $(n).text();
+
+                    if (currTitle != title) {
+                        $('#tabs').tabs('close', title);
+                    }
+                });
+            });
+
+            // 关闭当前选项卡
+            $("#close").click(function () {
+                var currTab = $('#tabs').tabs('getSelected');
+                var currTitle = currTab.panel('options').title;
+                $('#tabs').tabs('close', currTitle);
+            });
+
+        });
+
+        function tabContent(url) {
+            return '<iframe style="width:100%;height:100%;" scrolling="auto" frameborder="0" src="' + url + '"></iframe>';
+        }
+
+        // 打开一个选项卡
+        function openTab(title, url) {
+            /**
+             如果这个标题的标签存在，则选择该标签
+             否则添加一个标签到标签组
+             */
+            if ($("#tabs").tabs('exists', title)) {
+                $("#tabs").tabs('select', title);
+            } else {
+                $("#tabs").tabs('add', {
+                    title: title,
+                    content: tabContent(url),
+                    closable: true
+                });
+            }
+        }
+
+        function toolClick() {
+            var url = "knowledge/manual.html";
+            parent.openTab("手册", url);
+        }
+
+    </script>
+    <style type="text/css">
+        .tool {
+            font-size: medium;
+            line-height: 150%;
+            padding-left: 45%;
+            padding-top: 50px
+        }
+
+        .tool a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .tool a:hover {
+            color: #009933;
+        }
+    </style>
+</head>
+
+<body class="easyui-layout">
+
+<!--顶部栏-->
+<!--<div data-options="region:'north',border:false" style="height:80px;background:#B3DfDA;padding:10px">
+<h1 align="center">工艺信息管理系统</h1>
+</div>-->
+
+<div data-options="region:'west',split:true" style="width:150px;padding:10px;" title="导航菜单">
+    <!--
+<div class="st_tree">
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">报表</a></li>
+        <li><a href="#">产品</a></li>
+        <ul>
+            <li><a href="#" rel="list_product.php">冶金</a></li>
+            <li><a href="#" rel="">核电</a></li>
+        </ul>
+        <li><a href="#">工艺</a></li>
+        <ul>
+            <li><a href="#">冶金</a></li>
+            <ul>
+                <li><a href="#">机加工</a></li>
+
+            </ul>
+            <li><a href="#">核电</a></li>
+            <ul>
+                <li><a href="#">机加工</a></li>
+                <li><a href="#">铸造</a></li>
+                <li><a href="#">锻造</a></li>
+                <li><a href="#">热处理</a></li>
+                <li><a href="#">焊接</a></li>
+                <li><a href="#">装配</a></li>
+            </ul>
+        </ul>
+    </ul>
+</div>
+-->
+    <div class="tree_menu">
+        <ul id="tree" data-options="url:'res/json/tree_data.json',method:'get',animate:'true',lines:true"></ul>
+    </div>
+</div>
+
+<div data-options="region:'east',split:true" style="width:150px;padding:10px;" title="小工具">
+    <div class="tool">
+        <p><a href="javascript:toolClick('tool')">手册</a></p>
+    </div>
+</div>
+
+<div data-options="region:'center'">
+    <div id="tabs" class="easyui-tabs" fit="true" border="false">
+        <div class="welcome" title="欢迎使用">
+            <h1 align="center">工艺信息管理系统</h1>
+        </div>
+    </div>
+
+</div>
+
+<!--底部栏-->
+<!--<div data-options="region:'south',border:false" style="height:50px;background:#575757;padding:10px;">-->
+
+</div>
+
+<!--右键菜单栏-->
+<div id="menu" class="easyui-menu" style="width:150px;">
+    <div id="refresh">刷新</div>
+    <div class="menu-sep"></div>
+    <div id="closeAll">全部关闭</div>
+    <div id="closeOther">关闭其他</div>
+    <div class="menu-sep"></div>
+    <div id="close">关闭</div>
+</div>
+</body>
+
+</html>

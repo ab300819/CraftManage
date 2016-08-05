@@ -6,8 +6,8 @@
  * Time: 15:29
  * 装配工艺编辑面板
  */
-require_once('sql/mysql.php');
-require_once('sql/operate.php');
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/operate.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
@@ -18,14 +18,14 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>装配工艺管理</title>
-    <link href="../res/css/table.css" type="text/css" rel="stylesheet">
+    <link href="../res/css/custom/list.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 
-<h1>装配加工路线单</h1>
+<h1 style="text-align: center">装配加工路线单</h1>
 
-<h2>产品信息</h2>
-<table width="100%">
+<h2 style="text-align: center">产品信息</h2>
+<table class="show-list" width="100%">
     <?php
     $head = array(
         '产品名称',
@@ -38,8 +38,8 @@ $db = new \sql\MysqlPDO($level);
     key_value_table($table, 3);
     ?>
 </table>
-<h2>核电阀门装配明细表</h2>
-<table width="100%">
+<h2 style="text-align: center">核电阀门装配明细表</h2>
+<table class="show-list" width="100%">
     <?php
     $head = array(
         '序号',
@@ -54,8 +54,8 @@ $db = new \sql\MysqlPDO($level);
     simple_table($head);
     ?>
 </table>
-<h2>装配产品信息</h2>
-<table width="100%">
+<h2 style="text-align: center">装配产品信息</h2>
+<table class="show-list" width="100%">
     <?php
     $head = array(
         '产品型号',
@@ -69,8 +69,8 @@ $db = new \sql\MysqlPDO($level);
     key_value_table($table, 3);
     ?>
 </table>
-<h2>装配工艺</h2>
-<table width="100%">
+<h2 style="text-align: center">装配工艺</h2>
+<table class="show-list" width="100%">
     <?php
     $head = array(
         '工序',

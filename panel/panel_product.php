@@ -1,6 +1,6 @@
 <?php
-require_once('sql/mysql.php');
-require_once('sql/operate.php');
+require_once(dirname(__FILE__) . '/../sql/mysql.php');
+require_once(dirname(__FILE__) . '/../sql/operate.php');
 session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
@@ -10,7 +10,7 @@ $level = $_SESSION[$user];
 <head>
     <meta charset="UTF-8">
     <title>产品信息</title>
-    <link href="../res/css/table.css" rel="stylesheet" type="text/css">
+    <link href="../res/css/custom/list.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <?php include("edit_menu.php") ?>
