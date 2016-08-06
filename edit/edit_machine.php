@@ -11,16 +11,18 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>工艺修改</title>
-    <link type="text/css" rel="stylesheet" href="../res/css/custom/list.css">
-    <link type="text/css" rel="stylesheet" href="../res/css/custom/button.css">
-    <link type="text/css" rel="stylesheet" href="../res/css/custom/panel.css">
+    <link type="text/css" rel="stylesheet" href="../res/css/custom/panel.css"/>
     <link type="text/css" rel="stylesheet" href="../res/libs/jquery-ui-themes/themes/base/jquery-ui.min.css">
+    <!--    <link type="text/css" rel="stylesheet" href="../res/libs/bootstrap/css/bootstrap.min.css"/>-->
 
     <script type="text/javascript" src="../res/libs/jquery/jquery-2.2.0.min.js"></script>
     <script type="text/javascript" src="../res/libs/jquery-ui/jquery-ui.min.js"></script>
 
     <script type="text/javascript">
         $(function () {
+
+            // 为输入框添加效果
+//            $("#machine:input").addClass("form-control");
 
             var
                 dialog,
@@ -53,7 +55,7 @@ $db = new \sql\MysqlPDO($level);
                 }
             }
 
-
+            // 提交表单
             function submitForm() {
 
                 var valid = true;
@@ -80,6 +82,7 @@ $db = new \sql\MysqlPDO($level);
                 return valid;
             }
 
+            // 初始化对话框
             dialog = $("#add-info").dialog({
                 autoOpen: false,
                 height: 400,
@@ -108,6 +111,7 @@ $db = new \sql\MysqlPDO($level);
             $("#submit-to-new").click(function () {
                 dialog.dialog("open");
             });
+
         });
     </script>
     <style type="text/css">
@@ -147,7 +151,7 @@ $list = $db->get_select(MACHINE, "id='$id'");
 <!--<h1 style="text-align: center">修改工艺</h1>-->
 <div class="edit-panel">
     <div class="panel-head">
-        <p>工艺编辑</p>
+        <p>编辑核电机加工工艺</p>
     </div>
     <div class="panel-content">
         <form action="../data/action_machine.php?action=edit" method="post" id="machine">
@@ -179,8 +183,7 @@ $list = $db->get_select(MACHINE, "id='$id'");
                 </tr>
                 <tr>
                     <th>工序内容</th>
-                    <td><textarea style="width: 300px;height: 60px" name="content"
-                                  form="machine"><?php echo $list['content']; ?></textarea>
+                    <td><textarea name="content" form="machine"><?php echo $list['content']; ?></textarea>
                 </tr>
                 <tr>
                     <th>自检记录</th>
@@ -220,7 +223,7 @@ $list = $db->get_select(MACHINE, "id='$id'");
                 </tr>
             </table>
 
-            <div style="text-align: center;padding-top: 10px;padding-bottom: 5px">
+            <div class="edit-button">
                 <input class="ui-button ui-widget ui-corner-all" type="submit" value="提交">
                 <input id="submit-to-new" class="ui-button ui-widget ui-corner-all" type="button" value="新建提交">
                 <input class="ui-button ui-widget ui-corner-all" type="reset" value="重置">

@@ -1,22 +1,93 @@
+/*面板*/
 .edit-panel {
     font-family: Arial;
     width: 35%;
-    border: 1px solid #95B8E7;
     margin: 0px auto;
     padding: 0px;
+    border: 1px solid #95B8E7;
+    border-radius: 15px;
+    background-color: #F0FFF0;
 }
 
 .panel-head {
     text-align: center;
     border: 1px solid #95B8E7;
+    border-radius: 15px;
     background: #eaf2ff;
 }
 
 .panel-head p {
+    font-family: Arial;
     font-size: 30px;
 }
 
 .panel-content {
     padding: 15px 15px 15px 5px;
+}
 
+/*面板内表格*/
+.edit-list {
+    font-family: Arial;
+    border-collapse: separate;
+    border-spacing: 10px 15px;
+}
+
+.edit-list th {
+    /*width: 15%;*/
+    text-align: right;
+    font-size: 20px;
+    padding-right: 15px;
+}
+
+.edit-list td {
+    /*width: 85%;*/
+    text-align: center;
+}
+
+.edit-list input {
+    font-family: Arial;
+    font-size: 15px;
+    width: 300px;
+    height: 25px;
+}
+
+.edit-list select {
+    font-family: Arial;
+    font-size: 15px;
+    width: 300px;
+    height: 30px;
+}
+
+.edit-list textarea {
+    font-family: Arial;
+    font-size: 15px;
+    width: 300px;
+    height: 50px;
+}
+
+/*面板内按钮*/
+.edit-button {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.edit-button input {
+    font-family: Arial;
+    width: 100px;
+    height: 45px;
+
+    margin-left: 15px;
+    margin-right: 15px;
+
+    text-shadow: 1px 1px 1px #FFFFF0;
+    /*border: solid 1px #CCCCCC;*/
+    /*border-radius: 10px;*/
+
+    /*background-color: #FFFAF0;*/
+
+}
+
+.edit-button input:hover {
+    /*background-color: #FFF5EE;*/
 }

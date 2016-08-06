@@ -21,7 +21,7 @@ $level = $_SESSION[$user];
 <p></p>
 
 <div style="width: 100%;text-align: center">
-    <form action="add/add_product.php" method="post">
+    <form action="add/add_product.html" method="post">
 
         <table align="center">
             <tr>

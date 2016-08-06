@@ -61,7 +61,7 @@ $db = new \sql\MysqlPDO($level);
 <h1 align="center">产品目录</h1>
 
 <div align="center">
-    <form action="add/add_product.php" method="post">
+    <form action="add/add_product.html" method="post">
         <table id="product" class="show-list ">
             <?php
             //            $head = array(
