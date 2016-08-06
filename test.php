@@ -9,6 +9,7 @@
 require_once './sql/mysql.php';
 require_once './sql/user_config.php';
 
+
 $db = new \sql\MysqlPDO(0);
 
 $id = 12;
@@ -18,9 +19,9 @@ $data['cr_content'] = '334';
 $data['cr_room'] = '444444';
 $data['cr_machine'] = '678';
 
-$update = $db->update_data(CRAFT_CONTENT, $data, "id='$id'");
+$update = $db->updateData(CRAFT_CONTENT, $data, "id='$id'");
 $insert = $db->insert_data(CRAFT_CONTENT, $data);
-$delete = $db->delete_data(CRAFT_CONTENT, $data);
+$delete = $db->delData(CRAFT_CONTENT, $data);
 
 $id = 12;
 $cr_num = '15';

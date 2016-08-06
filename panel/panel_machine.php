@@ -13,7 +13,7 @@ $product_id = 1;
 <head>
     <meta charset="UTF-8">
     <title>机加工工艺管理</title>
-    <link rel="stylesheet" type="text/css" href="../res/css/custom/editList.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/custom/list.css">
     <script>
         function doDel(id, product) {
             if (confirm("确定要删除吗？")) {
@@ -38,7 +38,7 @@ $product_id = 1;
 <p style="text-align: center">操作：<a href="../edit/edit_product.php">修改</a>&nbsp;<a href="javascript:confirmDel(12)">删除</a></p>
 
 <div>
-    <table width="100%" style="text-align: center" border="1" class="show_list">
+    <table width="100%" style="text-align: center" border="1" class="show-list">
         <?php
         //TODO 需要处理在数组指定位置插入键值对
         $head = array(
@@ -95,7 +95,7 @@ $product_id = 1;
 
 <div style="text-align: center"><a href='../add/add_machine.php?id=<?php echo $product_id; ?>'>添加</a></div>
 <div>
-    <table width='100%' style='text-align: center' border='1' class="show_list">
+    <table width='100%' style='text-align: center' border='1' class="show-list">
         <?php
         $material_num = $list['material_num'];
         $head = array('工序号',

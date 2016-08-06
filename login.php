@@ -17,12 +17,16 @@ if (!empty($username) && !empty($password)) {
     } elseif ($list['level'] == 3) {
         $_SESSION[$username] = $list['level'];
         $_SESSION['user'] = $list['username'];
-        header("Location:select.php");
+        header("Location:main.html");
 
+    } elseif ($username == 'admin') {
+        $_SESSION[$username] = $list['level'];
+        $_SESSION['user'] = $list['username'];
+        echo "<script>window.location='admin/manage_panel.php'</script>";
     } else {
         $_SESSION[$username] = $list['level'];
         $_SESSION['user'] = $list['username'];
-        header("Location:panel_machine.php");
+        header("Location:main.html");
     }
 
 

@@ -18,8 +18,9 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>产品列表</title>
-    <link href="./res/css/style.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="res/js/jquery.js"></script>
+    <link type="text/css" rel="stylesheet" href="res/css/custom/list.css">
+    <link type="text/css" rel="stylesheet" href="res/css/custom/button.css">
+    <script type="text/javascript" src="res/libs/jquery/jquery-2.2.0.min.js"></script>
     <script>
         function addCol() {
             $col = $("<td>删除</td>");
@@ -53,16 +54,16 @@ $db = new \sql\MysqlPDO($level);
         function scan(id) {
             window.location = 'data/control_panel?id=' + id;
         }
+        $('#account_list')
     </script>
 </head>
 <body>
-<h1>产品目录</h1>
-<a href="test_panel.php">首页</a>
+<h1 align="center">产品目录</h1>
 
 <div align="center">
-    <form action="add_product.php" method="post">
-        <table align="center" id="product">
-            <!--            --><?php
+    <form action="add/add_product.html" method="post">
+        <table id="product" class="show-list ">
+            <?php
             //            $head = array(
             //                '物料编码',
             //                '产品名称',
@@ -120,7 +121,7 @@ $db = new \sql\MysqlPDO($level);
                             }
                         }
                         echo "<td>
-                                <a href='edit_product.php?id={$cell['id']}'>编辑</a>
+                                <a href='edit/edit_product.php?id={$cell['id']}'>编辑</a>
                                 <a href='javascript:addCraft({$cell['id']})'>添加工艺</a>
                                 <a href='javascript:scan({$cell['id']})'>查看</a>
                                 <a href='javascript:report({$cell['id']})'>报表</a>
@@ -140,9 +141,11 @@ $db = new \sql\MysqlPDO($level);
                 <td>&nbsp;</td>
             </tr>
         </table>
-        <input type="submit" value="提交">
-        <input type="reset" value="重置">
-        <input type="button" onclick="edit()" value="编辑">
+        <div class="list-button">
+            <input class="button white" type="submit" value="提交">
+            <input class="button white" type="reset" value="重置">
+            <input class="button white" type="button" onclick="edit()" value="编辑">
+        </div>
 
     </form>
 </div>

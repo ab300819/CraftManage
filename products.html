@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <title></title>
 
+<<<<<<< HEAD
     <link href="res/css/custom/editList.css" rel="stylesheet" type="text/css">
     <link href="res/css/custom/button.css" rel="stylesheet" type="text/css">
 
     <script type="text/javascript" src="res/js/jquery-2.2.0.min.js"></script>
+=======
+    <link type="text/css" rel="stylesheet" href="res/css/custom/list.css">
+    <link type="text/css" rel="stylesheet" href="res/css/custom/button.css">
+
+    <script type="text/javascript" src="res/libs/jquery/jquery-2.2.0.min.js"></script>
+>>>>>>> dev
     <script type="text/javascript">
         $(function () {
             $("#list_product").load("products.php", function () {
@@ -18,7 +25,11 @@
         });
 
         function addProduct() {
+<<<<<<< HEAD
             window.location = 'add/add_product.php';
+=======
+            window.location = 'add/add_product.html';
+>>>>>>> dev
         }
 
         function search() {
@@ -117,7 +128,11 @@
     <input class="button white" type="button" onclick="addProduct()" value="添加">
 </div>
 <div align="center" style="padding-top: 5px;padding-bottom: 5px;">
+<<<<<<< HEAD
     <table id="list_product" class="show_list "></table>
+=======
+    <table id="list_product" class="show-list "></table>
+>>>>>>> dev
 </div>
 
 <div style="padding-top: 5px;margin:0 auto;">

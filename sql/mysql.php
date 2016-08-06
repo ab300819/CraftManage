@@ -14,33 +14,20 @@ require_once 'table_config.php';
 class MysqlPDO
 {
 
-    private static $connect;
+    private $connect;
 
-    public function __construct($level)
+    public function __construct()
     {
-
-        switch ($level) {
-            case 0:
-                self::init(MYSQL_LOCAL, MYSQL_USER, MYSQL_PW, DATABASE);
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-        }
-    }
-
-    private function init($host, $user, $password, $dbname)
-    {
+        $host = MYSQL_LOCAL;
+        $dbname = DATABASE;
 
         $dsn = "mysql:host=$host;dbname=$dbname";
 
         try {
-            self::$connect = new \PDO($dsn, "$user", "$password");
-        } catch (Exception $e) {
-            die("数据库连接失败！" . '<br>' . $e->getMessage());
+            $this->connect = new \PDO($dsn, MYSQL_USER, MYSQL_PW);
+            $this->connect->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        } catch (\PDOException $e) {
+            exit($e->getMessage());
         }
     }
 
@@ -53,7 +40,7 @@ class MysqlPDO
     {
         if ($condition == null) {
             $sql = "SELECT * from {$table}";
-            $result = self::$connect->query($sql);
+            $result = $this->connect->query($sql);
             if ($result != null) {
                 $list = $result->fetchAll();
                 return $list;
@@ -62,7 +49,7 @@ class MysqlPDO
             }
         } else {
             $sql = "SELECT * from {$table} WHERE {$condition}";
-            $result = self::$connect->query($sql);
+            $result = $this->connect->query($sql);
             if ($result != null) {
                 $list = $result->fetch(\PDO::FETCH_ASSOC);
                 return $list;
@@ -75,7 +62,7 @@ class MysqlPDO
     public function get_craft_select($table, $condition)
     {
         $sql = "SELECT * FROM {$table} WHERE {$condition}";
-        $result = self::$connect->query($sql);
+        $result = $this->connect->query($sql);
         if ($result != null) {
             $list = $result->fetchAll();
             return $list;
@@ -89,7 +76,7 @@ class MysqlPDO
         $field = implode(',', $head);
         if ($condition == null) {
             $sql = "SELECT {$field} from {$table}";
-            $result = self::$connect->query($sql);
+            $result = $this->connect->query($sql);
             if ($result != null) {
                 $list = $result->fetchAll();
                 return $list;
@@ -98,7 +85,7 @@ class MysqlPDO
             }
         } else {
             $sql = "SELECT {$field} FROM {$table} WHERE {$condition}";
-            $result = self::$connect->query($sql);
+            $result = $this->connect->query($sql);
             if ($result != null) {
                 $list = $result->fetch(\PDO::FETCH_ASSOC);
                 return $list;
@@ -107,27 +94,6 @@ class MysqlPDO
             }
         }
     }
-
-//    //TODO 进一步优化，临时使用
-//    public function get_link_select($table_1, $link_1, $table_2, $link_2, $head_1, $head_2=null, $condition = null)
-//    {
-//        $field_1 = 'one.'.implode(', one.', $head_1);
-//        if ($condition == null) {
-//            $sql = "SELECT {$field_1}
-//                    FROM {$table_1} AS one,{$table_2} AS two
-//                    WHERE one.{$link_1}=two.{$link_2}";
-//            $result = self::$connect->query($sql);
-//            $list = $result->fetchAll();
-//            return $list;
-//        } else {
-//            $sql = "SELECT {$field_1}
-//                    FROM {$table_1} AS one,{$table_2} AS two
-//                    WHERE one.{$link_1}=two.{$link_2}
-//                    AND {$condition}";
-//            //TODO 需要添加查询结果的类型，目前未知，留待后面添加
-//        }
-//    }
-
 
     /**
      * @param $table 插入表名
@@ -164,7 +130,7 @@ class MysqlPDO
      * @param $condition  更新位置
      * @return bool|string  传入数据正确返回SQL数据，否则返回false
      */
-    public function update_data($table, $info, $condition)
+    public function updateData($table, $info, $condition)
     {
 
         $i = 0;
@@ -186,20 +152,55 @@ class MysqlPDO
         }
     }
 
-    public function delete_data($table, $condition)
+    public function delData($table, $condition)
     {
         $sql = "DELETE FROM {$table} WHERE {$condition}";
-        return self::execute($sql);
+        return $this->execute($sql);
     }
+
+    //更新部分方法
+    public function select($data, $table, $condition = null)
+    {
+        if (count($data) < 2) {
+            $str = $data[0];
+        } else {
+            $str = implode(",", $data);
+        }
+
+        $sql = "SELECT $str FROM $table";
+
+        if ($condition != null) {
+            $sql = $sql . " WHERE '$condition'";
+        }
+
+        $selectData = $this->connect->query($sql);
+        $result = $selectData->fetchAll(\PDO::FETCH_CLASS);
+        return $result;
+    }
+
+
+
+    public function update($data, $table, $condition)
+    {
+
+    }
+
+    public function delete($data, $table, $condition)
+    {
+
+    }
+
 
     public function execute($sql)
     {
-        return self::$connect->exec($sql);
+        try {
+            $result = $this->connect->prepare($sql);
+            $result->execute();
+        } catch (\PDOException $e) {
+            exit('SQL语句：' . $sql . '<br />错误信息：' . $e->getMessage());
+        }
+        return $result;
     }
 
-    public function free()
-    {
-        self::$connect = null;
-    }
 }
 

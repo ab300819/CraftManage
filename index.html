@@ -1,27 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>登陆</title>
+    <meta name="description" content="slick Login">
+    <meta name="author" content="Webdesigntuts+">
+    <link type="text/css" rel="stylesheet"  href="res/css/login/login.css"/>
+    <script type="text/javascript" src="/res/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script src="/res/js/login/modernizr-custom.js"></script>
+    <!--<script type="text/javascript" src="/res/js/login/placeholder.js"></script>-->
 </head>
-<link rel="stylesheet" type="text/css" href="./res/css/style.css">
 <body>
-<h1>Hephaistos工艺管理系统(build)</h1>
+<form id="slick-login" action="login.php" method="post" onsubmit="checkForm()">
+    <label for="username">username</label><input type="text" name="username" class="placeholder" placeholder="用户名">
+    <label for="password">password</label><input type="password" name="password" id="input-password" class="placeholder" placeholder="密码">
 
-<form action="login.php" method="post">
-    <table align="center">
-        <tr>
-            <th>用户名：</th>
-            <td><input type="text" name="username"></td>
-        </tr>
-        <tr>
-            <th>密码：</th>
-            <td><input type="text" name="password"></td>
-        </tr>
-    </table>
-    <p></p>
-    <td><input type="submit" value="提交"></td>
-    <td><input type="reset" value="重置"></td>
+    <!-- //TODO 后期再进行加密登陆-->
+    <!--<input type="hidden" id="md5_password" name="password">-->
+    <input type="submit" value="登陆">
 </form>
+<script>
+//    function checkForm() {
+//        var input_pwd = document.getElementById('input-password');
+//        var md5_pwd = document.getElementById('md5-password');
+//        // 把用户输入的明文变为MD5:
+//        md5_pwd.value = toMD5(input_pwd.value);
+//        // 继续下一步:
+//        return true;
+//    }
+</script>
 </body>
 </html>

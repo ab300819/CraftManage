@@ -40,8 +40,17 @@
 }
 
 /*…Ë÷√∞¥≈•Œª÷√*/
+<<<<<<< HEAD
 .list_button {
     padding-top: 10px;
     text-align: center;
 
 }
+=======
+.list-button {
+    padding-top: 10px;
+    text-align: center;
+
+}
+
+>>>>>>> dev

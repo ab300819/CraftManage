@@ -18,14 +18,14 @@ $db = new \sql\MysqlPDO($level);
 <head>
     <meta charset="UTF-8">
     <title>装配工艺管理</title>
-    <link href="../res/css/custom/editList.css" type="text/css" rel="stylesheet">
+    <link href="../res/css/custom/list.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 
 <h1 style="text-align: center">装配加工路线单</h1>
 
 <h2 style="text-align: center">产品信息</h2>
-<table class="show_list" width="100%">
+<table class="show-list" width="100%">
     <?php
     $head = array(
         '产品名称',
@@ -39,7 +39,7 @@ $db = new \sql\MysqlPDO($level);
     ?>
 </table>
 <h2 style="text-align: center">核电阀门装配明细表</h2>
-<table class="show_list" width="100%">
+<table class="show-list" width="100%">
     <?php
     $head = array(
         '序号',
@@ -55,7 +55,7 @@ $db = new \sql\MysqlPDO($level);
     ?>
 </table>
 <h2 style="text-align: center">装配产品信息</h2>
-<table class="show_list" width="100%">
+<table class="show-list" width="100%">
     <?php
     $head = array(
         '产品型号',
@@ -70,7 +70,7 @@ $db = new \sql\MysqlPDO($level);
     ?>
 </table>
 <h2 style="text-align: center">装配工艺</h2>
-<table class="show_list" width="100%">
+<table class="show-list" width="100%">
     <?php
     $head = array(
         '工序',
