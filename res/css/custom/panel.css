@@ -1,6 +1,5 @@
 /*Ãæ°å*/
 .edit-panel {
-    font-family: Arial;
     width: 35%;
     margin: 0px auto;
     padding: 0px;
@@ -86,6 +85,17 @@
 
     /*background-color: #FFFAF0;*/
 
+}
+
+.edit-button button {
+    font-family: Arial;
+    width: 100px;
+    height: 45px;
+
+    margin-left: 15px;
+    margin-right: 15px;
+
+    text-shadow: 1px 1px 1px #FFFFF0;
 }
 
 .edit-button input:hover {

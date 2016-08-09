@@ -16,7 +16,7 @@ class MysqlPDO
 
     private $connect;
 
-    public function __construct()
+    function __construct()
     {
         $host = MYSQL_LOCAL;
         $dbname = DATABASE;
@@ -177,7 +177,6 @@ class MysqlPDO
         $result = $selectData->fetchAll(\PDO::FETCH_CLASS);
         return $result;
     }
-
 
 
     public function update($data, $table, $condition)
