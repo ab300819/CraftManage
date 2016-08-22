@@ -38,7 +38,7 @@ function add($db)
     if ($rw > 0) {
         echo "<script>
                     alert('添加成功！');
-                    window.location='../panel_metallurgy.php?id='+'{$product_id}';
+                    window.location='../panel/panel_metallurgy.php?id='+'{$product_id}';
                  </script>";
     } else {
         echo "<script>
@@ -69,7 +69,7 @@ function edit($db)
     if ($db->execute($sql) > 0) {
         echo "<script>
                     alert('更新成功！');
-                    window.location='../panel_metallurgy.php?id='+'{$product_id}';
+                    window.location='../panel/panel_metallurgy.php?id='+'{$product_id}';
                  </script>";
     } else {
         echo "<script>
@@ -84,7 +84,7 @@ function del($db)
     $id = $_GET['id'];
     $product_id = $_GET['product'];
     $db->delete_data(METALLURGY, "id='$id'");
-    header("Location:../panel_metallurgy.php?id={$product_id}");
+    header("Location:../panel/panel_metallurgy.php?id={$product_id}");
 }
 
 switch ($_GET['action']) {

@@ -18,7 +18,7 @@ $product_id = $_GET['id'];
 <head>
     <meta charset="UTF-8">
     <title>冶金机加工工艺管理</title>
-    <link href="../res/css/custom/list.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../res/css/custom/list.css">
     <script type="text/javascript">
         function doDel(id, product) {
             if (confirm("确定要删除吗？")) {
@@ -28,14 +28,13 @@ $product_id = $_GET['id'];
     </script>
 </head>
 <body>
-<h1>工艺编辑系统(build)</h1>
+<h1 align="center">机加工工艺（冶金）</h1>
 
-<div><a href="../list_product.php">主页</a></div>
 
-<h2>产品信息</h2>
+<h2 align="center">产品信息</h2>
 
 <div>
-    <table width="100%">
+    <table class="show-list" width="100%">
         <?php
         $head = array(
             '物料名称',
@@ -67,11 +66,11 @@ $product_id = $_GET['id'];
         ?>
     </table>
 </div>
-<h2>机加工工艺</h2>
+<h2 align="center">机加工工艺</h2>
 
-<div><a href='../add/add_metallurgy.php?id=<?php echo $product_id; ?>'>添加</a></div>
+<div style="text-align: center"><a href='../add/add_metallurgy.php?id=<?php echo $product_id; ?>'>添加</a></div>
 <div>
-    <table width="100%">
+    <table class="show-list" width="100%">
         <?php
         $material_num = $list['material_num'];
         $head = array(
@@ -104,6 +103,6 @@ $product_id = $_GET['id'];
         ?>
     </table>
 </div>
-<div><a href='../add/add_metallurgy.php?id=<?php echo $product_id; ?>'>添加</a></div>
+<div style="text-align: center"><a href='../add/add_metallurgy.php?id=<?php echo $product_id; ?>'>添加</a></div>
 </body>
 </html>

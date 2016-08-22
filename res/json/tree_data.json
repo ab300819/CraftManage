@@ -48,7 +48,7 @@
             "id": 411,
             "text": "机加工",
             "attributes": {
-              "url": ""
+              "url": "add/add_metallurgy.php"
             }
           }
         ]
@@ -83,7 +83,7 @@
             "id": 421,
             "text": "热处理",
             "attributes": {
-              "url": ""
+              "url": "add/add_heat.php"
             }
           },
 
@@ -91,7 +91,7 @@
             "id": 421,
             "text": "装配",
             "attributes": {
-              "url": ""
+              "url": "add/add_assembly.php"
             }
           }
         ]

@@ -53,28 +53,28 @@ function jump($list, $id)
     if ($list['belong'] == '核电') {
         switch ($list['craft_type']) {
             case '机加工':
-                echo "<script>window.location='../panel_machine.php?id='+{$id};</script>";
+                echo "<script>window.location='../panel/panel_machine.php?id='+{$id};</script>";
                 break;
             case '铸造':
-                echo "<script>window.location='../panel_foundry.php?id='+{$id};</script>";
+                echo "<script>window.location='../panel/panel_foundry.php?id='+{$id};</script>";
                 break;
             case '焊接':
-                echo "<script>window.location='../panel_welding.php?id='+{$id};</script>";
+                echo "<script>window.location='../panel/panel_welding.php?id='+{$id};</script>";
                 break;
             case '锻造':
-                echo "<script>window.location='../panel_forging.php?id='+{$id};</script>";
+                echo "<script>window.location='../panel/panel_forging.php?id='+{$id};</script>";
                 break;
             case '热处理':
-                echo "<script>window.location='../panel_heat.php?id='+{$id};</script>";
+                echo "<script>window.location='../panel/panel_heat.php?id='+{$id};</script>";
                 break;
             case '装配':
-                echo "<script>window.location='../panel_assembly.php?id='+{$id};</script>";
+                echo "<script>window.location='../panel/panel_assembly.php?id='+{$id};</script>";
                 break;
         }
     } elseif ($list['belong'] == '冶金') {
         switch ($list['craft_type']) {
             case '机加工':
-                echo "<script>window.location='../panel_metallurgy.php?id='+{$id};</script>";
+                echo "<script>window.location='../panel/panel_metallurgy.php?id='+{$id};</script>";
                 break;
         }
 

@@ -243,7 +243,23 @@ $list = $db->get_select(MACHINE, "id='$id'");
                 <label ">工艺代码：</label>
                 <input class="text ui-widget-content ui-corner-all" type="text" id="craft" list="craft_reference"/>
                 <datalist id="craft_reference">
-                    <option value="aaaa">
+                    <option value="LNP01-2020">
+                    <option value="LNP01-2011">
+                    <option value="KNP01-2011">
+                    <option value="MNP01-2010">
+                    <option value="JNP01-2010">
+                    <option value="JNP01-2010">
+                    <option value="GNP01-2010">
+                    <option value="GNP01-2010">
+                    <option value="ANP01-2010">
+                    <option value="ANP01-2010">
+                    <option value="BNP01-2010">
+                    <option value="BNP01-2010">
+                    <option value="UNP01-2010">
+                    <option value="UNP01-2010">
+                    <option value="PNP01-2010">
+                    <option value="PNP01-2010">
+                    <option value="ENP01-2010">
                 </datalist>
             </div>
             <div style="padding-top: 10px">
@@ -251,7 +267,17 @@ $list = $db->get_select(MACHINE, "id='$id'");
                 <input class="text ui-widget-content ui-corner-all" type="text" id="material"
                        list="material_reference"/>
                 <datalist id="material_reference">
-
+                    <option value="AMP0109-2900">
+                    <option value="AMP0109-2900">
+                    <option value="BMP0109-2900">
+                    <option value="BMP0109-2900">
+                    <option value="CMP0109-2900">
+                    <option value="CMP0109-2900">
+                    <option value="DMP0109-2900">
+                    <option value="DMP0109-2900">
+                    <option value="EMP0109-2900">
+                    <option value="EMP0109-2900">
+                    <option value="FMP0109-2900">
                 </datalist>
             </div>
 

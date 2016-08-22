@@ -45,7 +45,7 @@ function add($db)
     if ($rw > 0) {
         echo "<script>
                     alert('添加成功！');
-                    window.location='../panel_machine.php?id='+'{$product_id}';
+                    window.location='../panel/panel_machine.php?id='+'{$product_id}';
                  </script>";
     } else {
         echo "<script>
@@ -63,7 +63,7 @@ function delete($db)
     $id = $_GET['id'];
     $product_id = $_GET['product'];
     $db->delete_data(MACHINE, "id={$id}");
-    header("Location:../panel_machine.php?id={$product_id}");
+    header("Location:../panel/panel_machine.php?id={$product_id}");
 }
 
 /**
@@ -92,7 +92,7 @@ function edit($db)
     if ($db->execute($sql) > 0) {
         echo "<script>
                     alert('更新成功！');
-                    window.location='../panel_machine.php?id={$product_id}';
+                    window.location='../panel/panel_machine.php?id={$product_id}';
                  </script>";
     } else {
         echo "<script>

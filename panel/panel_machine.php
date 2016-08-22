@@ -5,14 +5,14 @@ session_start();
 $user = $_SESSION['user'];
 $level = $_SESSION[$user];
 $db = new \sql\MysqlPDO($level);
-//$product_id = $_GET['id'];
-$product_id = 1;
+$product_id = $_GET['id'];
+//$product_id = 1;
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>机加工工艺管理</title>
+    <title>机加工工艺（核电）</title>
     <link rel="stylesheet" type="text/css" href="../res/css/custom/list.css">
     <script>
         function doDel(id, product) {

@@ -11,7 +11,7 @@ $info = array(
     'craft_num'
 );
 //TODO 实际调用取消注释
-//$data = $db->get_choice_select(PRODUCT, $info, "id={$product_id}");
+$data = $db->get_choice_select(PRODUCT, $info, "id={$product_id}");
 ?>
 <!DOCTYPE html>
 <html>
